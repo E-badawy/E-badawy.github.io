@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Badawi Aminu Muhammed | Research Data Analyst & Business Intelligence Analyst </title>
+  <title>Badawi Aminu Muhammed | Research Data Scienctist & BI expert </title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
+    <img src="profile.jpg" alt="Badawi Aminu Muhammed" class="profile-pic">
     <h1>Badawi Aminu Muhammed</h1>
-    <p> Data Scientist • Researcher • Epidemiologist</p>
-    <img src="file_00000000fed461f596c43cfb818e9e85.png " alt="Badawi Aminu Muhammed" class="profile-pic">
+    <p>Researcher • Data Analyst • Epidemiologist</p>
     <nav>
       <a href="#about">About</a>
+      <a href="#resume">Resume</a>
       <a href="#projects">Projects</a>
+      <a href="#analytics">Analytics</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -22,17 +25,45 @@
     <h2>About Me</h2>
     <p>
       I'm a data-driven researcher and analyst passionate about transforming raw data into strategic insights. 
-      I have deep expertise in public health, epidemiology,Bioinformatics and Business intelligence — bridging science and strategy for impact.
+      I have deep expertise in public health, epidemiology, and business intelligence — bridging science and strategy for impact.
     </p>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>You can download my professional resume below:</p>
+    <a href="Badawi_Aminu_Muhammed_Resume.pdf" download class="resume-btn">
+      📄 Download Resume
+    </a>
   </section>
 
   <section id="projects">
     <h2>Featured Projects</h2>
-    <ul>
-      <li><strong>Malaria Data Analysis:</strong> Epidemiological data exploration and visualization in R.</li>
-      <li><strong>Inflation Prediction Model:</strong> Machine learning approach using Python’s scikit-learn.</li>
-      <li><strong>QGIS Health Mapping:</strong> Geospatial analysis of disease distribution across Nigeria.</li>
-    </ul>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Malaria Data Analysis</h3>
+        <p>Exploring epidemiological data in R with ggplot2 and dplyr to reveal regional malaria trends.</p>
+        <a href="https://github.com/e-badawy/malaria-data-analysis" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Inflation Prediction Model</h3>
+        <p>Forecasting Nigeria’s inflation rate using XGBoost and regression pipelines in Python.</p>
+        <a href="https://github.com/e-badawy/inflation-predictor" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Geospatial Health Mapping</h3>
+        <p>Using QGIS and GeoPandas to map disease hotspots and visualize spatial health data.</p>
+        <a href="https://github.com/e-badawy/qgis-health-mapping" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="analytics">
+    <h2>Analytics Snapshot</h2>
+    <p>Quick insight into my data analysis domains and project focus areas.</p>
+    <canvas id="skillsChart" width="400" height="250"></canvas>
   </section>
 
   <section id="contact">
@@ -47,5 +78,61 @@
   <footer>
     <p>© 2025 Badawi Aminu Muhammed | Cigma General Solutions — "…significant difference"</p>
   </footer>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Script for Animations and Chart -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Fade-in animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('hidden');
+      observer.observe(section);
+    });
+
+    // Chart.js bar chart
+    const ctx = document.getElementById('skillsChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Python', 'R', 'SQL', 'Power BI', 'QGIS', 'Machine Learning'],
+        datasets: [{
+          label: 'Proficiency (%)',
+          data: [95, 90, 85, 80, 75, 88],
+          borderWidth: 1,
+          backgroundColor: [
+            '#001f3f', '#003366', '#004c99', '#0066cc', '#3385ff', '#66a3ff'
+          ]
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } }
+        },
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Core Analytical Tools Proficiency' }
+        }
+      }
+    });
+  </script>
 </body>
-</html> 
+</html>
