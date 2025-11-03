@@ -1,2 +1,2 @@
-# E-badawy.github.io
+# e-badawy.github.io
 Professional page
