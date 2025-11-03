@@ -328,16 +328,6 @@ canvas {
 }
  
 
-/* ---------- FOOTER ---------- */
-footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #001f3f;
-  color: #fff;
-  font-size: 0.9em;
-  border-top: 3px solid #004080;
-}
-
 /* ---------- FADE-IN EFFECT ---------- */
 .hidden {
   opacity: 0;
