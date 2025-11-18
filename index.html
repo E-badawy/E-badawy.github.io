@@ -204,9 +204,9 @@ It complements the Excel VBA Search Automation System, transforming operational 
 	
 <script>
   document.getElementById('view-more-btn').addEventListener('click', function() {
-    const hiddenProjects = document.querySelectorAll('#projects-grid .hidden');
+    const hiddenProjects = document.querySelectorAll('.project-hidden');
     hiddenProjects.forEach(project => {
-      project.classList.remove('hidden');
+      project.classList.remove('.project.hidden');
     });
     this.style.display = 'none'; // hide button after click
   });
@@ -293,13 +293,12 @@ It complements the Excel VBA Search Automation System, transforming operational 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('fade-visible');
         }
       });
     });
 
     document.querySelectorAll('section').forEach(section => {
-      section.classList.add('hidden');
       observer.observe(section);
     });
 
