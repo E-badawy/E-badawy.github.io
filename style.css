@@ -228,6 +228,11 @@ h2 {
   margin: 0 auto;
 }
 
+#view-more-btn {
+  margin: 30px auto 0 auto; /* centers the button */
+  display: block;            /* makes margin auto work */
+}
+
 /* Individual project card */
 .project-card {
   background-color: #f5f7fa;
