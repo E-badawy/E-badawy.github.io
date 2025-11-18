@@ -134,7 +134,7 @@
 <section id="projects">
   <h2>Featured Projects</h2>
 
-  <div class="projects-grid">
+  <div class="projects-grid" id="projects-Grid">
     
     <div class="project-card">
       <h3>📈 Inflation Forecasting Model</h3>
@@ -191,7 +191,6 @@ It complements the Excel VBA Search Automation System, transforming operational 
       <a href="https://github.com/E-badawy/PowerBI-Employee-Analytics" target="_blank" class="project-btn">View Project</a>
 	</div>	
 	  
-	 <!-- Hidden projects -->
     <div class="project-card hidden">Project 7
 	</div>
     <div class="project-card hidden">Project 8
@@ -199,10 +198,6 @@ It complements the Excel VBA Search Automation System, transforming operational 
     <div class="project-card hidden">Project 9
 	</div>
 	  
-	<!-- Add more hidden projects here -->
-	<button id="view-more-btn" class="project-btn"> View More Projects
-	</button>
-	 <!-- Script to handle "View More" -->
 <script>
   document.getElementById('view-more-btn').addEventListener('click', function() {
     const hiddenProjects = document.querySelectorAll('#projects-grid .hidden');
@@ -211,10 +206,11 @@ It complements the Excel VBA Search Automation System, transforming operational 
     });
     this.style.display = 'none'; // hide button after click
   });
-</script>
-	  
+</script>	  
     </div>
   </div>
+<button id="view-more-btn" class="project-btn"> View More Projects
+</button>
 </section>
 
 
