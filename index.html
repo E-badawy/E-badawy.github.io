@@ -189,10 +189,34 @@ It combines clean data management, user-friendly search capability, and dynamic 
 It complements the Excel VBA Search Automation System, transforming operational data into strategic business intelligence.
       </p>
       <a href="https://github.com/E-badawy/PowerBI-Employee-Analytics" target="_blank" class="project-btn">View Project</a>
-	</div>	 
+	</div>	
+	  
+	 <!-- Hidden projects -->
+    <div class="project-card hidden">Project 7
+	</div>
+    <div class="project-card hidden">Project 8
+	</div>
+    <div class="project-card hidden">Project 9
+	</div>
+	<!-- Add more hidden projects here -->
+	<button id="view-more-btn" class="project-btn">View More Projects
+	</button>
+	 
     </div>
   </div>
 </section>
+
+!-- Script to handle "View More" -->
+<script>
+  document.getElementById('view-more-btn').addEventListener('click', function() {
+    const hiddenProjects = document.querySelectorAll('#projects-grid .hidden');
+    hiddenProjects.forEach(project => {
+      project.classList.remove('hidden');
+    });
+    this.style.display = 'none'; // hide button after click
+  });
+</script>
+
 
   <section id="analytics">
     <h2>Analytics Snapshot</h2>
