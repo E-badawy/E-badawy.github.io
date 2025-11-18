@@ -375,7 +375,6 @@ canvas {
   border: 1px solid #ddd; 
   border-radius: 10px; 
   font-size: 1rem; 
-  box-sizing: border-box;
 } 
 
 .contact-form button.btn {
