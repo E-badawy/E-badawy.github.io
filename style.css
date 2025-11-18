@@ -36,12 +36,14 @@ header {
     justify-content: center;
     flex-wrap: wrap; 
     gap: 1rem;
-    padding: 20px 0;
+    padding: 15px 10px;
     background: transparent; /* or transparent */
     position: sticky;
     top: 0;
     z-index: 9999;
     backdrop-filter: blur(8px); /* smooth modern look */
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .nav-btn {
