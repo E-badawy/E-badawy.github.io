@@ -307,12 +307,15 @@ canvas {
   margin-right: auto;
 }
 
+/* Center the container and use proper spacing */
 .contact-container {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  justify-content: space-between;
+  justify-content: center; /* changed from space-between */
   align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto; /* center container */
 }
 
 .contact-info {
@@ -364,27 +367,17 @@ canvas {
   text-align: center;
 }
 
+/* Contact form adjustments */
 .contact-form input,
 .contact-form textarea {
-  width: 90%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
+  width: 100%; /* fill container */
+  max-width: 400px; /* optional max width */
+  box-sizing: border-box; /* ensures padding doesn't overflow */
 }
 
 .contact-form button.btn {
-  display: block;
-  width: 90%;
-  padding: 12px;
-  background-color: #002b5b;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
+  width: 100%;
+  max-width: 400px;
 }
 
 .contact-form button.btn:hover {
