@@ -271,6 +271,29 @@ h2 {
   background-color: #004080;
 } 
 
+/* Hidden projects initially */
+.hidden {
+  display: none;
+}
+
+/* Project button styling */
+.project-btn {
+  display: inline-block;
+  background-color: #001f3f;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.project-btn:hover {
+  background-color: #004080;
+}
+
+
 /* ---------- ANALYTICS CHART ---------- */
 #analytics {
   text-align: center;
