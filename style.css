@@ -289,10 +289,6 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-.project-btn:hover {
-  background-color: #004080;
-}
-
 
 /* ---------- ANALYTICS CHART ---------- */
 #analytics {
