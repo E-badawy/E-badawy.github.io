@@ -309,8 +309,10 @@ canvas {
 
 /* Center the container and use proper spacing */
 .contact-container { 
-  display: flex; flex-wrap: wrap;
-  gap: 40px; justify-content: space-between;
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 40px; 
+  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -372,6 +374,7 @@ canvas {
   border-radius: 10px; 
   font-size: 1rem; 
 } 
+
 .contact-form button.btn {
   display: block; 
   width: 90%; 
