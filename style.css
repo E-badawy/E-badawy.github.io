@@ -35,7 +35,7 @@ header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 15px 10px;
     background: transparent; /* or transparent */
     position: sticky;
@@ -493,3 +493,16 @@ canvas {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  background-color: #001f3f;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
