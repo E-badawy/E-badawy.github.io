@@ -370,11 +370,13 @@ canvas {
 .contact-form input, 
 .contact-form textarea { 
   width: 90%; 
+  max-width: 400px; 
   padding: 12px; 
   margin-bottom: 15px;
   border: 1px solid #ddd; 
   border-radius: 10px; 
   font-size: 1rem; 
+  box-sizing: border-box;
 } 
 
 .contact-form button.btn {
