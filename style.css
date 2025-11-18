@@ -433,8 +433,8 @@ canvas {
 
 /* ---------- FADE-IN EFFECT ---------- */
 .hidden {
-  opacity: 0;
-  transform: translateY(30px);
+  /*opacity: 0;*/
+  /*transform: translateY(30px);*/
   transition: all 0.6s ease-out;
 }
 
