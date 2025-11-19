@@ -270,7 +270,7 @@ h2 {
 
 .project-thumb {
   width: 100%;       /* full width of card */
-  max-height: 150px; /* small/fitted height */
+  max-height: 120px; /* small/fitted height */
   object-fit: cover; /* crop to fit nicely without distortion */
   border-radius: 10px 10px 0 0; /* optional: rounded top corners */
   margin-bottom: 15px; /* spacing between thumbnail and title */
