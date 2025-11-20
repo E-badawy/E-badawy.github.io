@@ -212,6 +212,15 @@ h2 {
 
 
 /* ---------- RESUME BUTTON ---------- */
+#resume {
+  text-align: center;
+}
+
+#resume .resume-btn {
+  display: inline-block;
+  margin-top: 10px;
+}
+
 .resume-btn {
   background-color: #001f3f;
   color: #fff;
