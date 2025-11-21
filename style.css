@@ -434,8 +434,11 @@ h2 {
 
 .social-links a {
     font-size: 1.9rem;
-    color: #003366;
-    transition: transform 0.2s ease;
+    color: #375a7f;          /* normal colour */
+    transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+.social-links a:hover {
+    color: #003366;          /* deeper blue on hover */
 }
 
 .social-links a:hover {
@@ -502,3 +505,29 @@ align-items: center; /* Fix alignment on mobile */
   font-size: 0.9rem; 
   margin-top: 40px;
 }
+
+/* Card entrance animation */
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-card,
+.project-card,
+.contact-item {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.skill-card.visible,
+.project-card.visible,
+.contact-item.visible {
+    animation: cardEntrance 0.8s ease-out forwards;
+}
+
