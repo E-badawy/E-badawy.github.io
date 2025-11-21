@@ -365,6 +365,7 @@ h2 {
   max-width: 1000px; 
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  margin: 0 auto;
 } 
 
 /* Contact info column */ 
@@ -381,7 +382,7 @@ h2 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
   text-align: center;/* Centers icon + text */ 
   transition: transform 0.3s ease, 
-    box-shadow 0.3s ease; 
+  box-shadow: 0.3s ease; 
 } 
 
 .contact-item:hover { 
