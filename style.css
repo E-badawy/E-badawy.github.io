@@ -364,6 +364,7 @@ h2 {
   align-items: flex-start; 
   max-width: 1000px; 
   margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
 } 
 
 /* Contact info column */ 
