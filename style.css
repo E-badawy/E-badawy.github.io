@@ -425,6 +425,14 @@ h2 {
     text-decoration: underline;
 }
 
+.skill-icon,
+.contact-item i,
+.social-links a i {
+    font-size: 1.9rem;
+    color: #004a99; /* brighter navy blue */
+    transition: 0.3s ease;
+}
+
 /* Social links */
 .social-links {
     display: flex;
