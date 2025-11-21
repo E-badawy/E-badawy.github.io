@@ -417,7 +417,7 @@ transform: scale(1.2);
 /* Contact form column */ 
 .contact-form { 
   background: white; 
-  padding: 25px; 
+  padding: 40px; 
   border-radius: 14px; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
   display: flex; 
@@ -427,7 +427,7 @@ transform: scale(1.2);
 .contact-form input, 
 .contact-form textarea { 
 width: 100%; 
-padding: 12px; 
+padding: 20px; 
 border-radius: 8px; 
 border: 1px solid #ddd; 
 font-size: 1rem; } 
@@ -435,7 +435,7 @@ font-size: 1rem; }
 .contact-form .btn { 
 background: #002b5b; 
 color: white; 
-padding: 12px; 
+padding: 20px; 
 border-radius: 8px; 
 cursor: pointer; transition: 
 0.3s; } 
