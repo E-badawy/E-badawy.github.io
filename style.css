@@ -357,7 +357,6 @@ h2 {
 
 /* Main grid container: two columns */
 .contact-container { 
-  display: grid; 
   display: flex; 
   flex-wrap: wrap; 
   gap: 40px; 
@@ -366,15 +365,13 @@ h2 {
   max-width: 1000px; 
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: 30px; max-width: 
-    1000px; margin: 0 auto; 
+  margin: 0 auto; 
 } 
 
 /* Contact info column */ 
 .contact-info { 
   display: grid; 
-  gap: 40px; 
-  justify-items: center; /* NEW → centers everything */
+  gap: 20px; 
 } 
 
 /* Individual info boxes */ 
