@@ -433,6 +433,14 @@ h2 {
     transition: 0.3s ease;
 }
 
+.skill-icon:hover,
+.contact-item i:hover,
+.social-links a i:hover {
+    color: #007bff;
+    text-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+    transform: scale(1.15);
+}
+
 /* Social links */
 .social-links {
     display: flex;
