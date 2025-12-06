@@ -26,8 +26,8 @@
     <p> Data Scientist • Business Intelligence Expert • Research Analyst </p>
    <nav class="top-nav">
    	 	<a href="#about" class="nav-btn">About</a>
-	   	<a href="#certifications" class="nav-btn">Certifications</a>
-		<a href="#resume" class="nav-btn">Résumé</a>
+	   	<a href="#resume" class="nav-btn">Résumé</a>
+	   <a href="#certifications" class="nav-btn">Certifications</a>
    	 	<a href="#projects" class="nav-btn">Projects</a>
 	   	<a href="#analytics" class="nav-btn">Analytics</a>
    	  	<a href="#contact" class="nav-btn">Contact</a>
@@ -110,7 +110,7 @@
       <div class="skill-card">
         <div class="skill-icon"><i class="fas fa-cogs"></i></div>
         <h3 class="skill-title">Automation</h3>
-        <p class="skill-items">Apache Airflow · n8n · Power Automate</p>
+        <p class="skill-items">Apache Airflow · n8n · Zapier</p>
       </div>
 
       <!-- Statistical Analysis -->
@@ -141,6 +141,73 @@
     cards.forEach(card => observer.observe(card));
   });
 </script>
+
+<!-- ===== CERTIFICATIONS SECTION ===== -->
+<section id="certificates">
+  <h2>Certifications</h2>
+
+  <div class="certificates-grid" id="certificates-grid">
+    
+    <div class="certificate-card">
+	<img src="Dashboard.png" alt="Certificate Thumbnail" class="certificate-thumb">
+      <h4>Operations-Management-System-Built-with-Python-Streamlit</h4>
+      <p>
+       A robust inventory and staff management system that
+		  allows role-based access (Admin, Store, Account), tracking of stock in/out, history, and staff records.
+      </p>
+      <a href="OMS.html" target="_blank" class="certificate-btn">View Project</a>
+    </div>
+
+	<div class="certificate-card">
+	<img src="neural_network.png" alt="Certificate Thumbnail" class="certificate-thumb">
+      <h4> Building & Performing Neutral Networks Analysis in R with Torch</h4>
+      <p>
+       This project demostrates how to build and train a simple neural network using the torch package.
+      </p>
+      <a href="NN_in_R.html" target="_blank" class="certificate-btn">View Project</a>
+    </div>
+
+	<div class="certificate-card">
+	<img src="ML_for_breast_cancer.png" alt="Certificate Thumbnail" class="certificate-thumb">
+     <h4> Machine Learning models for Breast Cancer Disease</h4>
+      <p>
+        This project demostrates my work on machine-learning models to predict the course of breast cancer diseases. 
+		From model building, performance evaluation, to addressing disease related questions.
+      </p>
+      <a href="ML-Models-for-disease-prediciton.html" target="_blank" class="certificate-btn">View Project</a>
+    </div>
+
+	
+	<div class="certificate-card certificate-hidden">
+	<h4> Hospital-Management-System with SQL+Python+Tkinter+Bcypt</h4>
+		<p>
+		...coming soon
+		</p>
+	</div>
+	  
+    <div class="certificate-card certificate-hidden">
+	<h4> Root Cause Anlysis using SPSS and Nvivo</h4>
+		<p>
+		...coming soon
+		</p>
+	</div>
+     
+  </div>
+<button id="view-more-btn" class="certificate-btn"> View More Projects
+</button>
+	
+<script>
+  document.getElementById('view-more-btn').addEventListener('click', function() {
+    const hiddenProjects = document.querySelectorAll('.certificate-hidden');
+    hiddenProjects.forEach(certificate => {
+	project.style.display = 'block'; // or 'grid-item' depending on your layout
+      project.classList.remove('certificate-hidden');
+    });
+    this.style.display = 'none'; // hide button after click
+  });
+</script>	
+</section>
+
 
   <!-- ===== PROJECTS SECTION ===== -->
 <section id="projects">
