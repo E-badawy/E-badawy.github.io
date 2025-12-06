@@ -237,6 +237,95 @@ h2 {
   background-color: #004080;
 }
 
+/* ===== CERTIFICATION SECTION ===== */
+#certificates {
+  background-color: #ffffff;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+#certificates h2 {
+  color: #001f3f;
+  font-size: 2em;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #001f3f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Grid layout for certificates cards */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#view-more-btn {
+  margin: 30px auto 0 auto; /* centers the button */
+  display: block;            /* makes margin auto work */
+}
+
+/* Individual project card */
+.certificate-card {
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-thumb {
+  width: 100%;       /* full width of card */
+  max-height: 120px; /* small/fitted height */
+  object-fit: cover; /* crop to fit nicely without distortion */
+  border-radius: 10px 10px 0 0; /* optional: rounded top corners */
+  margin-bottom: 15px; /* spacing between thumbnail and title */
+  display: block;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.certificate-card h3 {
+  color: #001f3f;
+  margin-bottom: 10px;
+  font-size: 1.25em;
+}
+
+.certificate-card p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Button inside each card */
+.certificate-btn {
+  display: inline-block;
+  background-color: #001f3f;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.certificate-btn:hover {
+  background-color: #004080;
+} 
+
+/* Hidden projects initially */
+.certificate-hidden {
+  display: none;
+}
+
+
+
 /* ===== PROJECTS SECTION ===== */
 #projects {
   background-color: #ffffff;
