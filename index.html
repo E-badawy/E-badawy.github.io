@@ -228,15 +228,22 @@
 </button>
 	
 <script>
-  document.getElementById('verify-btn').addEventListener('click', function() {
-    const hiddenProjects = document.querySelectorAll('.certificate-hidden');
-    hiddenProjects.forEach(certificate => {
-	project.style.display = 'block'; // or 'grid-item' depending on your layout
-      project.classList.remove('certificate-hidden');
+document.addEventListener("DOMContentLoaded", function () {
+
+    const viewMoreBtn = document.getElementById("verify-btn"); 
+    const hiddenCertificates = document.querySelectorAll(".certificate-hidden");
+
+    viewMoreBtn.addEventListener("click", function () {
+        hiddenCertificates.forEach(card => {
+            card.style.display = "block";
+        });
+
+        viewMoreBtn.style.display = "none"; // hide button after click
     });
-    this.style.display = 'none'; // hide button after click
-  });
-</script>	
+
+});
+</script>
+	
 </section>
 
 
