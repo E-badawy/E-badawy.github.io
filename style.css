@@ -271,7 +271,7 @@ h2 {
 .certificate-card {
   background-color: #f5f7fa;
   border-radius: 10px;
-  padding: 20px;
+  padding: 18px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
