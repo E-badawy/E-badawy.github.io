@@ -14,7 +14,7 @@ header {
   background-color: #001f3f;
   color: white;
   text-align: center;
-  padding: 2em 1em;
+  padding: 1em;
   position: relative;
 }
 
@@ -262,7 +262,7 @@ h2 {
   margin: 0 auto;
 }
 
-#view-more-btn {
+#verify-btn {
   margin: 30px auto 0 auto; /* centers the button */
   display: block;            /* makes margin auto work */
 }
