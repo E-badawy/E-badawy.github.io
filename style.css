@@ -750,4 +750,68 @@ align-items: center; /* Fix alignment on mobile */
   margin-top: 40px;
 }
 
+/* ===== SERVICES CTA ===== */
+.services-cta {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Primary (Calendly) */
+.cta-btn.primary {
+  background: #003366;
+  color: #fff;
+}
+
+.cta-btn.primary:hover {
+  background: #0056a6;
+  box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3);
+}
+
+/* Secondary (Topmate) */
+.cta-btn.secondary {
+  background: #eef4ff;
+  color: #003366;
+}
+
+.cta-btn.secondary:hover {
+  background: #dbe7ff;
+  box-shadow: 0 10px 25px rgba(0, 51, 102, 0.2);
+}
+
+/* Outline (Internal page) */
+.cta-btn.outline {
+  border: 2px solid #003366;
+  color: #003366;
+  background: transparent;
+}
+
+.cta-btn.outline:hover {
+  background: #003366;
+  color: #fff;
+}
 
