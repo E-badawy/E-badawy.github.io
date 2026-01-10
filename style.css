@@ -1011,3 +1011,7 @@ align-items: center; /* Fix alignment on mobile */
   font-size: 0.9rem;
   color: #555;
 }
+
+.hidden {
+  display: none;
+}
