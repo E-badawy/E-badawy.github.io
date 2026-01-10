@@ -1041,3 +1041,12 @@ align-items: center; /* Fix alignment on mobile */
   color: #2f80ed;
   margin: 10px 0;
 }
+
+.cta-btn {
+  transition: all 0.3s ease;
+}
+
+.cta-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
