@@ -1015,3 +1015,29 @@ align-items: center; /* Fix alignment on mobile */
 .hidden {
   display: none;
 }
+
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.pricing-card {
+  padding: 25px;
+  border-radius: 14px;
+  background: #f9fbff;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+.pricing-card.highlight {
+  border: 2px solid #2f80ed;
+}
+
+.price {
+  font-size: 1.8rem;
+  color: #2f80ed;
+  margin: 10px 0;
+}
