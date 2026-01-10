@@ -921,6 +921,16 @@ align-items: center; /* Fix alignment on mobile */
   padding: 0 20px;
 }
 
+.consultation-header {
+  background-color: #0b2a4a;
+  color: #ffffff;
+}
+
+.consultation-header {
+  padding: 3rem 1.5rem;
+  border-radius: 0 0 24px 24px;
+}
+
 .consultation-hero {
   text-align: center;
   margin-bottom: 50px;
