@@ -938,12 +938,12 @@ align-items: center; /* Fix alignment on mobile */
 
 .consultation-hero h1 {
   font-size: 2.2rem;
-  color: #2f80ed;
+  color: #ffffff;
 }
 
 .consultation-hero p {
   font-size: 1.05rem;
-  color: #444;
+  color: #ffffff;
 }
 
 .consultation-purpose {
