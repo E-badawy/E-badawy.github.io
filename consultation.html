@@ -1,44 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>1-on-1 Data Consultation | Badawi Amin Muhammed</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+        content="Book a personalised 1-on-1 data consultation covering analytics strategy, dashboards, automation, research, or career guidance." />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
-<section class="services-section">
-  <h2>1-on-1 Data Consultation</h2>
-  <p class="services-intro">
-    Book a personalised session to discuss analytics strategy,
-    dashboards, automation, research design, or career coaching.
-  </p>
 
-  <div class="services-grid">
-    <div class="service-card">
-      <h3>What We’ll Cover</h3>
-      <p>
-        ✔ Project review<br>
-        ✔ Technical guidance<br>
-        ✔ Architecture & tooling advice<br>
-        ✔ Career & research mentoring
-      </p>
-    </div>
+<section class="consultation-section">
 
-    <div class="service-card">
-      <h3>How It Works</h3>
-      <p>
-        Sessions are conducted online. You’ll receive preparation
-        guidelines and a summary after the meeting.
-      </p>
-    </div>
+  <!-- HERO -->
+  <header class="consultation-hero">
+    <h1>1-on-1 Data Consultation</h1>
+    <p>
+      A focused session to help you clarify problems, design solutions,
+      and make confident data-driven decisions.
+    </p>
+  </header>
+
+  <!-- PURPOSE -->
+  <div class="consultation-purpose">
+    <h2>What This Session Is For</h2>
+    <ul>
+      <li>Analytics & BI strategy</li>
+      <li>Power BI, SQL, Python or R guidance</li>
+      <li>Dashboard design & data modelling</li>
+      <li>Research & evaluation frameworks</li>
+      <li>Career, portfolio, or project review</li>
+    </ul>
   </div>
 
-  <div class="services-cta">
-    <a href="mailto:officialbadawy@gmail.com" class="cta-btn primary">
-      Request a Session
-    </a>
+  <!-- FORM -->
+  <form
+    class="consultation-form"
+    action="https://formspree.io/f/YOUR_FORM_ID"
+    method="POST"
+  >
+
+    <h2>Consultation Request</h2>
+
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <!-- Location -->
+    <div class="form-group">
+      <label for="location">Location / Time Zone</label>
+      <input type="text" id="location" name="location" placeholder="e.g. Abuja (GMT+1)" />
+    </div>
+
+    <!-- Reason -->
+    <div class="form-group">
+      <label for="reason">Reason for Consultation</label>
+      <select id="reason" name="reason" required>
+        <option value="">Select one</option>
+        <option>Business Intelligence & Dashboards</option>
+        <option>Data Engineering / Pipelines</option>
+        <option>Research & Evaluation</option>
+        <option>Career / Portfolio Review</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <!-- Details -->
+    <div class="form-group">
+      <label for="details">Brief Description</label>
+      <textarea
+        id="details"
+        name="details"
+        rows="4"
+        placeholder="Describe your challenge or goal..."
+        required></textarea>
+    </div>
+
+    <!-- Date -->
+    <div class="form-group">
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="preferred_date" />
+    </div>
+
+    <!-- Time -->
+    <div class="form-group">
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" name="preferred_time" />
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="cta-btn primary">
+      <i class="fas fa-paper-plane"></i> Request Consultation
+    </button>
+
+  </form>
+
+  <!-- AFTER SUBMISSION -->
+  <div class="consultation-note">
+    <p>
+      After submission, you’ll receive a confirmation email with
+      next steps and a calendar link.
+    </p>
   </div>
+
 </section>
+
 </body>
 </html>
