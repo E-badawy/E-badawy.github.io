@@ -41,7 +41,7 @@ reason.addEventListener("change", () => {
 
   <!-- HERO -->
   <header class="consultation-hero">
-    <h1>1-on-1 Data Consultation</h1>
+    <h1>One-on-One Data Consultation</h1>
     <p>
       A focused session to help you clarify problems, design solutions,
       and make confident data-driven decisions.
@@ -66,7 +66,7 @@ reason.addEventListener("change", () => {
   <div class="pricing-card highlight">
     <h3>Intro Session</h3>
     <p class="price">Free</p>
-    <span>30 minutes</span>
+    <span>20 minutes</span>
     <ul>
       <li>Problem clarification</li>
       <li>High-level guidance</li>
@@ -76,12 +76,12 @@ reason.addEventListener("change", () => {
 
   <div class="pricing-card">
     <h3>Deep Dive</h3>
-    <p class="price">₦25,000</p>
+    <p class="price">₦20,000</p>
     <span>60 minutes</span>
     <ul>
       <li>Hands-on review</li>
       <li>Design decisions</li>
-      <li>Implementation advice</li>
+      <li>Implementation plan</li>
     </ul>
   </div>
 </div>
@@ -95,8 +95,6 @@ reason.addEventListener("change", () => {
     method="POST"
   >
 <input type="hidden" name="_subject" value="New Consultation Request">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
 
     <h2>Consultation Request</h2>
 
@@ -135,12 +133,6 @@ reason.addEventListener("change", () => {
   <label>Organisation / Company</label>
   <input type="text" name="company">
 </div>
-
-<div class="form-group hidden" id="cvField">
-  <label>CV / Portfolio Link</label>
-  <input type="url" name="cv_link">
-</div>
-
 
     <!-- Details -->
     <div class="form-group">
