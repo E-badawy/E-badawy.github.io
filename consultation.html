@@ -16,6 +16,21 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
+<script>
+const reason = document.getElementById("reason");
+const companyField = document.getElementById("companyField");
+const cvField = document.getElementById("cvField");
+
+reason.addEventListener("change", () => {
+  companyField.classList.add("hidden");
+  cvField.classList.add("hidden");
+
+  if (reason.value === "bi") companyField.classList.remove("hidden");
+  if (reason.value === "career") cvField.classList.remove("hidden");
+});
+</script>
+
+  
 <body>
 
 <section class="consultation-section">
@@ -68,18 +83,29 @@
       <input type="text" id="location" name="location" placeholder="e.g. Abuja (GMT+1)" />
     </div>
 
-    <!-- Reason -->
     <div class="form-group">
-      <label for="reason">Reason for Consultation</label>
-      <select id="reason" name="reason" required>
-        <option value="">Select one</option>
-        <option>Business Intelligence & Dashboards</option>
-        <option>Data Engineering / Pipelines</option>
-        <option>Research & Evaluation</option>
-        <option>Career / Portfolio Review</option>
-        <option>Other</option>
-      </select>
-    </div>
+  <label for="reason">Reason for Consultation</label>
+  <select id="reason" name="reason" required>
+    <option value="">Select one</option>
+    <option value="bi">Business Intelligence & Dashboards</option>
+    <option value="engineering">Data Engineering / Pipelines</option>
+    <option value="research">Research & Evaluation</option>
+    <option value="career">Career / Portfolio Review</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+<!-- Conditional -->
+<div class="form-group hidden" id="companyField">
+  <label>Organisation / Company</label>
+  <input type="text" name="company">
+</div>
+
+<div class="form-group hidden" id="cvField">
+  <label>CV / Portfolio Link</label>
+  <input type="url" name="cv_link">
+</div>
+
 
     <!-- Details -->
     <div class="form-group">
