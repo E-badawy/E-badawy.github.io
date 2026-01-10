@@ -15,6 +15,10 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+  
+<a href="index.html" class="back-home">
+  ← Back to Home
+</a>
 
 <script>
 const reason = document.getElementById("reason");
@@ -173,7 +177,18 @@ reason.addEventListener("change", () => {
       next steps and a calendar link.
     </p>
   </div>
+  
+<script>
+const form = document.querySelector(".consultation-form");
+const btn = document.getElementById("submitBtn");
 
+form.addEventListener("submit", () => {
+  btn.classList.add("loading");
+  btn.innerHTML = "Submitting...";
+});
+</script>
+
+  
 </section>
 
 </body>
