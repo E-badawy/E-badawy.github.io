@@ -1012,11 +1012,6 @@ align-items: center; /* Fix alignment on mobile */
   color: #555;
 }
 
-.hidden {
-  display: none;
-}
-
-
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
