@@ -965,7 +965,7 @@ align-items: center; /* Fix alignment on mobile */
 
 /* FORM */
 .consultation-form {
-  background: #ffffff;
+  background: #003152;
   padding: 35px;
   border-radius: 14px;
   box-shadow: 0 12px 35px rgba(0,0,0,0.08);
@@ -1022,7 +1022,7 @@ align-items: center; /* Fix alignment on mobile */
 .pricing-card {
   padding: 25px;
   border-radius: 14px;
-  background: #f9fbff;
+  background: #4683B7;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.07);
 }
