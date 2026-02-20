@@ -14,6 +14,12 @@ body {
   overflow-x: hidden;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -248,18 +254,23 @@ body::before {
 
 /* Top Navigation Button Bar */
 .top-nav {
-    width: 100%;
-    display: flex;
+    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
+    display: none;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.7rem;
     padding: 12px;
-    margin-top: 12px;
-    border-radius: 999px;
+    margin: 12px auto 0;
+    border-radius: 18px;
     border: 1px solid rgba(177, 233, 255, 0.3);
     background: rgba(2, 25, 44, 0.34);
     backdrop-filter: blur(6px);
     box-sizing: border-box;
+}
+
+.top-nav.is-open {
+    display: flex;
 }
 
 .nav-btn {
@@ -285,7 +296,7 @@ body::before {
 }
 
 .nav-toggle {
-  display: none;
+  display: inline-flex;
   width: 52px;
   height: 44px;
   margin: 12px auto 0;
@@ -934,23 +945,14 @@ align-items: center; /* Fix alignment on mobile */
   } }
 
 @media (max-width: 900px) {
-  .nav-toggle {
-    display: inline-flex;
-  }
-
   .top-nav {
-    display: none;
     width: min(340px, 95%);
     margin: 12px auto 0;
     border-radius: 16px;
-    justify-content: stretch;
+    justify-content: center;
     align-items: stretch;
     flex-direction: column;
     background: rgba(2, 25, 44, 0.6);
-  }
-
-  .top-nav.is-open {
-    display: flex;
   }
 
   .nav-btn {

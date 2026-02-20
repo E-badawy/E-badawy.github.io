@@ -630,20 +630,10 @@ It complements the Excel VBA Search Automation System.
 
       topNav.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', () => {
-          if (window.innerWidth <= 900) {
-            topNav.classList.remove('is-open');
-            navToggle.classList.remove('is-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
           topNav.classList.remove('is-open');
           navToggle.classList.remove('is-open');
           navToggle.setAttribute('aria-expanded', 'false');
-        }
+        });
       });
     }
 
