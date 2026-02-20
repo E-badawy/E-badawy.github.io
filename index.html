@@ -798,25 +798,6 @@ It complements the Excel VBA Search Automation System.
       observer.observe(section);
     });
 
-    // Mobile nav toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const topNav = document.getElementById('site-navigation');
-    if (navToggle && topNav) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = topNav.classList.toggle('is-open');
-        navToggle.classList.toggle('is-open', isOpen);
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-
-      topNav.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', () => {
-          topNav.classList.remove('is-open');
-          navToggle.classList.remove('is-open');
-          navToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
     // Chart.js analytics snapshot
     const chartCanvas = document.getElementById('skillsChart');
     const skillLabels = ['Python', 'R', 'SQL', 'Power BI', 'QGIS', 'Machine Learning', 'SPSS', 'Excel'];
@@ -934,6 +915,7 @@ It complements the Excel VBA Search Automation System.
   </div>
 </footer>
 
+<script src="nav.js"></script>
 </body>
 </html>
 

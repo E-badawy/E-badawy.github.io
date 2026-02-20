@@ -20,6 +20,30 @@ body {
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 3px solid #0a6fb0;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10000;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #0a3b62;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgba(176, 220, 248, 0.5);
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -340,6 +364,13 @@ html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc
     transform: scale(0.95);
 }
 
+.nav-btn.is-active {
+    background: rgba(0, 86, 166, 0.95);
+    color: #ffffff;
+    border-color: rgba(177, 233, 255, 0.72);
+    box-shadow: 0 0 0 2px rgba(138, 209, 248, 0.24) inset;
+}
+
 .nav-toggle {
   display: inline-flex;
   width: 52px;
@@ -354,6 +385,19 @@ html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc
   justify-content: center;
   gap: 5px;
   flex-direction: column;
+}
+
+.mobile-view-toggle {
+  display: none;
+  margin: 12px auto 0;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(177, 233, 255, 0.45);
+  background: rgba(8, 38, 60, 0.8);
+  color: #dff4ff;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .nav-toggle-line {
@@ -505,21 +549,6 @@ h2 {
   color: #333;
   line-height: 1.5;
 }
-
-@media (max-width: 768px) {
-  .professional-skills {
-    padding: 60px 15px;
-  }
-
-  .skill-card {
-    padding: 25px 15px;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-}
-
 
 /* ---------- RESUME BUTTON ---------- */
 #resume {
@@ -1030,18 +1059,6 @@ h2 {
 }
 
 
-/* RESPONSIVENESS FIX */ 
-@media (max-width: 768px) { 
-.contact-container { 
-grid-template-columns: 1fr;  /* Stack vertically */ 
-text-align: center; 
-} 
-  
-.contact-info { 
-align-items: center; /* Fix alignment on mobile */ 
-} 
-} 
-
 /* ---------- FADE-IN EFFECT ---------- */ 
 .fade-hidden { 
   opacity: 0; 
@@ -1053,32 +1070,6 @@ align-items: center; /* Fix alignment on mobile */
   opacity: 1; 
   transform: translateY(0);
 } 
-
-/* ---------- RESPONSIVENESS ---------- */ 
-
-@media (max-width: 768px) { 
-  .site-header { 
-    padding: 1.5em 1em; 
-  } 
-  
-  .profile-pic { 
-    width: 110px; 
-    height: 110px; 
-  } 
-  
-  nav a { 
-  display: inline-block; 
-  margin: 0.5em;
-  } 
-  
-  section { 
-    margin: 1em; 
-    padding: 1em; 
-  } 
-  
-  .projects-grid { 
-    grid-template-columns: 1fr;
-  } }
 
 @media (max-width: 900px) {
   .top-nav {
@@ -1563,68 +1554,6 @@ body::after {
   }
 }
 
-/* ===== MOBILE FIT + TAP TARGETS ===== */
-@media (max-width: 768px) {
-  :root {
-    --page-gutter: 12px;
-  }
-
-  .site-header,
-  .top-nav,
-  .consultation-section {
-    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  section,
-  #projects,
-  #certificates,
-  .services-section,
-  .contact-section,
-  .solutions-section,
-  .testimonials-section {
-    padding-left: var(--page-gutter) !important;
-    padding-right: var(--page-gutter) !important;
-  }
-
-  .projects-grid,
-  .certificates-grid,
-  .services-grid,
-  .skills-grid,
-  .pricing-grid,
-  .solutions-grid,
-  .testimonials-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-  }
-
-  .project-card,
-  .certificate-card,
-  .service-card,
-  .pricing-card,
-  .contact-box,
-  .solution-card,
-  .testimonial-card {
-    width: 100%;
-  }
-
-  .nav-btn,
-  .project-btn,
-  .certificate-btn,
-  .cta-btn,
-  button {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-}
-
 /* ===== MOTION VISIBILITY FIX ===== */
 body {
   isolation: isolate;
@@ -1697,75 +1626,6 @@ section,
   }
 }
 
-/* ===== MOBILE TROUBLESHOOT FINAL ===== */
-@media (max-width: 768px) {
-  html,
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .site-header,
-  .top-nav,
-  section {
-    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  section {
-    margin-top: 12px !important;
-    margin-bottom: 12px !important;
-    padding: 1rem !important;
-  }
-
-  .about-container {
-    flex-direction: column;
-    gap: 18px !important;
-    align-items: center !important;
-  }
-
-  .about-text {
-    flex: 1 1 auto;
-    width: 100%;
-    font-size: 0.98rem;
-    line-height: 1.62;
-  }
-
-  .top-nav .nav-btn {
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .cta-buttons .cta-btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .analytics-kpis {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .analytics-panel {
-    padding: 14px;
-  }
-
-  .analytics-panel .chart-wrapper {
-    height: 250px;
-  }
-
-  html body[for="html-export"]:not([data-presentation-mode]) pre {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-}
-
 /* ===== MOBILE STABILITY PATCH ===== */
 @media (max-width: 900px) {
   /* Prevent markdown-export pages from being shifted off-screen by sidebar layout. */
@@ -1782,44 +1642,6 @@ section,
     transform: none !important;
     margin: 8px auto !important;
     padding: 12px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Reduce rendering stress on mobile browsers to avoid jitter/flicker. */
-  body::before,
-  body::after {
-    content: none !important;
-    display: none !important;
-    animation: none !important;
-  }
-
-  .site-header,
-  .top-nav,
-  section,
-  .service-card,
-  .skill-card,
-  .project-card,
-  .certificate-card,
-  .solution-card,
-  .testimonial-card,
-  .contact-box,
-  .analytics-panel,
-  .analytics-kpi {
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
-
-  .skill-icon,
-  .contact-item i,
-  .social-links a i,
-  .contact-box i {
-    animation: none !important;
-  }
-
-  .top-nav {
-    width: calc(100% - 16px) !important;
-    max-width: none !important;
   }
 }
 
@@ -1901,126 +1723,6 @@ section,
   }
   50% {
     transform: translateX(6px);
-  }
-}
-
-/* ===== MOBILE DESKTOP PARITY + LIGHT VARIANT ===== */
-@media (max-width: 768px) {
-  /* Keep mobile layout visually aligned with desktop composition. */
-  .site-header,
-  .top-nav,
-  section {
-    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
-    margin: 2em auto !important;
-    padding: clamp(1.2em, 2vw, 1.8em) !important;
-  }
-
-  .top-nav {
-    display: none;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 0.7rem !important;
-    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
-    max-width: none !important;
-    margin: 12px auto 0 !important;
-    border-radius: 18px !important;
-  }
-
-  .top-nav.is-open {
-    display: flex !important;
-  }
-
-  .top-nav .nav-btn {
-    display: inline-flex !important;
-    width: auto !important;
-    justify-content: center !important;
-  }
-
-  .about-container {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: flex-start !important;
-    gap: 40px !important;
-  }
-
-  .about-text {
-    flex: 1 1 680px !important;
-    width: auto !important;
-    font-size: 1.05em !important;
-    line-height: 1.7 !important;
-  }
-
-  .cta-buttons {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .cta-buttons .cta-btn {
-    width: auto !important;
-  }
-
-  .projects-grid,
-  .certificates-grid,
-  .services-grid,
-  .skills-grid,
-  .pricing-grid,
-  .solutions-grid,
-  .testimonials-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
-    gap: 20px !important;
-  }
-
-  .analytics-kpis {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
-    gap: 14px !important;
-  }
-
-  .analytics-panel .chart-wrapper {
-    height: clamp(260px, 44vw, 340px) !important;
-  }
-
-  /* Re-enable a lighter mobile-only glass + falling numbers variant. */
-  body {
-    background:
-      radial-gradient(circle at 12% 6%, rgba(165, 220, 248, 0.32), transparent 38%),
-      radial-gradient(circle at 86% 4%, rgba(142, 201, 236, 0.28), transparent 34%),
-      linear-gradient(152deg, #e3edf7 0%, #edf4fb 48%, #e7f0fa 100%) !important;
-  }
-
-  body::before {
-    content: "" !important;
-    display: block !important;
-    position: fixed;
-    inset: -8%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.3;
-    background:
-      linear-gradient(rgba(23, 81, 120, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(23, 81, 120, 0.12) 1px, transparent 1px);
-    background-size: 28px 28px, 28px 28px;
-    animation: glassFieldPan 36s linear infinite !important;
-  }
-
-  body::after {
-    content: "" !important;
-    display: block !important;
-    position: fixed;
-    inset: -12% -6%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.2;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='360' viewBox='0 0 120 360'%3E%3Cg fill='%23036ea7' fill-opacity='0.45' font-family='Consolas,monospace' font-size='14'%3E%3Ctext x='14' y='22'%3E0101%3C/text%3E%3Ctext x='20' y='50'%3E1010%3C/text%3E%3Ctext x='12' y='78'%3E0011%3C/text%3E%3Ctext x='21' y='106'%3E1100%3C/text%3E%3Ctext x='13' y='134'%3E0110%3C/text%3E%3Ctext x='22' y='162'%3E1001%3C/text%3E%3Ctext x='12' y='190'%3E0101%3C/text%3E%3Ctext x='21' y='218'%3E1110%3C/text%3E%3Ctext x='13' y='246'%3E0010%3C/text%3E%3Ctext x='22' y='274'%3E1011%3C/text%3E%3Ctext x='12' y='302'%3E0111%3C/text%3E%3Ctext x='20' y='330'%3E1000%3C/text%3E%3Ctext x='14' y='358'%3E0101%3C/text%3E%3C/g%3E%3C/svg%3E") !important;
-    background-repeat: repeat !important;
-    background-size: 120px 360px !important;
-    background-position: 0 -360px !important;
-    filter: drop-shadow(0 0 6px rgba(90, 180, 236, 0.16));
-    mix-blend-mode: multiply;
-    animation: matrixRainFall 18s linear infinite !important;
   }
 }
 
@@ -2203,6 +1905,9 @@ body.home-page .analytics-kpi {
 .site-footer .footer-cta {
   margin-top: 8px;
   width: fit-content;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px 16px;
   border-radius: 10px;
   border: 1px solid rgba(176, 220, 248, 0.46);
@@ -2213,7 +1918,8 @@ body.home-page .analytics-kpi {
 
 .site-footer .footer-social {
   margin-top: 6px;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 12px;
 }
 
@@ -2259,7 +1965,155 @@ body.home-page .analytics-kpi {
     padding: 26px 0 18px;
   }
 
+  .site-footer .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
   .site-footer .footer-cta {
     min-height: 44px;
+  }
+}
+
+/* ===== MOBILE LOCK: DESKTOP LAYOUT SCALED TO FIT ===== */
+@media (max-width: 768px) {
+  :root {
+    --desktop-canvas-width: 1360;
+    --desktop-canvas-scale: calc(100vw / var(--desktop-canvas-width));
+  }
+
+  html {
+    overflow-x: hidden !important;
+  }
+
+  body {
+    width: calc(var(--desktop-canvas-width) * 1px) !important;
+    min-width: calc(var(--desktop-canvas-width) * 1px) !important;
+    max-width: none !important;
+    zoom: var(--desktop-canvas-scale);
+    overflow-x: hidden !important;
+  }
+
+  .mobile-view-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @supports not (zoom: 1) {
+    body {
+      transform: scale(var(--desktop-canvas-scale)) !important;
+      transform-origin: top left !important;
+      min-height: calc(100vh / var(--desktop-canvas-scale)) !important;
+    }
+  }
+
+  body.mobile-readable {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    zoom: 1 !important;
+  }
+
+  @supports not (zoom: 1) {
+    body.mobile-readable {
+      transform: none !important;
+      min-height: 100vh !important;
+    }
+  }
+
+  .site-header,
+  .top-nav,
+  section {
+    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
+    margin: 2em auto !important;
+    padding: clamp(1.2em, 2vw, 1.8em) !important;
+  }
+
+  .about-container {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+  }
+
+  .about-text {
+    max-width: none !important;
+    flex: 1 1 680px !important;
+    width: auto !important;
+    font-size: 1.05em !important;
+    line-height: 1.7 !important;
+  }
+
+  .cta-buttons {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+
+  .cta-buttons .cta-btn {
+    width: auto !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 30px !important;
+  }
+
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 30px !important;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 30px !important;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 30px !important;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .solutions-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 22px !important;
+  }
+
+  .analytics-kpis {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  body.mobile-readable .site-header,
+  body.mobile-readable .top-nav,
+  body.mobile-readable section {
+    width: calc(100% - 16px) !important;
+    margin: 12px auto !important;
+    padding: 1rem !important;
+  }
+
+  body.mobile-readable .projects-grid,
+  body.mobile-readable .certificates-grid,
+  body.mobile-readable .services-grid,
+  body.mobile-readable .skills-grid,
+  body.mobile-readable .pricing-grid,
+  body.mobile-readable .solutions-grid,
+  body.mobile-readable .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  body.mobile-readable .analytics-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
