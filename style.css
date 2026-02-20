@@ -1903,3 +1903,123 @@ section,
     transform: translateX(6px);
   }
 }
+
+/* ===== MOBILE DESKTOP PARITY + LIGHT VARIANT ===== */
+@media (max-width: 768px) {
+  /* Keep mobile layout visually aligned with desktop composition. */
+  .site-header,
+  .top-nav,
+  section {
+    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
+    margin: 2em auto !important;
+    padding: clamp(1.2em, 2vw, 1.8em) !important;
+  }
+
+  .top-nav {
+    display: none;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.7rem !important;
+    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
+    max-width: none !important;
+    margin: 12px auto 0 !important;
+    border-radius: 18px !important;
+  }
+
+  .top-nav.is-open {
+    display: flex !important;
+  }
+
+  .top-nav .nav-btn {
+    display: inline-flex !important;
+    width: auto !important;
+    justify-content: center !important;
+  }
+
+  .about-container {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+  }
+
+  .about-text {
+    flex: 1 1 680px !important;
+    width: auto !important;
+    font-size: 1.05em !important;
+    line-height: 1.7 !important;
+  }
+
+  .cta-buttons {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .cta-buttons .cta-btn {
+    width: auto !important;
+  }
+
+  .projects-grid,
+  .certificates-grid,
+  .services-grid,
+  .skills-grid,
+  .pricing-grid,
+  .solutions-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .analytics-kpis {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .analytics-panel .chart-wrapper {
+    height: clamp(260px, 44vw, 340px) !important;
+  }
+
+  /* Re-enable a lighter mobile-only glass + falling numbers variant. */
+  body {
+    background:
+      radial-gradient(circle at 12% 6%, rgba(165, 220, 248, 0.32), transparent 38%),
+      radial-gradient(circle at 86% 4%, rgba(142, 201, 236, 0.28), transparent 34%),
+      linear-gradient(152deg, #e3edf7 0%, #edf4fb 48%, #e7f0fa 100%) !important;
+  }
+
+  body::before {
+    content: "" !important;
+    display: block !important;
+    position: fixed;
+    inset: -8%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    background:
+      linear-gradient(rgba(23, 81, 120, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 81, 120, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px, 28px 28px;
+    animation: glassFieldPan 36s linear infinite !important;
+  }
+
+  body::after {
+    content: "" !important;
+    display: block !important;
+    position: fixed;
+    inset: -12% -6%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='360' viewBox='0 0 120 360'%3E%3Cg fill='%23036ea7' fill-opacity='0.45' font-family='Consolas,monospace' font-size='14'%3E%3Ctext x='14' y='22'%3E0101%3C/text%3E%3Ctext x='20' y='50'%3E1010%3C/text%3E%3Ctext x='12' y='78'%3E0011%3C/text%3E%3Ctext x='21' y='106'%3E1100%3C/text%3E%3Ctext x='13' y='134'%3E0110%3C/text%3E%3Ctext x='22' y='162'%3E1001%3C/text%3E%3Ctext x='12' y='190'%3E0101%3C/text%3E%3Ctext x='21' y='218'%3E1110%3C/text%3E%3Ctext x='13' y='246'%3E0010%3C/text%3E%3Ctext x='22' y='274'%3E1011%3C/text%3E%3Ctext x='12' y='302'%3E0111%3C/text%3E%3Ctext x='20' y='330'%3E1000%3C/text%3E%3Ctext x='14' y='358'%3E0101%3C/text%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: repeat !important;
+    background-size: 120px 360px !important;
+    background-position: 0 -360px !important;
+    filter: drop-shadow(0 0 6px rgba(90, 180, 236, 0.16));
+    mix-blend-mode: multiply;
+    animation: matrixRainFall 18s linear infinite !important;
+  }
+}
