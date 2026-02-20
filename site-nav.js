@@ -21,6 +21,16 @@
         if (isExternalHttp) {
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
+        } else if (link.target === '_blank' && !link.hasAttribute('data-keep-blank')) {
+          link.removeAttribute('target');
+          if (
+            link.rel === 'noopener noreferrer' ||
+            link.rel === 'noreferrer noopener' ||
+            link.rel === 'noopener' ||
+            link.rel === 'noreferrer'
+          ) {
+            link.removeAttribute('rel');
+          }
         }
       } catch {
         // Ignore malformed href values.
