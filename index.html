@@ -173,6 +173,20 @@
         <h3 class="skill-title">Computational Frameworks</h3>
         <p class="skill-items">Machine Learning · Deep Learning · Model Deployment</p>
       </div>
+
+      <!-- Cloud & DevOps -->
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+        <h3 class="skill-title">Cloud & DevOps</h3>
+        <p class="skill-items">AWS/Azure Foundations · API Deployment · CI/CD Workflows</p>
+      </div>
+
+      <!-- Program Delivery -->
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
+        <h3 class="skill-title">Program Delivery</h3>
+        <p class="skill-items">Agile Planning · Stakeholder Reporting · Data-Driven Execution</p>
+      </div>
     </div>
   </div>
 </section>
@@ -601,12 +615,39 @@ It complements the Excel VBA Search Automation System.
 
 
 <!-- ===== Analytics section ===== -->
-  <section id="analytics">
-  <h2>Analytics Snapshot</h2>
-  <p>Quick insight into my tech stack and confidence bar.</p>
+<section id="analytics" class="analytics-section">
+  <div class="analytics-head">
+    <h2>Analytics Snapshot</h2>
+    <p>A concise view of my technical stack strengths and delivery profile.</p>
+  </div>
 
-  <div class="chart-wrapper">
+  <div class="analytics-kpis">
+    <article class="analytics-kpi">
+      <span class="kpi-label">Core Tools</span>
+      <strong class="kpi-value" id="kpi-tool-count">8</strong>
+    </article>
+    <article class="analytics-kpi">
+      <span class="kpi-label">Average Proficiency</span>
+      <strong class="kpi-value" id="kpi-avg-score">89%</strong>
+    </article>
+    <article class="analytics-kpi">
+      <span class="kpi-label">Top Skill</span>
+      <strong class="kpi-value" id="kpi-top-skill">Python</strong>
+    </article>
+    <article class="analytics-kpi">
+      <span class="kpi-label">Delivery Focus</span>
+      <strong class="kpi-value">Insight + Automation</strong>
+    </article>
+  </div>
+
+  <div class="analytics-panel">
+    <div class="analytics-panel-head">
+      <h3>Technical Proficiency Index</h3>
+      <p>Normalized confidence score across analytics, BI, and ML tooling.</p>
+    </div>
+    <div class="chart-wrapper">
       <canvas id="skillsChart"></canvas>
+    </div>
   </div>
 </section>
 
@@ -776,31 +817,73 @@ It complements the Excel VBA Search Automation System.
       });
     }
 
-    // Chart.js bar chart
-    const ctx = document.getElementById('skillsChart');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Python', 'R', 'SQL', 'Power BI', 'QGIS', 'Machine Learning', 'SPSS', 'Excel'],
-        datasets: [{
-          label: 'Proficiency (%)',
-          data: [95, 90, 85, 80, 85, 88, 90, 95],
-          borderWidth: 1,
-          backgroundColor: [
-            '#001f3f', '#003366', '#004c99', '#0066cc', '#3385ff', '#66a3ff',  '#001f3f', '#004c99'
-          ]
-        }]
-      },
-      options: {
-        scales: {
-          y: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } }
+    // Chart.js analytics snapshot
+    const chartCanvas = document.getElementById('skillsChart');
+    const skillLabels = ['Python', 'R', 'SQL', 'Power BI', 'QGIS', 'Machine Learning', 'SPSS', 'Excel'];
+    const skillValues = [95, 90, 85, 80, 85, 88, 90, 95];
+
+    const toolCountEl = document.getElementById('kpi-tool-count');
+    const avgScoreEl = document.getElementById('kpi-avg-score');
+    const topSkillEl = document.getElementById('kpi-top-skill');
+
+    if (toolCountEl) {
+      toolCountEl.textContent = String(skillLabels.length);
+    }
+    if (avgScoreEl) {
+      const avgScore = Math.round(skillValues.reduce((acc, val) => acc + val, 0) / skillValues.length);
+      avgScoreEl.textContent = `${avgScore}%`;
+    }
+    if (topSkillEl) {
+      const topIndex = skillValues.indexOf(Math.max(...skillValues));
+      topSkillEl.textContent = skillLabels[topIndex];
+    }
+
+    if (chartCanvas) {
+      const ctx = chartCanvas.getContext('2d');
+      const gradient = ctx.createLinearGradient(0, 0, 0, 320);
+      gradient.addColorStop(0, 'rgba(0, 90, 158, 0.95)');
+      gradient.addColorStop(1, 'rgba(86, 169, 225, 0.82)');
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: skillLabels,
+          datasets: [{
+            label: 'Proficiency (%)',
+            data: skillValues,
+            borderRadius: 10,
+            borderSkipped: false,
+            borderWidth: 1.2,
+            borderColor: 'rgba(205, 234, 255, 0.82)',
+            backgroundColor: gradient,
+            hoverBackgroundColor: 'rgba(0, 120, 196, 0.9)'
+          }]
         },
-        plugins: {
-          legend: { display: false },
-          title: { display: true, text: 'Core Analytical Tools Proficiency' }
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (context) => ` ${context.parsed.y}% proficiency`
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#1e3c58', font: { weight: '600' } }
+            },
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { stepSize: 20, color: '#3b5975' },
+              grid: { color: 'rgba(34, 77, 114, 0.14)' }
+            }
+          }
         }
-      }
-    });
+      });
+    }
   </script>
 
 <footer class="site-footer">
