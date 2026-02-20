@@ -1233,3 +1233,154 @@ align-items: center; /* Fix alignment on mobile */
   font-weight: 600;
   text-decoration: none;
 }
+
+/* ===== GLASS HUD THEME UPGRADE ===== */
+:root {
+  --glass-surface: linear-gradient(165deg, rgba(255, 255, 255, 0.72), rgba(235, 246, 255, 0.48));
+  --glass-border: rgba(170, 214, 244, 0.62);
+  --glass-shadow:
+    0 18px 38px rgba(8, 32, 56, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  --glass-shadow-hover:
+    0 24px 48px rgba(8, 32, 56, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  --hud-accent: rgba(26, 109, 175, 0.34);
+}
+
+body {
+  background:
+    radial-gradient(circle at 16% 9%, rgba(149, 205, 245, 0.38), transparent 34%),
+    radial-gradient(circle at 88% 5%, rgba(133, 173, 223, 0.32), transparent 30%),
+    radial-gradient(circle at 76% 88%, rgba(170, 202, 229, 0.26), transparent 36%),
+    linear-gradient(140deg, #dbe6f1 0%, #eef4fb 40%, #e4edf7 100%);
+}
+
+body::before {
+  opacity: 0.36;
+  background:
+    linear-gradient(rgba(18, 61, 93, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 61, 93, 0.13) 1px, transparent 1px),
+    radial-gradient(circle at 25% 12%, rgba(58, 132, 192, 0.22), transparent 48%);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+body::after {
+  content:
+    "01011001 10011010 01100101 11100011 00110110 10101100 01101010 10011001\A"
+    "00101110 10010101 11100010 01011100 10100110 00111001 11001010 01011001\A"
+    "11100001 00110111 01001101 10010100 01101011 11001001 00110101 10100010\A"
+    "01010011 11001010 00110010 10101101 01001110 11100100 00110110 10011011";
+  position: fixed;
+  inset: -15% -10%;
+  z-index: -1;
+  pointer-events: none;
+  white-space: pre;
+  font-family: Consolas, "Lucida Console", monospace;
+  font-size: clamp(0.58rem, 1.1vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  line-height: 2.3;
+  color: rgba(8, 72, 125, 0.18);
+  mix-blend-mode: soft-light;
+  filter: blur(0.2px);
+  animation: hudDataDrift 24s linear infinite;
+}
+
+@keyframes hudDataDrift {
+  0% {
+    transform: translate3d(-2.5%, -6%, 0) skewY(-2deg);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translate3d(2.5%, 5%, 0) skewY(1.5deg);
+    opacity: 0.28;
+  }
+  100% {
+    transform: translate3d(-2.5%, -6%, 0) skewY(-2deg);
+    opacity: 0.12;
+  }
+}
+
+/* Unified glass cards */
+.service-card,
+.skill-card,
+.certificate-card,
+.project-card,
+.contact-box,
+.pricing-card,
+.consultation-form {
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  background: var(--glass-surface) !important;
+  backdrop-filter: blur(10px) saturate(125%);
+  box-shadow: var(--glass-shadow) !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.service-card:hover,
+.skill-card:hover,
+.certificate-card:hover,
+.project-card:hover,
+.contact-box:hover,
+.pricing-card:hover,
+.consultation-form:hover {
+  transform: translateY(-6px);
+  border-color: rgba(111, 184, 238, 0.75) !important;
+  box-shadow: var(--glass-shadow-hover) !important;
+}
+
+/* Action buttons with compact "card button" appearance */
+.project-btn,
+.certificate-btn,
+.cta-btn,
+#view-more-btn,
+#verify-btn,
+.consultation-form button,
+.contact-box form button {
+  border: 1px solid rgba(134, 184, 223, 0.7) !important;
+  border-radius: 12px !important;
+  background: linear-gradient(160deg, rgba(0, 54, 95, 0.94), rgba(8, 86, 144, 0.9)) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 10px 20px rgba(4, 43, 74, 0.26),
+    inset 0 1px 0 rgba(210, 239, 255, 0.42);
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-btn:hover,
+.certificate-btn:hover,
+.cta-btn:hover,
+#view-more-btn:hover,
+#verify-btn:hover,
+.consultation-form button:hover,
+.contact-box form button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+  box-shadow:
+    0 14px 26px rgba(4, 43, 74, 0.34),
+    inset 0 1px 0 rgba(210, 239, 255, 0.52);
+}
+
+.project-btn:active,
+.certificate-btn:active,
+.cta-btn:active,
+#view-more-btn:active,
+#verify-btn:active,
+.consultation-form button:active,
+.contact-box form button:active {
+  transform: translateY(0);
+}
+
+.site-header,
+.top-nav {
+  border-color: rgba(181, 222, 247, 0.56);
+  box-shadow:
+    0 16px 38px rgba(6, 36, 58, 0.26),
+    inset 0 1px 0 rgba(197, 231, 252, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+  }
+}
