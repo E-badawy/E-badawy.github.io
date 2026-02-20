@@ -36,8 +36,8 @@ body::before {
 
 /* ---------- HEADER ---------- */
 :root {
-  --page-max-width: 1120px;
-  --page-gutter: 14px;
+  --page-max-width: 1360px;
+  --page-gutter: clamp(14px, 2.4vw, 36px);
 }
 
 .site-header {
@@ -385,7 +385,8 @@ h2 {
 }
 
 .about-text {
-  max-width: 600px;
+  max-width: none;
+  flex: 1 1 680px;
   text-align: left;
   line-height: 1.7;
   color: #333;
@@ -685,7 +686,7 @@ h2 {
 
 .chart-wrapper {
     width: 100%;
-    max-width: 600px; /* keeps it clean on desktop */
+    max-width: 920px; /* keeps it clean on desktop */
     margin: 0 auto; /* centers the container */
     padding: 10px;
 }

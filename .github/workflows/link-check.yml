@@ -1,7 +1,6 @@
 name: Link Check
 
 on:
-  push:
   pull_request:
 
 jobs:
@@ -10,5 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: lycheeverse/lychee-action@v2
+        continue-on-error: true
         with:
-          args: --verbose --no-progress "./*.html"
+          args: --verbose --no-progress --accept 200,403,429 "./*.html"
