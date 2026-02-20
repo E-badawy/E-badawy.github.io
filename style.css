@@ -1533,3 +1533,75 @@ body::after {
     overflow-x: hidden;
   }
 }
+
+/* ===== MOTION VISIBILITY FIX ===== */
+body {
+  isolation: isolate;
+}
+
+body::before {
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    linear-gradient(rgba(17, 66, 102, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 66, 102, 0.16) 1px, transparent 1px),
+    repeating-linear-gradient(120deg, transparent 0 22px, rgba(40, 128, 184, 0.14) 22px 24px, transparent 24px 44px),
+    radial-gradient(circle at 22% 12%, rgba(63, 142, 201, 0.25), transparent 52%);
+  background-size: 34px 34px, 34px 34px, 220px 220px, auto;
+  animation: hudGridPan 28s linear infinite;
+}
+
+body::after {
+  z-index: 0;
+  color: rgba(6, 74, 128, 0.34);
+  mix-blend-mode: normal;
+  text-shadow: 0 0 10px rgba(83, 173, 238, 0.2);
+  animation: hudDataDrift 16s linear infinite, hudDataPulse 4.2s ease-in-out infinite;
+}
+
+@keyframes hudGridPan {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 34px 34px, 34px 34px, 260px 180px, 0 0;
+  }
+}
+
+@keyframes hudDataPulse {
+  0%, 100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.site-header,
+.top-nav,
+section,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+#about,
+#resume,
+.professional-skills,
+.services-section,
+#certificates,
+#projects,
+#analytics,
+.solutions-section,
+.testimonials-section,
+.contact-section {
+  background: rgba(246, 251, 255, 0.62) !important;
+  backdrop-filter: blur(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
