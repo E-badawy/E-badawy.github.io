@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cigma Todo List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const { useEffect, useMemo, useState, useCallback } = React;
+
+      const ALERT_INTERVAL_MS = 60 * 1000;
+      const ALERT_COOLDOWN_MS = 30 * 60 * 1000;
+      const priorities = ["Low", "Medium", "High"];
+
+      function useLocalStorage(key, initialValue) {
+        const [value, setValue] = useState(() => {
+          try {
+            const raw = localStorage.getItem(key);
+            return raw ? JSON.parse(raw) : initialValue;
+          } catch {
+            return initialValue;
+          }
+        });
+
+        useEffect(() => {
+          try {
+            localStorage.setItem(key, JSON.stringify(value));
+          } catch {
+            // Ignore storage write errors to avoid breaking the UI.
+          }
+        }, [key, value]);
+
+        return [value, setValue];
+      }
+
+      function parseDueDate(due) {
+        if (!due || !/^\d{4}-\d{2}-\d{2}$/.test(due)) return null;
+        const [year, month, day] = due.split("-").map(Number);
+        return new Date(year, month - 1, day, 23, 59, 59, 999);
+      }
+
+      function isTaskOverdue(task, now = new Date()) {
+        if (task.done || !task.due) return false;
+        const dueDate = parseDueDate(task.due);
+        if (!dueDate) return false;
+        return dueDate.getTime() < now.getTime();
+      }
+
+      function generateId() {
+        if (window.crypto && typeof window.crypto.randomUUID === "function") {
+          return window.crypto.randomUUID();
+        }
+        return `task-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      }
+
+      function triggerAlarm() {
+        try {
+          const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          const now = audioContext.currentTime;
+          [0, 0.2].forEach((offset) => {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            oscillator.type = "triangle";
+            oscillator.frequency.value = 880;
+            gainNode.gain.setValueAtTime(0.0001, now + offset);
+            gainNode.gain.exponentialRampToValueAtTime(0.08, now + offset + 0.02);
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, now + offset + 0.18);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            oscillator.start(now + offset);
+            oscillator.stop(now + offset + 0.2);
+          });
+        } catch {
+          // Audio can fail if browser blocks autoplay.
+        }
+      }
+
+      function App() {
+        const [tasks, setTasks] = useLocalStorage("todo.tasks", []);
+        const [alertLog, setAlertLog] = useLocalStorage("todo.alertLog", {});
+        const [alertsEnabled, setAlertsEnabled] = useLocalStorage("todo.alerts.enabled", false);
+        const [title, setTitle] = useState("");
+        const [due, setDue] = useState("");
+        const [priority, setPriority] = useState("Medium");
+        const [tags, setTags] = useState("");
+        const [notes, setNotes] = useState("");
+        const [filter, setFilter] = useState("all");
+        const [search, setSearch] = useState("");
+        const [formError, setFormError] = useState("");
+        const [notice, setNotice] = useState({ type: "", text: "" });
+
+        useEffect(() => {
+          document.title = "Cigma Todo List";
+        }, []);
+
+        useEffect(() => {
+          if (!notice.text) return;
+          const timer = setTimeout(() => setNotice({ type: "", text: "" }), 4500);
+          return () => clearTimeout(timer);
+        }, [notice]);
+
+        const remaining = useMemo(
+          () => tasks.filter((t) => !t.done).length,
+          [tasks]
+        );
+
+        const overdueCount = useMemo(
+          () => tasks.filter((t) => isTaskOverdue(t)).length,
+          [tasks]
+        );
+
+        const byPriority = useMemo(() => {
+          return priorities.reduce((acc, p) => {
+            acc[p] = tasks.filter((t) => t.priority === p).length;
+            return acc;
+          }, {});
+        }, [tasks]);
+
+        const visible = useMemo(() => {
+          const needle = search.trim().toLowerCase();
+          return tasks.filter((t) => {
+            if (filter === "active" && t.done) return false;
+            if (filter === "done" && !t.done) return false;
+            if (filter === "overdue" && !isTaskOverdue(t)) return false;
+
+            if (!needle) return true;
+
+            const hay = [
+              t.title,
+              t.due,
+              t.priority,
+              (t.tags || []).join(","),
+              t.notes || ""
+            ]
+              .join(" ")
+              .toLowerCase();
+            return hay.includes(needle);
+          });
+        }, [tasks, filter, search]);
+
+        const sendOverdueAlert = useCallback(() => {
+          if (!alertsEnabled || typeof Notification === "undefined") return;
+          if (Notification.permission !== "granted") return;
+
+          const now = Date.now();
+          const overdueTasks = tasks.filter((task) => isTaskOverdue(task));
+          if (overdueTasks.length === 0) return;
+
+          const dueForAlert = overdueTasks.filter((task) => {
+            const lastNotifiedAt = alertLog[task.id] || 0;
+            return now - lastNotifiedAt >= ALERT_COOLDOWN_MS;
+          });
+          if (dueForAlert.length === 0) return;
+
+          const first = dueForAlert[0];
+          const body =
+            dueForAlert.length === 1
+              ? `"${first.title}" is overdue.`
+              : `${dueForAlert.length} overdue tasks still open.`;
+
+          try {
+            new Notification("Cigma Todo Reminder", { body, silent: false });
+          } catch {
+            // Ignore browser notification failures.
+          }
+
+          triggerAlarm();
+          setAlertLog((prev) => {
+            const next = { ...prev };
+            dueForAlert.forEach((task) => {
+              next[task.id] = now;
+            });
+            return next;
+          });
+        }, [alertsEnabled, tasks, alertLog, setAlertLog]);
+
+        useEffect(() => {
+          if (!alertsEnabled) return;
+          sendOverdueAlert();
+          const intervalId = setInterval(sendOverdueAlert, ALERT_INTERVAL_MS);
+          return () => clearInterval(intervalId);
+        }, [alertsEnabled, sendOverdueAlert]);
+
+        async function toggleAlerts() {
+          if (alertsEnabled) {
+            setAlertsEnabled(false);
+            setNotice({ type: "ok", text: "Reminders disabled." });
+            return;
+          }
+
+          if (typeof Notification === "undefined") {
+            setNotice({ type: "error", text: "Browser notifications are not supported." });
+            return;
+          }
+
+          let permission = Notification.permission;
+          if (permission === "default") {
+            permission = await Notification.requestPermission();
+          }
+          if (permission !== "granted") {
+            setNotice({ type: "error", text: "Notification permission was denied." });
+            return;
+          }
+
+          setAlertsEnabled(true);
+          setNotice({ type: "ok", text: "Reminders enabled for overdue open tasks." });
+        }
+
+        function addTask(e) {
+          e.preventDefault();
+          setFormError("");
+
+          const cleanTitle = title.trim();
+          const cleanDue = due.trim();
+          const cleanNotes = notes.trim();
+          if (!cleanTitle) {
+            setFormError("Task title is required.");
+            return;
+          }
+          if (cleanTitle.length > 120) {
+            setFormError("Task title must be 120 characters or fewer.");
+            return;
+          }
+          if (cleanDue && !parseDueDate(cleanDue)) {
+            setFormError("Due date is invalid.");
+            return;
+          }
+
+          const tagList = Array.from(
+            new Set(
+              tags
+                .split(",")
+                .map((t) => t.trim())
+                .filter(Boolean)
+            )
+          ).slice(0, 10);
+
+          setTasks((prev) => [
+            ...prev,
+            {
+              id: generateId(),
+              title: cleanTitle,
+              due: cleanDue,
+              priority,
+              tags: tagList,
+              notes: cleanNotes,
+              done: false
+            }
+          ]);
+
+          setTitle("");
+          setDue("");
+          setPriority("Medium");
+          setTags("");
+          setNotes("");
+        }
+
+        function toggleTask(id) {
+          setTasks((prev) =>
+            prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
+          );
+        }
+
+        function removeTask(id) {
+          setTasks((prev) => prev.filter((t) => t.id !== id));
+        }
+
+        function clearDone() {
+          setTasks((prev) => prev.filter((t) => !t.done));
+        }
+
+        return (
+          <div className="page">
+            <div className="card">
+              <header className="header">
+                <div>
+                  <h1>Cigma Todo List</h1>
+                  <p>Task tracker with alerts for overdue open items.</p>
+                </div>
+                <div className="badges">
+                  <span className="badge">{remaining} left</span>
+                  <span className="badge danger">Overdue {overdueCount}</span>
+                  <span className="badge ghost">Total {tasks.length}</span>
+                </div>
+              </header>
+
+              {notice.text && (
+                <div className={`notice ${notice.type === "error" ? "error" : "ok"}`}>
+                  {notice.text}
+                </div>
+              )}
+
+              <form className="form" onSubmit={addTask}>
+                <div className="row">
+                  <label>
+                    Task
+                    <input
+                      type="text"
+                      placeholder="Add a task..."
+                      value={title}
+                      maxLength={120}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </label>
+                  <label>
+                    Due
+                    <input
+                      type="date"
+                      value={due}
+                      onChange={(e) => setDue(e.target.value)}
+                    />
+                  </label>
+                  <label>
+                    Priority
+                    <select
+                      value={priority}
+                      onChange={(e) => setPriority(e.target.value)}
+                    >
+                      {priorities.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <div className="row">
+                  <label>
+                    Tags
+                    <input
+                      type="text"
+                      placeholder="work, errands"
+                      value={tags}
+                      onChange={(e) => setTags(e.target.value)}
+                    />
+                  </label>
+                  <label className="row-span">
+                    Notes
+                    <input
+                      type="text"
+                      placeholder="Optional details"
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                    />
+                  </label>
+                </div>
+
+                {formError && <div className="formError">{formError}</div>}
+
+                <div className="actions">
+                  <button type="submit">Add</button>
+                  <button type="button" className="ghost" onClick={toggleAlerts}>
+                    {alertsEnabled ? "Disable Alerts" : "Enable Alerts"}
+                  </button>
+                  <button type="button" className="ghost" onClick={clearDone}>
+                    Clear done
+                  </button>
+                </div>
+              </form>
+
+              <div className="tools">
+                <div className="filters">
+                  {[
+                    { id: "all", label: "All" },
+                    { id: "active", label: "Active" },
+                    { id: "done", label: "Done" },
+                    { id: "overdue", label: "Overdue" }
+                  ].map((f) => (
+                    <button
+                      key={f.id}
+                      className={filter === f.id ? "active" : ""}
+                      onClick={() => setFilter(f.id)}
+                      type="button"
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+
+                <input
+                  className="search"
+                  type="search"
+                  placeholder="Search tasks..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+
+              <div className="stats">
+                <div className="stat">Low: {byPriority.Low}</div>
+                <div className="stat">Medium: {byPriority.Medium}</div>
+                <div className="stat">High: {byPriority.High}</div>
+              </div>
+
+              <ul className="list">
+                {visible.length === 0 ? (
+                  <li className="empty">No tasks match your filter.</li>
+                ) : (
+                  visible.map((task) => {
+                    const overdue = isTaskOverdue(task);
+                    return (
+                      <li
+                        key={task.id}
+                        className={[
+                          task.done ? "done" : "",
+                          overdue ? "overdue" : ""
+                        ]
+                          .join(" ")
+                          .trim()}
+                      >
+                        <div className="taskMain">
+                          <label>
+                            <input
+                              type="checkbox"
+                              checked={task.done}
+                              onChange={() => toggleTask(task.id)}
+                            />
+                            <span className="title">{task.title}</span>
+                            {overdue && <span className="flag">Overdue</span>}
+                          </label>
+                          <div className="meta">
+                            <span>Due: {task.due || "-"}</span>
+                            <span>Priority: {task.priority}</span>
+                            {task.tags && task.tags.length > 0 && (
+                              <span>Tags: {task.tags.join(", ")}</span>
+                            )}
+                          </div>
+                          {task.notes && <div className="notes">{task.notes}</div>}
+                        </div>
+                        <button onClick={() => removeTask(task.id)}>Delete</button>
+                      </li>
+                    );
+                  })
+                )}
+              </ul>
+            </div>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
