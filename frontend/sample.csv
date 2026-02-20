@@ -1,0 +1,11 @@
+customer_id,age,tenure_months,plan,monthly_spend,churn_flag,region
+1001,34,12,Basic,45.5,0,North
+1002,29,3,Pro,89.0,1,South
+1003,41,24,Basic,52.3,0,East
+1004,37,8,Pro,95.2,1,West
+1005,23,1,Basic,39.9,1,South
+1006,52,36,Enterprise,140.0,0,North
+1007,46,18,Pro,88.4,0,East
+1008,31,6,Basic,42.1,1,West
+1009,27,4,Pro,91.7,1,South
+1010,39,15,Enterprise,130.5,0,North

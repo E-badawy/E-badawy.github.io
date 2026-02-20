@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CIGMA Data Profiler</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="chat-pane" id="chat-pane">
+        <div class="chat-head">
+          <div>
+            <h2>Data Copilot</h2>
+            <p>Ask questions about the active analysis.</p>
+          </div>
+          <button class="secondary small" id="chat-collapse" type="button" aria-label="Collapse chat">
+            Collapse
+          </button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg bot">Run an assessment, then ask questions here.</div>
+        </div>
+        <div class="chat-quick" id="chat-quick">
+          <button class="quick-action" type="button" data-question="Explain score">Explain score</button>
+          <button class="quick-action" type="button" data-question="Show top issues">Show top issues</button>
+          <button class="quick-action" type="button" data-question="Generate fix order">Generate fix order</button>
+        </div>
+        <form class="chat-form" id="chat-form">
+          <input id="chat-input" type="text" placeholder="Ask about quality, root cause, KPIs..." />
+          <button class="primary" type="submit" id="chat-send">Send</button>
+        </form>
+      </aside>
+      <div class="chat-overlay" id="chat-overlay" aria-hidden="true"></div>
+      <button class="chat-open" id="chat-open" type="button">Open Copilot</button>
+
+      <main class="page">
+      <header class="hero">
+        <div class="brand">
+          <div class="logo">CIGMA</div>
+          <div>
+            <p class="eyebrow">CIGMA Data Profiler</p>
+            <p class="tag">Industry-grade profiling and readiness checks</p>
+          </div>
+        </div>
+        <h1>Upload data, get instant profiling and insight ideas.</h1>
+        <p class="sub">
+          Supports CSV, TSV, XLSX, JSON, XML, and DOCX. We infer data type,
+          show missing values and distributions, and suggest feasible analyses.
+        </p>
+      </header>
+
+      <section class="panel">
+        <form id="analyze-form" class="form">
+          <label class="field">
+            <span>Data file</span>
+            <input type="file" name="file" required />
+          </label>
+
+          <label class="field">
+            <span>Type of analysis or insight to perform</span>
+            <textarea
+              name="analysis_intent"
+              rows="3"
+              placeholder="Example: identify churn drivers or segment customers"
+            ></textarea>
+          </label>
+
+          <label class="field">
+            <span>Target/label column (optional)</span>
+            <input
+              type="text"
+              name="target_column"
+              placeholder="Example: churn_flag or revenue"
+            />
+          </label>
+
+          <button class="primary" type="submit">Run Assessment</button>
+        </form>
+
+        <div class="actions actions-primary-tools">
+          <button class="secondary" id="sample-data" type="button">
+            Try Sample Dataset
+          </button>
+          <button class="secondary" id="ai-generate" type="button" disabled>
+            Generate AI Insights
+          </button>
+          <button class="secondary" id="export-csv" type="button" disabled>
+            Export CSV Report
+          </button>
+          <button class="secondary" id="export-pdf" type="button" disabled>
+            Export PDF Report
+          </button>
+        </div>
+
+        <div class="status" id="status">Ready.</div>
+
+        <div class="transform">
+          <h2>Transform Data</h2>
+          <div class="transform-copy">
+            <p>Apply cleanup rules to remove duplicates, handle missing values, normalize text, cap outliers, and export a cleaner dataset.</p>
+          </div>
+          <div class="transform-bar">
+            <label class="field">
+              <span>Cleanup preset</span>
+              <select id="transform-preset">
+                <option value="custom">Custom settings</option>
+                <option value="standard">Standard clean (dedupe + mode)</option>
+                <option value="numeric">Numeric clean (dedupe + median)</option>
+                <option value="strict">Strict clean (dedupe + drop missing)</option>
+                <option value="no_change">No changes</option>
+              </select>
+            </label>
+          </div>
+          <div class="transform-grid">
+            <label class="field inline transform-flag">
+              <input type="checkbox" id="drop-duplicates" checked />
+              <span>
+                <strong>Remove duplicate rows</strong>
+                <small>Keeps first occurrence and removes repeated records.</small>
+              </span>
+            </label>
+            <label class="field">
+              <span>Missing value strategy</span>
+              <select id="missing-strategy">
+                <option value="none">No change</option>
+                <option value="drop">Drop rows with missing values</option>
+                <option value="mean">Fill with mean (numeric)</option>
+                <option value="median">Fill with median (numeric)</option>
+                <option value="mode">Fill with mode</option>
+                <option value="value">Fill with custom value</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Fill value (for custom)</span>
+              <input id="fill-value" type="text" placeholder="e.g. 0 or N/A" />
+            </label>
+            <label class="field">
+              <span>Target columns (comma separated)</span>
+              <input id="target-columns" type="text" placeholder="e.g. age, spend" />
+            </label>
+            <label class="field">
+              <span>Text normalization</span>
+              <select id="normalize-text">
+                <option value="none">No change</option>
+                <option value="lower">lowercase</option>
+                <option value="upper">UPPERCASE</option>
+                <option value="title">Title Case</option>
+              </select>
+            </label>
+            <label class="field inline transform-flag">
+              <input type="checkbox" id="cap-outliers" />
+              <span>
+                <strong>Cap numeric outliers (IQR)</strong>
+                <small>Winsorizes extreme values to robust IQR bounds.</small>
+              </span>
+            </label>
+          </div>
+          <div class="actions">
+            <button class="primary" id="apply-transform" type="button">
+              Apply Transform
+            </button>
+            <button class="secondary" id="download-transform" type="button" disabled>
+              Download Transformed CSV
+            </button>
+          </div>
+          <div class="status" id="transform-status"></div>
+        </div>
+
+        <div class="transform modeling-scope">
+          <h2>EDA + Modeling</h2>
+          <div class="transform-grid">
+            <label class="field">
+              <span>Target column (required for models)</span>
+              <input id="ml-target" type="text" placeholder="e.g. churn_flag" />
+            </label>
+            <label class="field">
+              <span>Time column (optional for time series)</span>
+              <input id="ml-time" type="text" placeholder="e.g. order_date" />
+            </label>
+            <label class="field">
+              <span>Test size (0.1 - 0.5)</span>
+              <input id="ml-test-size" type="number" step="0.05" min="0.1" max="0.5" value="0.2" />
+            </label>
+            <label class="field">
+              <span>CV folds (2 - 10)</span>
+              <input id="ml-cv" type="number" min="2" max="10" value="3" />
+            </label>
+          </div>
+          <div class="checklist">
+            <label><input type="checkbox" class="ml-model" value="linear" checked /> Linear Regression</label>
+            <label><input type="checkbox" class="ml-model" value="logistic" checked /> Logistic Regression</label>
+            <label><input type="checkbox" class="ml-model" value="knn" checked /> KNN</label>
+            <label><input type="checkbox" class="ml-model" value="gradient_boost" checked /> Gradient Boosting</label>
+            <label><input type="checkbox" class="ml-model" value="xgboost" /> XGBoost</label>
+          </div>
+          <div class="actions">
+            <button class="primary" id="run-eda-ml" type="button">
+              Run EDA + Models
+            </button>
+          </div>
+          <div class="status" id="ml-status"></div>
+        </div>
+      </section>
+
+      <section class="kpi-strip">
+        <div id="kpi-grid" class="kpi-grid"></div>
+      </section>
+
+      <section class="tabs-wrap">
+        <div class="tabs" id="tabs">
+          <button class="tab active" data-tab-btn="overview" type="button">Overview</button>
+          <button class="tab" data-tab-btn="quality" type="button">Quality Intelligence</button>
+          <button class="tab modeling-scope" data-tab-btn="modeling" type="button">Modeling</button>
+          <button class="tab" data-tab-btn="transform" type="button">Transform</button>
+        </div>
+      </section>
+
+      <section class="results" id="results">
+        <div class="card" data-tab="overview">
+          <h2>Overview</h2>
+          <div id="overview" class="grid"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Data Health Scorecard</h2>
+          <div id="quality-score" class="quality"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Root Cause & Impact Surface</h2>
+          <div id="root-cause" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Recommended Fix Plan</h2>
+          <div id="remediation" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Unified Analytics Chart</h2>
+          <div class="chart-controls">
+            <label class="field">
+              <span>Column</span>
+              <select id="unified-chart-column"></select>
+            </label>
+            <label class="field">
+              <span>View</span>
+              <select id="unified-chart-mode">
+                <option value="bar">Bars</option>
+                <option value="line">Line</option>
+                <option value="density">Density</option>
+                <option value="pie">Pie</option>
+                <option value="stacked">Stacked Column</option>
+                <option value="correlation">Correlation Plot</option>
+              </select>
+            </label>
+          </div>
+          <div class="chart-shell">
+            <canvas id="unified-chart-canvas" class="chart-canvas"></canvas>
+          </div>
+          <div id="unified-chart-empty" class="chart-empty">No numeric distributions available yet.</div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Suggestions</h2>
+          <ul id="suggestions" class="list"></ul>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Missing Values</h2>
+          <div id="missing" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="overview">
+          <h2>File Preview</h2>
+          <div id="preview" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="transform">
+          <h2>Transform Summary</h2>
+          <div id="transform-summary" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="transform">
+          <h2>Transformed Preview</h2>
+          <div id="transform-preview" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Anomaly Flags</h2>
+          <div id="anomalies" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Distributions</h2>
+          <div id="distributions" class="stack"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Histograms</h2>
+          <div id="histograms" class="stack"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Outlier Summary</h2>
+          <div id="outliers" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Distribution Labels</h2>
+          <div id="dist-labels" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>Label Distribution</h2>
+          <div id="label-dist" class="table"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>Model Suggestions</h2>
+          <ul id="models" class="list"></ul>
+        </div>
+
+        <div class="card" data-tab="quality">
+          <h2>AI Insights (Pluggable)</h2>
+          <div id="ai" class="stack"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>EDA Summary</h2>
+          <div id="eda-summary" class="table"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>Correlations</h2>
+          <div id="eda-correlations" class="table"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>Model Results</h2>
+          <div id="model-results" class="table"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>Feature Importance</h2>
+          <div id="feature-importance" class="stack"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>PCA</h2>
+          <div id="pca-results" class="table"></div>
+        </div>
+
+        <div class="card modeling-scope" data-tab="modeling">
+          <h2>Time Series Baselines</h2>
+          <div id="ts-results" class="table"></div>
+        </div>
+
+        <div class="card" data-tab="overview">
+          <h2>Raw Output</h2>
+          <div class="actions">
+            <button class="secondary" id="toggle-raw" type="button">
+              Show Full Output
+            </button>
+          </div>
+          <pre id="raw" class="raw"></pre>
+        </div>
+      </section>
+
+      <section class="faq-section" id="help">
+        <div class="faq-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common Questions</h2>
+        </div>
+        <details class="faq-item" open>
+          <summary>What file formats are supported?</summary>
+          <p>CSV, TSV, XLSX, JSON, XML, and DOCX are supported for ingestion and profiling.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is the Data Health Score calculated?</summary>
+          <p>
+            The score uses weighted checks across missingness, duplicates, outliers, and schema
+            drift to provide a single quality indicator.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I run transformations before modeling?</summary>
+          <p>
+            Yes. You can remove duplicates, apply missing-value strategies, preview transformed data,
+            and then run EDA and model checks.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>Do AI insights require additional setup?</summary>
+          <p>
+            Yes. Configure `OPENAI_API_KEY` on the backend server before using AI insight generation.
+          </p>
+        </details>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div>
+            <h3 class="footer-title">CIGMA Data Profiler</h3>
+            <p class="footer-text">
+              Data quality, observability, and fast readiness checks for modern analytical workflows.
+            </p>
+          </div>
+          <div>
+            <h3 class="footer-title">Navigation</h3>
+            <div class="footer-links">
+              <a href="/">Home</a>
+              <a href="/help">Help</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact Us</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-title">Contact Us</h3>
+            <p class="footer-text">
+              support@badawydqa.com<br />
+              +1 (512) 555-0172
+            </p>
+            <button class="secondary small" id="open-contact-modal" type="button">
+              Open Contact Form
+            </button>
+            <h3 class="footer-title footer-title-address">Address</h3>
+            <p class="footer-text">
+              25 Data Avenue, Suite 400<br />
+              Austin, TX 78701, United States
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 CIGMA Data Profiler. All rights reserved.</span>
+        </div>
+      </footer>
+
+      <div class="modal" id="contact-modal" aria-hidden="true" role="dialog" aria-labelledby="contact-modal-title">
+        <div class="modal-card">
+          <div class="modal-head">
+            <h3 id="contact-modal-title">Contact Us</h3>
+            <button class="secondary small" type="button" id="close-contact-modal" aria-label="Close contact form">Close</button>
+          </div>
+          <form id="contact-form" class="form">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" maxlength="80" required />
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" maxlength="120" required />
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="4" maxlength="800" required></textarea>
+            </label>
+            <button class="primary" type="submit" id="contact-submit">Send Message</button>
+            <div class="status" id="contact-status"></div>
+          </form>
+        </div>
+      </div>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

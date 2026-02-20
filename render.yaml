@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: cigma-data-profiler
+    env: docker
+    autoDeploy: true
+    healthCheckPath: /api/metrics
+    envVars:
+      - key: DEBUG
+        value: "false"
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: MAX_FILE_SIZE_MB
+        value: "10"
+      - key: CORS_ORIGINS
+        value: https://YOUR_DOMAIN
+      - key: CORS_ALLOW_CREDENTIALS
+        value: "false"
+      - key: AUTH_REQUIRED
+        value: "true"
+      - key: AUTH_USER
+        value: admin
+      - key: SESSION_TTL_MINUTES
+        value: "120"
+      - key: ANALYZE_TIMEOUT_SEC
+        value: "120"
+      - key: TRANSFORM_TIMEOUT_SEC
+        value: "90"
+      - key: TRANSFORM_RETRY_COUNT
+        value: "1"
+      - key: RATE_LIMIT_ANALYZE_PER_MIN
+        value: "20"
+      - key: RATE_LIMIT_AI_PER_MIN
+        value: "30"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AUTH_PASSWORD
+        sync: false
+      - key: DQA_API_KEY
+        sync: false

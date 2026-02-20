@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | CIGMA Data Profiler</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="static-page">
+    <main class="static-shell">
+      <section class="static-card">
+        <p class="eyebrow">Contact</p>
+        <h1>Get In Touch</h1>
+        <p class="sub">Send a short message and we will get back to you.</p>
+        <form id="contact-page-form" class="form">
+          <label class="field">
+            <span>Name</span>
+            <input name="name" type="text" maxlength="80" required />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" maxlength="120" required />
+          </label>
+          <label class="field">
+            <span>Message</span>
+            <textarea name="message" rows="4" maxlength="800" required></textarea>
+          </label>
+          <button class="primary" id="contact-page-submit" type="submit">Send Message</button>
+          <div class="status" id="contact-page-status"></div>
+        </form>
+      </section>
+      <nav class="static-nav">
+        <a class="secondary" href="/">Home</a>
+        <a class="secondary" href="/about">About</a>
+        <a class="secondary" href="/help">Help</a>
+      </nav>
+    </main>
+    <script>
+      const form = document.getElementById("contact-page-form");
+      const status = document.getElementById("contact-page-status");
+      const submit = document.getElementById("contact-page-submit");
+      form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const fd = new FormData(form);
+        const name = String(fd.get("name") || "").trim();
+        const email = String(fd.get("email") || "").trim();
+        const message = String(fd.get("message") || "").trim();
+        if (!name || !email || !message) {
+          status.textContent = "All fields are required.";
+          return;
+        }
+        submit.disabled = true;
+        status.textContent = "Sending...";
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            const msg = data?.error?.message || "Contact request failed.";
+            const code = data?.error?.code ? ` (${data.error.code})` : "";
+            status.textContent = `Error: ${msg}${code}`;
+            submit.disabled = false;
+            return;
+          }
+          status.textContent = data?.message || "Message sent.";
+          form.reset();
+        } catch (error) {
+          status.textContent = `Network error: ${String(error)}`;
+        } finally {
+          submit.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
