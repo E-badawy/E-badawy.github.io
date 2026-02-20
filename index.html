@@ -65,12 +65,17 @@
 
 
 <body>
-  <header>
+  <header class="site-header">
     <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic">
     <h1>Badawi Amin Muhammed</h1>
 	<h4>[B.Sc, M.Sc.]</h4>
     <h3> Data Scientist • Business Intelligence Expert • Research Analyst </h3>
-   <nav class="top-nav">
+   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+   </button>
+   <nav class="top-nav" id="site-navigation">
    	 	<a href="#about" class="nav-btn">About</a>
 	   	<a href="#resume" class="nav-btn">Résumé</a>
 	   <a href="#certificates" class="nav-btn">Certifications</a>
@@ -612,6 +617,35 @@ It complements the Excel VBA Search Automation System.
     document.querySelectorAll('section').forEach(section => {
       observer.observe(section);
     });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const topNav = document.getElementById('site-navigation');
+    if (navToggle && topNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = topNav.classList.toggle('is-open');
+        navToggle.classList.toggle('is-open', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      topNav.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            topNav.classList.remove('is-open');
+            navToggle.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+          topNav.classList.remove('is-open');
+          navToggle.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
     // Chart.js bar chart
     const ctx = document.getElementById('skillsChart');
