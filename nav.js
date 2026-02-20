@@ -55,23 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     controlsWrap.appendChild(toggleBtn);
 
-    const key = "mobileViewMode";
     const applyMode = function (mode) {
-      const readable = mode === "readable";
-      body.classList.toggle("mobile-readable", readable);
-      toggleBtn.textContent = readable ? "Readable" : "Desktop Fit";
-      toggleBtn.setAttribute("aria-pressed", String(readable));
-      toggleBtn.title = "Tap to switch mobile view mode";
+      const desktopFit = mode === "desktop";
+      body.classList.toggle("mobile-desktop-fit", desktopFit);
+      toggleBtn.textContent = desktopFit ? "Standard Mobile" : "Desktop View";
+      toggleBtn.setAttribute("aria-pressed", String(desktopFit));
+      toggleBtn.title = "Tap to switch between standard mobile and desktop-fit view";
     };
 
-    // Always open in full desktop-fit mode first.
-    applyMode("fit");
-    try {
-      localStorage.removeItem(key);
-    } catch (_) {}
+    // Default load is standard mobile mode.
+    applyMode("mobile");
 
     toggleBtn.addEventListener("click", function () {
-      const next = body.classList.contains("mobile-readable") ? "fit" : "readable";
+      const next = body.classList.contains("mobile-desktop-fit") ? "mobile" : "desktop";
       applyMode(next);
     });
   };
