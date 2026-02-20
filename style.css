@@ -1379,6 +1379,94 @@ body::after {
     inset 0 1px 0 rgba(197, 231, 252, 0.2);
 }
 
+/* ===== SOLUTIONS + TESTIMONIALS ===== */
+.solutions-section,
+.testimonials-section {
+  padding: 70px 20px;
+  text-align: center;
+  background: rgba(238, 245, 255, 0.6);
+}
+
+.solutions-section h2,
+.testimonials-section h2 {
+  color: #001f3f;
+  font-size: 2em;
+  margin-bottom: 14px;
+  border-bottom: 3px solid #001f3f;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.solutions-intro,
+.testimonials-intro {
+  max-width: 850px;
+  margin: 0 auto 34px;
+  color: #3a4c5f;
+}
+
+.solutions-grid,
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.solution-card,
+.testimonial-card {
+  text-align: left;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(160, 210, 240, 0.5);
+  box-shadow:
+    0 12px 28px rgba(10, 33, 56, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.66);
+}
+
+.solution-card h4,
+.testimonial-card h4 {
+  margin: 8px 0 10px;
+  color: #072c4a;
+}
+
+.solution-card p,
+.testimonial-card p {
+  margin: 0;
+  color: #2c4158;
+}
+
+.solution-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b4f82;
+  font-size: 1.2rem;
+  background: linear-gradient(165deg, rgba(220, 240, 255, 0.92), rgba(181, 218, 242, 0.72));
+  border: 1px solid rgba(117, 183, 228, 0.6);
+  margin-bottom: 10px;
+}
+
+.solution-btn {
+  margin-top: 16px;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.testimonial-meta {
+  margin-top: 14px !important;
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: #0c3556 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::after {
     animation: none;
@@ -1403,7 +1491,9 @@ body::after {
   #projects,
   #certificates,
   .services-section,
-  .contact-section {
+  .contact-section,
+  .solutions-section,
+  .testimonials-section {
     padding-left: var(--page-gutter) !important;
     padding-right: var(--page-gutter) !important;
   }
@@ -1411,7 +1501,9 @@ body::after {
   .projects-grid,
   .certificates-grid,
   .services-grid,
-  .pricing-grid {
+  .pricing-grid,
+  .solutions-grid,
+  .testimonials-grid {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 16px !important;
   }
@@ -1420,7 +1512,9 @@ body::after {
   .certificate-card,
   .service-card,
   .pricing-card,
-  .contact-box {
+  .contact-box,
+  .solution-card,
+  .testimonial-card {
     width: 100%;
   }
 
