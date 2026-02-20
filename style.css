@@ -1384,3 +1384,58 @@ body::after {
     animation: none;
   }
 }
+
+/* ===== MOBILE FIT + TAP TARGETS ===== */
+@media (max-width: 768px) {
+  :root {
+    --page-gutter: 12px;
+  }
+
+  .site-header,
+  .top-nav,
+  .consultation-section {
+    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  section,
+  #projects,
+  #certificates,
+  .services-section,
+  .contact-section {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+  }
+
+  .projects-grid,
+  .certificates-grid,
+  .services-grid,
+  .pricing-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .project-card,
+  .certificate-card,
+  .service-card,
+  .pricing-card,
+  .contact-box {
+    width: 100%;
+  }
+
+  .nav-btn,
+  .project-btn,
+  .certificate-btn,
+  .cta-btn,
+  button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}

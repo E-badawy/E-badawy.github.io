@@ -595,6 +595,31 @@ It complements the Excel VBA Search Automation System.
 
   <!-- Custom Script for Animations and Chart -->
   <script>
+    // Open external links in a new tab and keep internal links in-page.
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const rawHref = link.getAttribute('href');
+      if (
+        !rawHref ||
+        rawHref.startsWith('#') ||
+        rawHref.startsWith('/') ||
+        rawHref.startsWith('mailto:') ||
+        rawHref.startsWith('tel:')
+      ) {
+        return;
+      }
+
+      try {
+        const url = new URL(rawHref, window.location.origin);
+        const isExternalHttp =
+          (url.protocol === 'http:' || url.protocol === 'https:') &&
+          url.hostname !== window.location.hostname;
+        if (isExternalHttp) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        }
+      } catch (_) {}
+    });
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
