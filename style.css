@@ -2037,8 +2037,6 @@ body:not(.home-page)::after {
   animation: none !important;
 }
 
-body:not(.home-page) .site-header,
-body:not(.home-page) .top-nav,
 body:not(.home-page) section,
 body:not(.home-page) .consultation-section,
 body:not(.home-page) .consultation-form,
@@ -2057,8 +2055,35 @@ body:not(.home-page) .analytics-kpi {
   backdrop-filter: none !important;
 }
 
+body:not(.home-page) .site-header {
+  background: linear-gradient(135deg, #062b49, #0b3b62) !important;
+  border: 1px solid rgba(179, 223, 251, 0.42) !important;
+  color: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+body:not(.home-page) .site-header h1,
+body:not(.home-page) .site-header h3,
+body:not(.home-page) .site-header h4,
+body:not(.home-page) .site-header p {
+  color: #ffffff !important;
+}
+
+body:not(.home-page) .top-nav {
+  background: #0a3558 !important;
+  border: 1px solid rgba(173, 217, 245, 0.42) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+body:not(.home-page) .nav-btn {
+  background: #0c436f !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(173, 217, 245, 0.36) !important;
+}
+
 body:not(.home-page) a,
-body:not(.home-page) .nav-btn,
 body:not(.home-page) .project-btn,
 body:not(.home-page) .certificate-btn,
 body:not(.home-page) .cta-btn {
@@ -2069,7 +2094,12 @@ body:not(.home-page) .nav-btn:hover,
 body:not(.home-page) .project-btn:hover,
 body:not(.home-page) .certificate-btn:hover,
 body:not(.home-page) .cta-btn:hover {
+  color: #ffffff !important;
   transform: none !important;
+}
+
+body:not(.home-page) .nav-btn:hover {
+  background: #0f4f83 !important;
 }
 
 /* ===== HOME PAGE OPAQUE CONTENT (MOTION IN BACKGROUND ONLY) ===== */
