@@ -41,8 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleBtn.className = "mobile-view-toggle";
       toggleBtn.type = "button";
       toggleBtn.setAttribute("aria-label", "Toggle mobile view mode");
-      navToggle.insertAdjacentElement("afterend", toggleBtn);
     }
+
+    let controlsWrap = document.querySelector(".header-mobile-controls");
+    if (!controlsWrap) {
+      controlsWrap = document.createElement("div");
+      controlsWrap.className = "header-mobile-controls";
+      const parent = navToggle.parentElement;
+      if (parent) {
+        parent.insertBefore(controlsWrap, topNav || navToggle.nextSibling);
+        controlsWrap.appendChild(navToggle);
+      }
+    }
+    controlsWrap.appendChild(toggleBtn);
 
     const key = "mobileViewMode";
     const applyMode = function (mode) {
@@ -53,19 +64,15 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleBtn.title = "Tap to switch mobile view mode";
     };
 
-    let stored = "fit";
+    // Always open in full desktop-fit mode first.
+    applyMode("fit");
     try {
-      stored = localStorage.getItem(key) === "readable" ? "readable" : "fit";
+      localStorage.removeItem(key);
     } catch (_) {}
-
-    applyMode(stored);
 
     toggleBtn.addEventListener("click", function () {
       const next = body.classList.contains("mobile-readable") ? "fit" : "readable";
       applyMode(next);
-      try {
-        localStorage.setItem(key, next);
-      } catch (_) {}
     });
   };
 

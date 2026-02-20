@@ -389,7 +389,7 @@ html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc
 
 .mobile-view-toggle {
   display: none;
-  margin: 12px auto 0;
+  margin: 0;
   min-height: 40px;
   padding: 8px 12px;
   border-radius: 12px;
@@ -398,6 +398,23 @@ html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc
   color: #dff4ff;
   font-weight: 600;
   cursor: pointer;
+}
+
+.header-mobile-controls {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 16px auto 8px;
+}
+
+.header-mobile-controls .nav-toggle {
+  margin: 0;
+}
+
+.header-mobile-controls .mobile-view-toggle {
+  min-width: 138px;
 }
 
 .nav-toggle-line {
@@ -1982,7 +1999,14 @@ body.home-page .analytics-kpi {
     --desktop-canvas-scale: calc(100vw / var(--desktop-canvas-width));
   }
 
+  @supports (width: 100dvw) {
+    :root {
+      --desktop-canvas-scale: calc(100dvw / var(--desktop-canvas-width));
+    }
+  }
+
   html {
+    -webkit-text-size-adjust: 100%;
     overflow-x: hidden !important;
   }
 
@@ -1990,7 +2014,9 @@ body.home-page .analytics-kpi {
     width: calc(var(--desktop-canvas-width) * 1px) !important;
     min-width: calc(var(--desktop-canvas-width) * 1px) !important;
     max-width: none !important;
-    zoom: var(--desktop-canvas-scale);
+    transform: scale(var(--desktop-canvas-scale)) !important;
+    transform-origin: top left !important;
+    min-height: calc(100dvh / var(--desktop-canvas-scale)) !important;
     overflow-x: hidden !important;
   }
 
@@ -2000,26 +2026,12 @@ body.home-page .analytics-kpi {
     justify-content: center;
   }
 
-  @supports not (zoom: 1) {
-    body {
-      transform: scale(var(--desktop-canvas-scale)) !important;
-      transform-origin: top left !important;
-      min-height: calc(100vh / var(--desktop-canvas-scale)) !important;
-    }
-  }
-
   body.mobile-readable {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    zoom: 1 !important;
-  }
-
-  @supports not (zoom: 1) {
-    body.mobile-readable {
-      transform: none !important;
-      min-height: 100vh !important;
-    }
+    transform: none !important;
+    min-height: 100dvh !important;
   }
 
   .site-header,
