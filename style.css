@@ -2023,3 +2023,51 @@ section,
     animation: matrixRainFall 18s linear infinite !important;
   }
 }
+
+/* ===== STATIC THEME FOR LINKED/PROJECT PAGES ===== */
+body:not(.home-page) {
+  background: #f3f7fc !important;
+  isolation: auto !important;
+}
+
+body:not(.home-page)::before,
+body:not(.home-page)::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+body:not(.home-page) .site-header,
+body:not(.home-page) .top-nav,
+body:not(.home-page) section,
+body:not(.home-page) .consultation-section,
+body:not(.home-page) .consultation-form,
+body:not(.home-page) .pricing-card,
+body:not(.home-page) .project-card,
+body:not(.home-page) .certificate-card,
+body:not(.home-page) .service-card,
+body:not(.home-page) .skill-card,
+body:not(.home-page) .solution-card,
+body:not(.home-page) .testimonial-card,
+body:not(.home-page) .contact-box,
+body:not(.home-page) .analytics-panel,
+body:not(.home-page) .analytics-kpi {
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+body:not(.home-page) a,
+body:not(.home-page) .nav-btn,
+body:not(.home-page) .project-btn,
+body:not(.home-page) .certificate-btn,
+body:not(.home-page) .cta-btn {
+  transition: none !important;
+}
+
+body:not(.home-page) .nav-btn:hover,
+body:not(.home-page) .project-btn:hover,
+body:not(.home-page) .certificate-btn:hover,
+body:not(.home-page) .cta-btn:hover {
+  transform: none !important;
+}
