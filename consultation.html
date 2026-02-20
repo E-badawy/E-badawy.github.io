@@ -1,207 +1,187 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<header>
-  <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic">
-  <h1>Badawi Aminu Muhammed</h1>
-  <p>Data Analyst • Business Intelligence Expert • Research Scientist</p>
-  <nav class="top-nav">
-    <a href="index.html#about" class="nav-btn">About</a>
-    <a href="index.html#resume" class="nav-btn">Résumé</a>
-    <a href="index.html#projects" class="nav-btn">Projects</a>
-    <a href="index.html#services" class="nav-btn">Services</a>
-    <a href="index.html#analytics" class="nav-btn">Analytics</a>
-    <a href="index.html#contact" class="nav-btn">Contact</a>
-  </nav>
-  
-  <p style="text-align:center; margin-top:20px;">
-  <a href="index.html#about" class="resume-btn">← Back to Home</a>
-</p>
-</header>
-  
 <head>
   <meta charset="UTF-8" />
-  <title>1-on-1 Data Consultation | Badawi Amin Muhammed</title>
-  <meta name="description"
-        content="Book a personalised 1-on-1 data consultation covering analytics strategy, dashboards, automation, research, or career guidance." />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Main Styles -->
+  <title>1-on-1 Data Consultation | Badawi Amin Muhammed</title>
+  <meta
+    name="description"
+    content="Book a personalised 1-on-1 data consultation covering analytics strategy, dashboards, automation, research, or career guidance."
+  />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 </head>
-  
-</a>
-
-<script>
-const reason = document.getElementById("reason");
-const companyField = document.getElementById("companyField");
-const cvField = document.getElementById("cvField");
-
-reason.addEventListener("change", () => {
-  companyField.classList.add("hidden");
-  cvField.classList.add("hidden");
-
-  if (reason.value === "bi") companyField.classList.remove("hidden");
-  if (reason.value === "career") cvField.classList.remove("hidden");
-});
-</script>
-
-  
 <body>
-
-<section class="consultation-section">
-
-  <!-- HERO -->
-  <header class="consultation-hero">
-    <h1>One-on-One Data Consultation</h1>
-    <p>
-      A focused session to help you clarify problems, design solutions,
-      and make confident data-driven decisions.
-    </p>
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist • Business Intelligence Expert • Research Analyst</h3>
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="index.html#about" class="nav-btn">About</a>
+      <a href="index.html#resume" class="nav-btn">Resume</a>
+      <a href="index.html#certificates" class="nav-btn">Certifications</a>
+      <a href="index.html#projects" class="nav-btn">Projects</a>
+      <a href="index.html#analytics" class="nav-btn">Analytics</a>
+      <a href="index.html#services" class="nav-btn">Services</a>
+      <a href="index.html#contact" class="nav-btn">Contact</a>
+    </nav>
   </header>
 
-  <!-- PURPOSE -->
-  <div class="consultation-purpose">
-    <h2>What This Session Is For</h2>
-    <ul>
-      <li>Analytics & BI strategy</li>
-      <li>Power BI, SQL, Python or R guidance</li>
-      <li>Dashboard design & data modelling</li>
-      <li>Research & evaluation frameworks</li>
-      <li>Career, portfolio, or project review</li>
-    </ul>
-  </div>
-
-<!-- pricing -->
-
-<div class="pricing-grid">
-  <div class="pricing-card highlight">
-    <h3>Intro Session</h3>
-    <p class="price">Free</p>
-    <span>20 minutes</span>
-    <ul>
-      <li>Problem clarification</li>
-      <li>High-level guidance</li>
-      <li>Next-step roadmap</li>
-    </ul>
-  </div>
-
-  <div class="pricing-card">
-    <h3>Deep Dive</h3>
-    <p class="price">₦20,000</p>
-    <span>60 minutes</span>
-    <ul>
-      <li>Hands-on review</li>
-      <li>Design decisions</li>
-      <li>Implementation plan</li>
-    </ul>
-  </div>
-</div>
-
-
-  
-  <!-- FORM -->
-  <form
-    class="consultation-form"
-    action="https://formspree.io/f/manlgjky"
-    method="POST"
-  >
-<input type="hidden" name="_subject" value="New Consultation Request">
-
-    <h2>Consultation Request</h2>
-
-    <!-- Name -->
-    <div class="form-group">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required />
+  <section class="consultation-section">
+    <div class="consultation-hero">
+      <h1>One-on-One Data Consultation</h1>
+      <p>
+        A focused session to help you clarify problems, design solutions, and make
+        confident data-driven decisions.
+      </p>
     </div>
 
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
+    <div class="consultation-purpose">
+      <h2>What This Session Is For</h2>
+      <ul>
+        <li>Analytics and BI strategy</li>
+        <li>Power BI, SQL, Python, or R guidance</li>
+        <li>Dashboard design and data modelling</li>
+        <li>Research and evaluation frameworks</li>
+        <li>Career, portfolio, or project review</li>
+      </ul>
     </div>
 
-    <!-- Location -->
-    <div class="form-group">
-      <label for="location">Location / Time Zone</label>
-      <input type="text" id="location" name="location" placeholder="e.g. Abuja (GMT+1)" />
+    <div class="pricing-grid">
+      <div class="pricing-card highlight">
+        <h3>Intro Session</h3>
+        <p class="price">Free</p>
+        <span>20 minutes</span>
+        <ul>
+          <li>Problem clarification</li>
+          <li>High-level guidance</li>
+          <li>Next-step roadmap</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Deep Dive</h3>
+        <p class="price">N20,000</p>
+        <span>60 minutes</span>
+        <ul>
+          <li>Hands-on review</li>
+          <li>Design decisions</li>
+          <li>Implementation plan</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="form-group">
-  <label for="reason">Reason for Consultation</label>
-  <select id="reason" name="reason" required>
-    <option value="">Select one</option>
-    <option value="bi">Business Intelligence & Dashboards</option>
-    <option value="engineering">Data Engineering / Pipelines</option>
-    <option value="research">Research & Evaluation</option>
-    <option value="career">Career / Portfolio Review</option>
-    <option value="other">Other</option>
-  </select>
-</div>
+    <form class="consultation-form" action="https://formspree.io/f/manlgjky" method="POST">
+      <input type="hidden" name="_subject" value="New Consultation Request" />
+      <h2>Consultation Request</h2>
 
-<!-- Conditional -->
-<div class="form-group hidden" id="companyField">
-  <label>Organisation / Company</label>
-  <input type="text" name="company">
-</div>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
 
-    <!-- Details -->
-    <div class="form-group">
-      <label for="details">Brief Description</label>
-      <textarea
-        id="details"
-        name="details"
-        rows="4"
-        placeholder="Describe your challenge or goal..."
-        required></textarea>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location / Time Zone</label>
+        <input type="text" id="location" name="location" placeholder="e.g. Abuja (GMT+1)" />
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason for Consultation</label>
+        <select id="reason" name="reason" required>
+          <option value="">Select one</option>
+          <option value="bi">Business Intelligence and Dashboards</option>
+          <option value="engineering">Data Engineering / Pipelines</option>
+          <option value="research">Research and Evaluation</option>
+          <option value="career">Career / Portfolio Review</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group hidden" id="companyField">
+        <label for="company">Organisation / Company</label>
+        <input type="text" id="company" name="company" />
+      </div>
+
+      <div class="form-group hidden" id="cvField">
+        <label for="cvLink">CV / Portfolio Link</label>
+        <input type="url" id="cvLink" name="cv_link" placeholder="https://..." />
+      </div>
+
+      <div class="form-group">
+        <label for="details">Brief Description</label>
+        <textarea
+          id="details"
+          name="details"
+          rows="4"
+          placeholder="Describe your challenge or goal..."
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="preferred_date" />
+      </div>
+
+      <div class="form-group">
+        <label for="time">Preferred Time</label>
+        <input type="time" id="time" name="preferred_time" />
+      </div>
+
+      <button type="submit" class="cta-btn primary" id="submitBtn">
+        <span>Request Consultation</span>
+      </button>
+    </form>
+
+    <div class="consultation-note">
+      <p>
+        After submission, you will receive a confirmation email with next steps and a
+        calendar link.
+      </p>
     </div>
+  </section>
 
-    <!-- Date -->
-    <div class="form-group">
-      <label for="date">Preferred Date</label>
-      <input type="date" id="date" name="preferred_date" />
-    </div>
+  <script>
+    const reason = document.getElementById("reason");
+    const companyField = document.getElementById("companyField");
+    const cvField = document.getElementById("cvField");
+    const form = document.querySelector(".consultation-form");
+    const btn = document.getElementById("submitBtn");
 
-    <!-- Time -->
-    <div class="form-group">
-      <label for="time">Preferred Time</label>
-      <input type="time" id="time" name="preferred_time" />
-    </div>
+    reason.addEventListener("change", () => {
+      companyField.classList.add("hidden");
+      cvField.classList.add("hidden");
 
-    <!-- Submit -->
-    <button type="submit" class="cta-btn primary" id="submitBtn">
-  <span>Request Consultation</span>
-  </button>
+      if (reason.value === "bi") companyField.classList.remove("hidden");
+      if (reason.value === "career") cvField.classList.remove("hidden");
+    });
 
-
-  </form>
-
-  <!-- AFTER SUBMISSION -->
-  <div class="consultation-note">
-    <p>
-      After submission, you’ll receive a confirmation email with
-      next steps and a calendar link.
-    </p>
-  </div>
-  
-<script>
-const form = document.querySelector(".consultation-form");
-const btn = document.getElementById("submitBtn");
-
-form.addEventListener("submit", () => {
-  btn.classList.add("loading");
-  btn.innerHTML = "Submitting...";
-});
-</script>
-
-  
-</section>
-
+    form.addEventListener("submit", () => {
+      btn.classList.add("loading");
+      btn.innerHTML = "Submitting...";
+    });
+  </script>
+  <script src="site-nav.js"></script>
 </body>
 </html>
