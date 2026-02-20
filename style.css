@@ -2071,3 +2071,42 @@ body:not(.home-page) .certificate-btn:hover,
 body:not(.home-page) .cta-btn:hover {
   transform: none !important;
 }
+
+/* ===== HOME PAGE OPAQUE CONTENT (MOTION IN BACKGROUND ONLY) ===== */
+body.home-page .site-header,
+body.home-page .top-nav {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+body.home-page section,
+body.home-page #about,
+body.home-page #resume,
+body.home-page .professional-skills,
+body.home-page .services-section,
+body.home-page #certificates,
+body.home-page #projects,
+body.home-page #analytics,
+body.home-page .solutions-section,
+body.home-page .testimonials-section,
+body.home-page .contact-section {
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+body.home-page .service-card,
+body.home-page .skill-card,
+body.home-page .certificate-card,
+body.home-page .project-card,
+body.home-page .contact-box,
+body.home-page .pricing-card,
+body.home-page .consultation-form,
+body.home-page .solution-card,
+body.home-page .testimonial-card,
+body.home-page .analytics-panel,
+body.home-page .analytics-kpi {
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
