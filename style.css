@@ -1363,40 +1363,19 @@ body::before {
 }
 
 body::after {
-  content:
-    "01011001 10011010 01100101 11100011 00110110 10101100 01101010 10011001\A"
-    "00101110 10010101 11100010 01011100 10100110 00111001 11001010 01011001\A"
-    "11100001 00110111 01001101 10010100 01101011 11001001 00110101 10100010\A"
-    "01010011 11001010 00110010 10101101 01001110 11100100 00110110 10011011";
+  content: "";
   position: fixed;
   inset: -15% -10%;
   z-index: -1;
   pointer-events: none;
-  white-space: pre;
-  font-family: Consolas, "Lucida Console", monospace;
-  font-size: clamp(0.58rem, 1.1vw, 0.9rem);
-  font-weight: 600;
-  letter-spacing: 0.38em;
-  line-height: 2.3;
-  color: rgba(8, 72, 125, 0.18);
-  mix-blend-mode: soft-light;
-  filter: blur(0.2px);
-  animation: hudDataDrift 24s linear infinite;
-}
-
-@keyframes hudDataDrift {
-  0% {
-    transform: translate3d(-2.5%, -6%, 0) skewY(-2deg);
-    opacity: 0.12;
-  }
-  50% {
-    transform: translate3d(2.5%, 5%, 0) skewY(1.5deg);
-    opacity: 0.28;
-  }
-  100% {
-    transform: translate3d(-2.5%, -6%, 0) skewY(-2deg);
-    opacity: 0.12;
-  }
+  opacity: 0.24;
+  background:
+    radial-gradient(circle at 20% 16%, rgba(255, 255, 255, 0.54), transparent 44%),
+    radial-gradient(circle at 78% 12%, rgba(209, 235, 252, 0.52), transparent 48%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.26), rgba(187, 220, 243, 0.14));
+  mix-blend-mode: screen;
+  filter: none;
+  animation: none;
 }
 
 /* Unified glass cards */
@@ -1578,40 +1557,25 @@ body {
 
 body::before {
   z-index: 0;
-  opacity: 0.5;
+  opacity: 0.44;
   background:
-    linear-gradient(rgba(17, 66, 102, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 66, 102, 0.16) 1px, transparent 1px),
-    repeating-linear-gradient(120deg, transparent 0 22px, rgba(40, 128, 184, 0.14) 22px 24px, transparent 24px 44px),
-    radial-gradient(circle at 22% 12%, rgba(63, 142, 201, 0.25), transparent 52%);
-  background-size: 34px 34px, 34px 34px, 220px 220px, auto;
-  animation: hudGridPan 28s linear infinite;
+    linear-gradient(rgba(17, 66, 102, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 66, 102, 0.11) 1px, transparent 1px),
+    radial-gradient(circle at 22% 12%, rgba(63, 142, 201, 0.18), transparent 52%),
+    linear-gradient(152deg, rgba(255, 255, 255, 0.22), rgba(211, 231, 246, 0.12));
+  background-size: 36px 36px, 36px 36px, auto, auto;
+  animation: none;
 }
 
 body::after {
   z-index: 0;
-  color: rgba(6, 74, 128, 0.34);
-  mix-blend-mode: normal;
-  text-shadow: 0 0 10px rgba(83, 173, 238, 0.2);
-  animation: hudDataDrift 16s linear infinite, hudDataPulse 4.2s ease-in-out infinite;
-}
-
-@keyframes hudGridPan {
-  0% {
-    background-position: 0 0, 0 0, 0 0, 0 0;
-  }
-  100% {
-    background-position: 34px 34px, 34px 34px, 260px 180px, 0 0;
-  }
-}
-
-@keyframes hudDataPulse {
-  0%, 100% {
-    opacity: 0.22;
-  }
-  50% {
-    opacity: 0.4;
-  }
+  mix-blend-mode: screen;
+  opacity: 0.2;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.44), transparent 42%),
+    radial-gradient(circle at 82% 18%, rgba(192, 229, 250, 0.38), transparent 46%);
+  filter: none;
+  animation: none;
 }
 
 .site-header,
@@ -1662,7 +1626,7 @@ section,
   }
 }
 
-/* ===== GLASS MATRIX RAIN (DESKTOP/TABLET) ===== */
+/* ===== STATIC GLOSSY GLASS (DESKTOP/TABLET) ===== */
 @media (min-width: 769px) {
   body {
     background:
@@ -1685,7 +1649,7 @@ section,
       radial-gradient(circle at 20% 12%, rgba(82, 160, 216, 0.28), transparent 55%),
       linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(214, 233, 248, 0.2));
     background-size: 34px 34px, 34px 34px, auto, auto;
-    animation: glassFieldPulse 10s ease-in-out infinite, glassFieldPan 28s linear infinite;
+    animation: none;
   }
 
   body::after {
@@ -1694,52 +1658,14 @@ section,
     inset: -16% -8%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.34;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='420' viewBox='0 0 128 420'%3E%3Cg fill='%23056ea8' fill-opacity='0.62' font-family='Consolas,monospace' font-size='16'%3E%3Ctext x='12' y='24'%3E010110%3C/text%3E%3Ctext x='22' y='56'%3E101001%3C/text%3E%3Ctext x='10' y='88'%3E001101%3C/text%3E%3Ctext x='24' y='120'%3E110010%3C/text%3E%3Ctext x='14' y='152'%3E010011%3C/text%3E%3Ctext x='26' y='184'%3E111000%3C/text%3E%3Ctext x='9' y='216'%3E001011%3C/text%3E%3Ctext x='23' y='248'%3E101110%3C/text%3E%3Ctext x='11' y='280'%3E011001%3C/text%3E%3Ctext x='24' y='312'%3E110101%3C/text%3E%3Ctext x='13' y='344'%3E001110%3C/text%3E%3Ctext x='22' y='376'%3E101011%3C/text%3E%3Ctext x='10' y='408'%3E010101%3C/text%3E%3C/g%3E%3C/svg%3E"),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='164' height='520' viewBox='0 0 164 520'%3E%3Cg fill='%23005f95' fill-opacity='0.42' font-family='Consolas,monospace' font-size='17'%3E%3Ctext x='28' y='26'%3E101100%3C/text%3E%3Ctext x='40' y='62'%3E010011%3C/text%3E%3Ctext x='26' y='98'%3E110101%3C/text%3E%3Ctext x='42' y='134'%3E001110%3C/text%3E%3Ctext x='27' y='170'%3E101010%3C/text%3E%3Ctext x='41' y='206'%3E011001%3C/text%3E%3Ctext x='26' y='242'%3E111100%3C/text%3E%3Ctext x='40' y='278'%3E000111%3C/text%3E%3Ctext x='28' y='314'%3E101001%3C/text%3E%3Ctext x='41' y='350'%3E011110%3C/text%3E%3Ctext x='26' y='386'%3E110010%3C/text%3E%3Ctext x='42' y='422'%3E001101%3C/text%3E%3Ctext x='28' y='458'%3E100011%3C/text%3E%3Ctext x='40' y='494'%3E010110%3C/text%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 128px 420px, 164px 520px;
-    background-position: 0 -420px, 74px -520px;
-    filter: drop-shadow(0 0 10px rgba(85, 179, 239, 0.22));
-    mix-blend-mode: multiply;
-    animation: matrixRainFall 13s linear infinite, matrixRainSway 7s ease-in-out infinite;
-  }
-}
-
-@keyframes glassFieldPan {
-  0% {
-    background-position: 0 0, 0 0, 0 0, 0 0;
-  }
-  100% {
-    background-position: 34px 34px, 34px 34px, 18px 10px, 0 0;
-  }
-}
-
-@keyframes glassFieldPulse {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.62;
-  }
-}
-
-@keyframes matrixRainFall {
-  0% {
-    background-position: 0 -420px, 74px -520px;
-  }
-  100% {
-    background-position: 0 420px, 74px 520px;
-  }
-}
-
-@keyframes matrixRainSway {
-  0%, 100% {
-    transform: translateX(-6px);
-  }
-  50% {
-    transform: translateX(6px);
+    opacity: 0.24;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.48), transparent 42%),
+      radial-gradient(circle at 82% 20%, rgba(198, 231, 250, 0.4), transparent 46%),
+      linear-gradient(165deg, rgba(255, 255, 255, 0.24), rgba(178, 216, 240, 0.12));
+    filter: none;
+    mix-blend-mode: screen;
+    animation: none;
   }
 }
 
