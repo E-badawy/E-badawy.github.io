@@ -1822,3 +1822,84 @@ section,
     max-width: none !important;
   }
 }
+
+/* ===== GLASS MATRIX RAIN (DESKTOP/TABLET) ===== */
+@media (min-width: 769px) {
+  body {
+    background:
+      radial-gradient(circle at 14% 8%, rgba(154, 216, 248, 0.42), transparent 36%),
+      radial-gradient(circle at 88% 4%, rgba(132, 196, 234, 0.36), transparent 34%),
+      radial-gradient(circle at 82% 88%, rgba(171, 211, 236, 0.28), transparent 40%),
+      linear-gradient(150deg, #dfe9f4 0%, #edf4fb 44%, #e3edf8 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -12% -8%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.56;
+    background:
+      linear-gradient(rgba(21, 74, 110, 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(21, 74, 110, 0.14) 1px, transparent 1px),
+      radial-gradient(circle at 20% 12%, rgba(82, 160, 216, 0.28), transparent 55%),
+      linear-gradient(160deg, rgba(255, 255, 255, 0.5), rgba(214, 233, 248, 0.2));
+    background-size: 34px 34px, 34px 34px, auto, auto;
+    animation: glassFieldPulse 10s ease-in-out infinite, glassFieldPan 28s linear infinite;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: -16% -8%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.34;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='420' viewBox='0 0 128 420'%3E%3Cg fill='%23056ea8' fill-opacity='0.62' font-family='Consolas,monospace' font-size='16'%3E%3Ctext x='12' y='24'%3E010110%3C/text%3E%3Ctext x='22' y='56'%3E101001%3C/text%3E%3Ctext x='10' y='88'%3E001101%3C/text%3E%3Ctext x='24' y='120'%3E110010%3C/text%3E%3Ctext x='14' y='152'%3E010011%3C/text%3E%3Ctext x='26' y='184'%3E111000%3C/text%3E%3Ctext x='9' y='216'%3E001011%3C/text%3E%3Ctext x='23' y='248'%3E101110%3C/text%3E%3Ctext x='11' y='280'%3E011001%3C/text%3E%3Ctext x='24' y='312'%3E110101%3C/text%3E%3Ctext x='13' y='344'%3E001110%3C/text%3E%3Ctext x='22' y='376'%3E101011%3C/text%3E%3Ctext x='10' y='408'%3E010101%3C/text%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='164' height='520' viewBox='0 0 164 520'%3E%3Cg fill='%23005f95' fill-opacity='0.42' font-family='Consolas,monospace' font-size='17'%3E%3Ctext x='28' y='26'%3E101100%3C/text%3E%3Ctext x='40' y='62'%3E010011%3C/text%3E%3Ctext x='26' y='98'%3E110101%3C/text%3E%3Ctext x='42' y='134'%3E001110%3C/text%3E%3Ctext x='27' y='170'%3E101010%3C/text%3E%3Ctext x='41' y='206'%3E011001%3C/text%3E%3Ctext x='26' y='242'%3E111100%3C/text%3E%3Ctext x='40' y='278'%3E000111%3C/text%3E%3Ctext x='28' y='314'%3E101001%3C/text%3E%3Ctext x='41' y='350'%3E011110%3C/text%3E%3Ctext x='26' y='386'%3E110010%3C/text%3E%3Ctext x='42' y='422'%3E001101%3C/text%3E%3Ctext x='28' y='458'%3E100011%3C/text%3E%3Ctext x='40' y='494'%3E010110%3C/text%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 420px, 164px 520px;
+    background-position: 0 -420px, 74px -520px;
+    filter: drop-shadow(0 0 10px rgba(85, 179, 239, 0.22));
+    mix-blend-mode: multiply;
+    animation: matrixRainFall 13s linear infinite, matrixRainSway 7s ease-in-out infinite;
+  }
+}
+
+@keyframes glassFieldPan {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 34px 34px, 34px 34px, 18px 10px, 0 0;
+  }
+}
+
+@keyframes glassFieldPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+
+@keyframes matrixRainFall {
+  0% {
+    background-position: 0 -420px, 74px -520px;
+  }
+  100% {
+    background-position: 0 420px, 74px 520px;
+  }
+}
+
+@keyframes matrixRainSway {
+  0%, 100% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
