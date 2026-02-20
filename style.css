@@ -1591,11 +1591,12 @@ body::after {
   .projects-grid,
   .certificates-grid,
   .services-grid,
+  .skills-grid,
   .pricing-grid,
   .solutions-grid,
   .testimonials-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
   }
 
   .project-card,
@@ -1748,7 +1749,7 @@ section,
   }
 
   .analytics-kpis {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   .analytics-panel {
@@ -1762,5 +1763,62 @@ section,
   html body[for="html-export"]:not([data-presentation-mode]) pre {
     max-width: 100%;
     overflow-x: auto;
+  }
+}
+
+/* ===== MOBILE STABILITY PATCH ===== */
+@media (max-width: 900px) {
+  /* Prevent markdown-export pages from being shifted off-screen by sidebar layout. */
+  html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc,
+  html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+    display: none !important;
+  }
+
+  html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview,
+  html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+    width: calc(100% - 16px) !important;
+    max-width: none !important;
+    left: 0 !important;
+    transform: none !important;
+    margin: 8px auto !important;
+    padding: 12px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Reduce rendering stress on mobile browsers to avoid jitter/flicker. */
+  body::before,
+  body::after {
+    content: none !important;
+    display: none !important;
+    animation: none !important;
+  }
+
+  .site-header,
+  .top-nav,
+  section,
+  .service-card,
+  .skill-card,
+  .project-card,
+  .certificate-card,
+  .solution-card,
+  .testimonial-card,
+  .contact-box,
+  .analytics-panel,
+  .analytics-kpi {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .skill-icon,
+  .contact-item i,
+  .social-links a i,
+  .contact-box i {
+    animation: none !important;
+  }
+
+  .top-nav {
+    width: calc(100% - 16px) !important;
+    max-width: none !important;
   }
 }
