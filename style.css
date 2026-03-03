@@ -577,6 +577,14 @@ h2 {
   margin-top: 10px;
 }
 
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .resume-btn {
   background-color: #001f3f;
   color: #fff;
@@ -591,6 +599,14 @@ h2 {
 
 .resume-btn:hover {
   background-color: #004080;
+}
+
+.resume-preview-btn {
+  background-color: #0b3e69;
+}
+
+.resume-preview-btn:hover {
+  background-color: #145a94;
 }
 
 /* ===== CERTIFICATION SECTION ===== */
