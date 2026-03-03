@@ -641,9 +641,9 @@ body::before {
 
 .workflow-tools {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   gap: 10px;
-  align-items: end;
+  align-items: start;
   margin-bottom: 12px;
 }
 
@@ -660,31 +660,80 @@ body::before {
   padding: 8px 10px;
 }
 
-.workflow-label {
-  display: block;
-  margin: 8px 0 6px;
-  font-weight: 600;
-  color: #214763;
+.workflow-profile {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 14px;
 }
 
-.workflow-draft {
-  width: 100%;
+.workflow-context {
+  border: 1px solid rgba(149, 206, 241, 0.56);
+  background: #f6fbff;
   border-radius: 10px;
-  border: 1px solid rgba(139, 197, 235, 0.62);
   padding: 12px;
-  font-family: "Consolas", "Courier New", monospace;
-  line-height: 1.5;
-  resize: vertical;
 }
 
 .workflow-preview {
-  margin-top: 10px;
+  margin-top: 0;
   width: 100%;
-  max-height: 320px;
-  object-fit: contain;
+  max-height: 240px;
+  object-fit: cover;
   border-radius: 10px;
   border: 1px solid rgba(139, 197, 235, 0.62);
   background: #f5fbff;
+}
+
+.workflow-context h3 {
+  margin: 0 0 8px;
+  color: #103a5c;
+}
+
+.workflow-context p {
+  margin: 0;
+  color: #39546d;
+}
+
+.workflow-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.workflow-meta h3 {
+  margin: 0 0 8px;
+  color: #103a5c;
+  font-size: 1rem;
+}
+
+.workflow-step-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #33506a;
+}
+
+.workflow-step-list li {
+  margin-bottom: 8px;
+}
+
+.workflow-chip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.workflow-chip-list li {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e8f3ff;
+  border: 1px solid rgba(137, 197, 236, 0.6);
+  color: #1a496d;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -696,7 +745,11 @@ body::before {
     position: static;
   }
 
-  .workflow-tools {
+  .workflow-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-meta {
     grid-template-columns: 1fr;
   }
 }

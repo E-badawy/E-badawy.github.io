@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Work Structure - Detailed Methodology | Badawi Amin Muhammed</title>
-  <meta name="description" content="Detailed work-structure page covering methodology, SMART objectives, frameworks, workflow canvas, deliverables, and publications." />
+  <meta name="description" content="Detailed work-structure page covering methodology, SMART objectives, frameworks, workflow architecture, deliverables, and publications." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -32,8 +32,7 @@
     <section class="detail-hero" id="top">
       <h1>My Work Structure: Detailed Methodology</h1>
       <p>
-        This is a full editable methodology page. Update each block with your latest operating model,
-        evidence standards, and delivery workflows.
+        This page describes how I scope, execute, and report analytical and research engagements from intake to delivery.
       </p>
       <a href="/#my-work-structure" class="project-btn">Back To Summary Section</a>
     </section>
@@ -47,7 +46,7 @@
         <a href="#star-method-design">STAR Method Design</a>
         <a href="#reporting-style">Reporting Style</a>
         <a href="#frameworks">Frameworks</a>
-        <a href="#workflow-canvas">Workflow Canvas</a>
+        <a href="#workflow-canvas">Workflow Architecture</a>
         <a href="#deliverables">Deliverables</a>
         <a href="#publications">Publications</a>
       </aside>
@@ -56,91 +55,92 @@
         <section class="detail-block" id="problem-definition">
           <h2>Problem Definition</h2>
           <p>
-            Define the problem in operational terms: decision context, stakeholders, constraints, data landscape,
-            and expected value of solving the issue.
+            Define the decision problem, stakeholders, constraints, timeline, and required confidence level before selecting tools.
           </p>
-          <p>Edit this section with your specific diagnostic approach and scoping process.</p>
+          <p>This keeps scope realistic and delivery focused on outcomes rather than activity volume.</p>
         </section>
 
         <section class="detail-block" id="smart-objectives">
           <h2>SMART Objectives</h2>
           <p>
-            Convert stakeholder goals into specific, measurable, achievable, relevant, and time-bound objectives.
-            This creates a shared success baseline for delivery and evaluation.
+            Convert broad goals into specific, measurable, achievable, relevant, and time-bound objectives with agreed success metrics.
           </p>
-          <p>Add objective templates and examples here.</p>
         </section>
 
         <section class="detail-block" id="methodologies">
           <h2>Methodologies</h2>
           <p>
-            Select and justify methodological choices (quantitative, qualitative, mixed methods, ML, statistical,
-            BI, or M&E approaches) based on data quality and decision requirements.
+            I select methods based on data quality and business/research risk: statistical analysis, BI modeling, machine learning,
+            process analytics, or mixed-method evaluation approaches.
           </p>
-          <p>Insert your standard methodology matrix and selection logic.</p>
         </section>
 
         <section class="detail-block" id="star-method-design">
           <h2>STAR Method Design</h2>
           <p>
-            Structure execution and communication using Situation, Task, Action, and Result to ensure clarity in
-            technical narrative, accountability, and impact reporting.
+            Situation, Task, Action, and Result structure is used to keep technical narratives clear for mixed audiences and decision reviews.
           </p>
-          <p>Customize this section with your STAR documentation template.</p>
         </section>
 
         <section class="detail-block" id="reporting-style">
           <h2>Reporting Style</h2>
           <p>
-            Use concise, decision-ready reporting with executive summaries, key findings, limitations, assumptions,
-            recommendations, and next actions.
+            Reporting is concise and decision-ready: executive summary, key findings, assumptions, risks, recommendations, and next actions.
           </p>
-          <p>Document your preferred report formats, dashboards, and meeting cadence.</p>
         </section>
 
         <section class="detail-block" id="frameworks">
           <h2>Frameworks</h2>
           <p>
-            Include the working frameworks you apply (for example: Logic Framework, Theory of Change, CRISP-DM,
-            Agile sprint cycles, or custom governance frameworks).
+            Frameworks applied include Logic Framework, Theory of Change, CRISP-DM, Agile sprint cycles, and custom governance checklists.
           </p>
-          <p>Replace this text with your final framework stack and application notes.</p>
         </section>
 
         <section class="detail-block" id="workflow-canvas">
-          <h2>Workflow Canvas & AI Draft Generator</h2>
+          <h2>Workflow Architecture</h2>
           <p>
-            Use this area to define or refine your workflow chart. You can attach a chart image for preview,
-            or generate an AI draft workflow template and edit it directly.
+            This section explains how I typically operate across engagement types. It is a profile explorer, not a viewer editing area.
           </p>
 
           <div class="workflow-tools">
-            <label for="workflowScenario">Workflow Type</label>
+            <label for="workflowScenario">Engagement Lens</label>
             <select id="workflowScenario">
-              <option value="analytics">Analytics Project</option>
+              <option value="analytics">Analytics Delivery</option>
               <option value="research">Research & Evaluation</option>
-              <option value="automation">Automation / Data Pipeline</option>
-              <option value="consulting">Consultation & Delivery</option>
+              <option value="automation">Automation / Pipeline</option>
+              <option value="consulting">Consultation & Advisory</option>
             </select>
-            <button type="button" class="project-btn" id="generateWorkflowBtn">Generate AI Workflow Draft</button>
           </div>
 
-          <label for="workflowDraft" class="workflow-label">Editable Workflow Draft</label>
-          <textarea id="workflowDraft" class="workflow-draft" rows="12" placeholder="Generated workflow draft will appear here. You can edit freely."></textarea>
+          <div class="workflow-profile">
+            <img id="workflowImagePreview" class="workflow-preview" src="workflow.png" alt="Workflow architecture preview" />
+            <div class="workflow-context">
+              <h3 id="workflowModeTitle">Analytics Delivery</h3>
+              <p id="workflowModeSummary">I align business questions to measurable indicators, then move through structured analysis and decision reporting.</p>
+            </div>
+          </div>
 
-          <label for="workflowImageInput" class="workflow-label">Chart / Workflow Image Preview</label>
-          <input id="workflowImageInput" type="file" accept="image/*" />
-          <img id="workflowImagePreview" class="workflow-preview" src="workflow.png" alt="Workflow chart preview" />
+          <div class="workflow-meta">
+            <div>
+              <h3>Execution Flow</h3>
+              <ol id="workflowSteps" class="workflow-step-list"></ol>
+            </div>
+            <div>
+              <h3>Typical Outputs</h3>
+              <ul id="workflowOutputs" class="workflow-chip-list"></ul>
+            </div>
+          </div>
+
           <p class="detail-note">
-            This preview is local in-browser for editing. To keep it permanently, upload the file to your repo and update the image path.
+            This blueprint reflects my operating model and is updated by me as methods and delivery scope evolve.
           </p>
         </section>
 
         <section class="detail-block" id="deliverables">
           <h2>Deliverables</h2>
           <p>
-            Typical deliverables may include cleaned datasets, analytical models, BI dashboards, briefing notes,
-            training materials, and handover documentation.
+            Typical deliverables include cleaned datasets, analytical models, BI dashboards, briefing notes, training materials,
+            and handover documentation.
           </p>
           <ul class="artifact-list">
             <li><a href="#">Add deliverable sample 1</a></li>
@@ -192,60 +192,93 @@
 
   <script>
     (function () {
-      const templates = {
-        analytics: [
-          "1) Problem intake and stakeholder scoping",
-          "2) Data audit, cleaning, and transformation",
-          "3) Exploratory analysis and hypothesis checks",
-          "4) Model / dashboard build and validation",
-          "5) Decision report, action points, and handover"
-        ],
-        research: [
-          "1) Research question and SMART objective alignment",
-          "2) Study design, sampling, and instrument planning",
-          "3) Data collection quality assurance",
-          "4) Statistical analysis and interpretation",
-          "5) Publication-grade reporting and dissemination"
-        ],
-        automation: [
-          "1) Workflow mapping and process bottleneck analysis",
-          "2) Source-system integration and API design",
-          "3) Pipeline build, scheduling, and monitoring",
-          "4) Error handling, QA tests, and rollback paths",
-          "5) Documentation and operational handoff"
-        ],
-        consulting: [
-          "1) Discovery meeting and needs diagnosis",
-          "2) Prioritization and solution architecture",
-          "3) Execution sprints with review checkpoints",
-          "4) Impact validation and stakeholder sign-off",
-          "5) Capacity transfer and continuity plan"
-        ]
+      const profiles = {
+        analytics: {
+          title: "Analytics Delivery",
+          summary: "I align business questions to measurable indicators, then move through structured analysis and decision reporting.",
+          steps: [
+            "Clarify decision question and define measurable KPI targets",
+            "Audit, clean, and structure data for analysis readiness",
+            "Run exploratory and diagnostic analysis with hypothesis checks",
+            "Build analytical model/dashboard and validate with stakeholders",
+            "Deliver recommendation pack, risks, and action roadmap"
+          ],
+          outputs: ["KPI dashboard", "Insight brief", "Decision memo", "Action plan"],
+          image: "workflow.png"
+        },
+        research: {
+          title: "Research & Evaluation",
+          summary: "I combine scientific rigor with operational relevance to produce evidence that supports policy and program decisions.",
+          steps: [
+            "Define research scope and translate into evaluation questions",
+            "Set SMART objectives and choose suitable study design",
+            "Implement data collection QA and analysis protocol",
+            "Interpret findings with assumptions and validity boundaries",
+            "Report implications, recommendations, and dissemination actions"
+          ],
+          outputs: ["Evaluation report", "Method notes", "Results deck", "Publication draft"],
+          image: "history.png"
+        },
+        automation: {
+          title: "Automation / Pipeline",
+          summary: "I design automation flows that reduce manual effort while preserving data quality, traceability, and governance.",
+          steps: [
+            "Map current workflow and identify bottlenecks",
+            "Define source integrations and data contracts",
+            "Build orchestrated pipeline with monitoring controls",
+            "Validate reliability through edge-case and failure tests",
+            "Document runbooks and handover operational ownership"
+          ],
+          outputs: ["Automated pipeline", "Monitoring board", "Runbook", "Handover guide"],
+          image: "workflow.png"
+        },
+        consulting: {
+          title: "Consultation & Advisory",
+          summary: "I use a decision-first consulting model: diagnose quickly, prioritize value, execute in sprints, and transfer capability.",
+          steps: [
+            "Run discovery session and identify priority problems",
+            "Design practical solution architecture and milestones",
+            "Execute work sprints with structured review cadence",
+            "Validate impact against baseline and stakeholder criteria",
+            "Transfer knowledge, tools, and continuity framework"
+          ],
+          outputs: ["Consultation roadmap", "Execution plan", "Review notes", "Capability toolkit"],
+          image: "Main.png"
+        }
       };
 
       const scenarioEl = document.getElementById("workflowScenario");
-      const draftEl = document.getElementById("workflowDraft");
-      const generateBtn = document.getElementById("generateWorkflowBtn");
-      const imageInput = document.getElementById("workflowImageInput");
-      const imagePreview = document.getElementById("workflowImagePreview");
+      const titleEl = document.getElementById("workflowModeTitle");
+      const summaryEl = document.getElementById("workflowModeSummary");
+      const stepsEl = document.getElementById("workflowSteps");
+      const outputsEl = document.getElementById("workflowOutputs");
+      const imageEl = document.getElementById("workflowImagePreview");
 
-      if (generateBtn && scenarioEl && draftEl) {
-        generateBtn.addEventListener("click", function () {
-          const key = scenarioEl.value || "analytics";
-          const lines = templates[key] || templates.analytics;
-          draftEl.value = lines.join("\n");
+      function renderProfile(key) {
+        const profile = profiles[key] || profiles.analytics;
+        titleEl.textContent = profile.title;
+        summaryEl.textContent = profile.summary;
+        imageEl.src = profile.image;
+
+        stepsEl.innerHTML = "";
+        profile.steps.forEach((step) => {
+          const li = document.createElement("li");
+          li.textContent = step;
+          stepsEl.appendChild(li);
+        });
+
+        outputsEl.innerHTML = "";
+        profile.outputs.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          outputsEl.appendChild(li);
         });
       }
 
-      if (imageInput && imagePreview) {
-        imageInput.addEventListener("change", function () {
-          const file = imageInput.files && imageInput.files[0];
-          if (!file) return;
-          const reader = new FileReader();
-          reader.onload = function (event) {
-            imagePreview.src = event.target && event.target.result ? event.target.result : "workflow.png";
-          };
-          reader.readAsDataURL(file);
+      renderProfile("analytics");
+      if (scenarioEl) {
+        scenarioEl.addEventListener("change", function () {
+          renderProfile(scenarioEl.value);
         });
       }
     })();
