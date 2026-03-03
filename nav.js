@@ -1,3 +1,59 @@
+// Keep user-facing URLs clean (no .html) while preserving static-page routing.
+(function normalizePrettyUrl() {
+  const path = window.location.pathname;
+  let cleanPath = null;
+
+  if (/\/index\.html$/i.test(path)) {
+    cleanPath = path.replace(/\/index\.html$/i, "/");
+  } else if (/\.html$/i.test(path)) {
+    cleanPath = path.replace(/\.html$/i, "");
+  }
+
+  if (cleanPath !== null) {
+    if (!cleanPath.startsWith("/")) cleanPath = "/" + cleanPath;
+    if (cleanPath === "") cleanPath = "/";
+    window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+  }
+})();
+
+// Route extensionless internal links to static HTML files without showing .html in the URL.
+(function routeExtensionlessLinks() {
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+
+    const rawHref = (link.getAttribute("href") || "").trim();
+    if (
+      !rawHref ||
+      rawHref === "/" ||
+      rawHref.startsWith("#") ||
+      rawHref.startsWith("/#") ||
+      rawHref.includes("/#") ||
+      rawHref.startsWith("mailto:") ||
+      rawHref.startsWith("tel:") ||
+      rawHref.startsWith("javascript:")
+    ) {
+      return;
+    }
+
+    if (/^https?:\/\//i.test(rawHref) || rawHref.includes(".") || rawHref.endsWith("/")) {
+      return;
+    }
+
+    const path = rawHref.startsWith("/") ? rawHref : "/" + rawHref.replace(/^\.?\//, "");
+    const htmlPath = path + ".html";
+
+    if (link.target === "_blank") {
+      event.preventDefault();
+      window.open(htmlPath, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    event.preventDefault();
+    window.location.assign(htmlPath);
+  });
+})();
+
 document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const navToggle = document.getElementById("nav-toggle");

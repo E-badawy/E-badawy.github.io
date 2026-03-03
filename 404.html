@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Redirecting...</title>
+  <script>
+    (function () {
+      var path = window.location.pathname || "/";
+      var search = window.location.search || "";
+      var hash = window.location.hash || "";
+      var trimmed = path.replace(/\/+$/, "");
+
+      if (!trimmed || trimmed === "/") {
+        window.location.replace("/" + search + hash);
+        return;
+      }
+
+      // Support extensionless paths like /consultation -> /consultation.html
+      if (!/\.[a-z0-9]+$/i.test(trimmed)) {
+        window.location.replace(trimmed + ".html" + search + hash);
+        return;
+      }
+
+      // Final fallback to home page.
+      window.location.replace("/" + search + hash);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
