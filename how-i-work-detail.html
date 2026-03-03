@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How I Work - Detailed Methodology | Badawi Amin Muhammed</title>
-  <meta name="description" content="Detailed methodology page covering problem definition, SMART objectives, frameworks, deliverables, and publications." />
+  <title>My Work Structure - Detailed Methodology | Badawi Amin Muhammed</title>
+  <meta name="description" content="Detailed work-structure page covering methodology, SMART objectives, frameworks, workflow canvas, deliverables, and publications." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -21,7 +21,7 @@
     </button>
     <nav class="top-nav" id="site-navigation">
       <a href="/#about" class="nav-btn">About</a>
-      <a href="/#how-i-work" class="nav-btn">How I Work</a>
+      <a href="/#my-work-structure" class="nav-btn">My Work Structure</a>
       <a href="/#programs-artifacts" class="nav-btn">Programs</a>
       <a href="consultation" class="nav-btn">Consultation</a>
       <a href="/#contact" class="nav-btn">Contact</a>
@@ -30,12 +30,12 @@
 
   <main class="detail-page">
     <section class="detail-hero" id="top">
-      <h1>How I Work: Detailed Methodology</h1>
+      <h1>My Work Structure: Detailed Methodology</h1>
       <p>
         This is a full editable methodology page. Update each block with your latest operating model,
         evidence standards, and delivery workflows.
       </p>
-      <a href="/#how-i-work" class="project-btn">Back To Summary Section</a>
+      <a href="/#my-work-structure" class="project-btn">Back To Summary Section</a>
     </section>
 
     <div class="detail-layout">
@@ -47,6 +47,7 @@
         <a href="#star-method-design">STAR Method Design</a>
         <a href="#reporting-style">Reporting Style</a>
         <a href="#frameworks">Frameworks</a>
+        <a href="#workflow-canvas">Workflow Canvas</a>
         <a href="#deliverables">Deliverables</a>
         <a href="#publications">Publications</a>
       </aside>
@@ -106,6 +107,35 @@
           <p>Replace this text with your final framework stack and application notes.</p>
         </section>
 
+        <section class="detail-block" id="workflow-canvas">
+          <h2>Workflow Canvas & AI Draft Generator</h2>
+          <p>
+            Use this area to define or refine your workflow chart. You can attach a chart image for preview,
+            or generate an AI draft workflow template and edit it directly.
+          </p>
+
+          <div class="workflow-tools">
+            <label for="workflowScenario">Workflow Type</label>
+            <select id="workflowScenario">
+              <option value="analytics">Analytics Project</option>
+              <option value="research">Research & Evaluation</option>
+              <option value="automation">Automation / Data Pipeline</option>
+              <option value="consulting">Consultation & Delivery</option>
+            </select>
+            <button type="button" class="project-btn" id="generateWorkflowBtn">Generate AI Workflow Draft</button>
+          </div>
+
+          <label for="workflowDraft" class="workflow-label">Editable Workflow Draft</label>
+          <textarea id="workflowDraft" class="workflow-draft" rows="12" placeholder="Generated workflow draft will appear here. You can edit freely."></textarea>
+
+          <label for="workflowImageInput" class="workflow-label">Chart / Workflow Image Preview</label>
+          <input id="workflowImageInput" type="file" accept="image/*" />
+          <img id="workflowImagePreview" class="workflow-preview" src="workflow.png" alt="Workflow chart preview" />
+          <p class="detail-note">
+            This preview is local in-browser for editing. To keep it permanently, upload the file to your repo and update the image path.
+          </p>
+        </section>
+
         <section class="detail-block" id="deliverables">
           <h2>Deliverables</h2>
           <p>
@@ -160,6 +190,66 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const templates = {
+        analytics: [
+          "1) Problem intake and stakeholder scoping",
+          "2) Data audit, cleaning, and transformation",
+          "3) Exploratory analysis and hypothesis checks",
+          "4) Model / dashboard build and validation",
+          "5) Decision report, action points, and handover"
+        ],
+        research: [
+          "1) Research question and SMART objective alignment",
+          "2) Study design, sampling, and instrument planning",
+          "3) Data collection quality assurance",
+          "4) Statistical analysis and interpretation",
+          "5) Publication-grade reporting and dissemination"
+        ],
+        automation: [
+          "1) Workflow mapping and process bottleneck analysis",
+          "2) Source-system integration and API design",
+          "3) Pipeline build, scheduling, and monitoring",
+          "4) Error handling, QA tests, and rollback paths",
+          "5) Documentation and operational handoff"
+        ],
+        consulting: [
+          "1) Discovery meeting and needs diagnosis",
+          "2) Prioritization and solution architecture",
+          "3) Execution sprints with review checkpoints",
+          "4) Impact validation and stakeholder sign-off",
+          "5) Capacity transfer and continuity plan"
+        ]
+      };
+
+      const scenarioEl = document.getElementById("workflowScenario");
+      const draftEl = document.getElementById("workflowDraft");
+      const generateBtn = document.getElementById("generateWorkflowBtn");
+      const imageInput = document.getElementById("workflowImageInput");
+      const imagePreview = document.getElementById("workflowImagePreview");
+
+      if (generateBtn && scenarioEl && draftEl) {
+        generateBtn.addEventListener("click", function () {
+          const key = scenarioEl.value || "analytics";
+          const lines = templates[key] || templates.analytics;
+          draftEl.value = lines.join("\n");
+        });
+      }
+
+      if (imageInput && imagePreview) {
+        imageInput.addEventListener("change", function () {
+          const file = imageInput.files && imageInput.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            imagePreview.src = event.target && event.target.result ? event.target.result : "workflow.png";
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    })();
+  </script>
   <script src="site-nav.js"></script>
   <script src="nav.js"></script>
 </body>

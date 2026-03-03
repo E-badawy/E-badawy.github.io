@@ -361,6 +361,7 @@ body::before {
 .workflow-summary-section {
   padding: 70px 20px;
   background: #f7fbff;
+  text-align: center;
 }
 
 .workflow-summary-container {
@@ -381,6 +382,10 @@ body::before {
   margin: 0 0 14px;
 }
 
+.workflow-summary-text {
+  text-align: left;
+}
+
 .workflow-bullets {
   margin: 0 0 16px;
   padding-left: 18px;
@@ -392,7 +397,9 @@ body::before {
 }
 
 .workflow-detail-btn {
-  margin-top: 6px;
+  margin: 10px auto 0;
+  display: flex;
+  width: fit-content;
 }
 
 /* ===== PROGRAMS OVERVIEW (HOME) ===== */
@@ -632,6 +639,54 @@ body::before {
   color: #556f88;
 }
 
+.workflow-tools {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+
+.workflow-tools label {
+  font-weight: 600;
+  color: #214763;
+}
+
+.workflow-tools select {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 197, 235, 0.62);
+  padding: 8px 10px;
+}
+
+.workflow-label {
+  display: block;
+  margin: 8px 0 6px;
+  font-weight: 600;
+  color: #214763;
+}
+
+.workflow-draft {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 197, 235, 0.62);
+  padding: 12px;
+  font-family: "Consolas", "Courier New", monospace;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.workflow-preview {
+  margin-top: 10px;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 197, 235, 0.62);
+  background: #f5fbff;
+}
+
 @media (max-width: 900px) {
   .detail-layout {
     grid-template-columns: 1fr;
@@ -639,6 +694,10 @@ body::before {
 
   .detail-toc {
     position: static;
+  }
+
+  .workflow-tools {
+    grid-template-columns: 1fr;
   }
 }
 
