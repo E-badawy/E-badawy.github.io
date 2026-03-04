@@ -531,14 +531,33 @@ body::before {
 }
 
 .detail-block h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 0 0 10px;
   border-bottom: 1px solid rgba(13, 63, 103, 0.2);
   padding-bottom: 8px;
 }
 
+.detail-block h2 i {
+  color: #0a5a8e;
+  font-size: 1rem;
+  flex: 0 0 auto;
+}
+
 .detail-block p {
   margin: 0 0 10px;
   color: #374f67;
+}
+
+.detail-points {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  color: #2f4f68;
+}
+
+.detail-points li {
+  margin-bottom: 6px;
 }
 
 .section-image-holder {
