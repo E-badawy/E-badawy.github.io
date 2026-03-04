@@ -648,43 +648,70 @@ It complements the Excel VBA Search Automation System.
 <section id="programs-artifacts" class="programs-section">
   <h2>Programs & Artifacts</h2>
   <p class="programs-intro">
-    Four active program spaces with full pages for descriptions, galleries, uploadable artifacts, and contributor profiles.
+    Priority programs with full pages for implementation context, photo galleries, evidence artifacts, and contributor details.
   </p>
 
   <div class="programs-grid">
     <article class="program-card">
-      <img src="Main.png" alt="Zamfara program thumbnail" class="program-thumb" loading="lazy" />
+      <img src="Main.png" alt="Data Science and AI Bootcamps in Zamfara and Kano" class="program-thumb" loading="lazy" />
       <div class="program-card-body">
-        <h3>Zamfara Program</h3>
-        <p>Field delivery, stakeholder engagement, and evidence workflows from Zamfara activities.</p>
+        <h3>Data Science and AI Bootcamps in Zamfara and Kano</h3>
+        <p>Hands-on capacity-building sessions focused on analytics literacy, AI fundamentals, and practical deployment pathways.</p>
         <a href="program-zamfara" class="project-btn">Open Full Page</a>
       </div>
     </article>
 
     <article class="program-card">
-      <img src="staff.png" alt="Abuja workshop thumbnail" class="program-thumb" loading="lazy" />
+      <img src="workflow.png" alt="BT-Hub Year Planner retreat thumbnail" class="program-thumb" loading="lazy" />
       <div class="program-card-body">
-        <h3>Abuja Workshops</h3>
-        <p>Workshop sessions, technical meetings, and implementation documentation from Abuja programs.</p>
-        <a href="program-abuja" class="project-btn">Open Full Page</a>
-      </div>
-    </article>
-
-    <article class="program-card">
-      <img src="history.png" alt="Data science retreat thumbnail" class="program-thumb" loading="lazy" />
-      <div class="program-card-body">
-        <h3>Data Science Retreats</h3>
-        <p>Retreat notes, methods, team outputs, and curated artifacts for cross-functional learning.</p>
+        <h3>BT-Hub Year Planner 4-Day Retreat</h3>
+        <p>Data community management and restrategization retreat covering planning systems, execution cycles, and impact checkpoints.</p>
         <a href="program-retreat" class="project-btn">Open Full Page</a>
       </div>
     </article>
 
     <article class="program-card">
-      <img src="kaduna_map.jpeg" alt="Ongoing projects thumbnail" class="program-thumb" loading="lazy" />
+      <img src="genomic.png" alt="FESIP Journal Club webinar thumbnail" class="program-thumb" loading="lazy" />
       <div class="program-card-body">
-        <h3>Ongoing Projects & Meetings</h3>
-        <p>Current initiatives, planning cycles, recurring meetings, and emerging work products.</p>
+        <h3>FESIP Journal Club Webinar with Floret Centre</h3>
+        <p>Session on global TB incidence estimates in pregnant and postpartum women with HIV as a comparative group.</p>
+        <a href="program-abuja" class="project-btn">Open Full Page</a>
+      </div>
+    </article>
+
+    <article class="program-card">
+      <img src="dashboard2.png" alt="EdTech community webinar thumbnail" class="program-thumb" loading="lazy" />
+      <div class="program-card-body">
+        <h3>Facilitator: EdTech Community Webinar</h3>
+        <p>Professional session on developing a digital teaching portfolio with practical structure, content standards, and delivery tips.</p>
         <a href="program-ongoing" class="project-btn">Open Full Page</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="programs-actions">
+    <button class="project-btn programs-view-more" id="programsViewMore" type="button" aria-expanded="false" aria-controls="programs-more-grid">
+      <i class="fas fa-layer-group" aria-hidden="true"></i>
+      <span id="programsViewMoreLabel">View More Updates</span>
+    </button>
+  </div>
+
+  <div class="programs-grid programs-more-grid hidden" id="programs-more-grid">
+    <article class="program-card program-card--placeholder">
+      <img src="report_generator.png" alt="Upcoming portfolio update placeholder" class="program-thumb" loading="lazy" />
+      <div class="program-card-body">
+        <h3>Program Update Slot 01</h3>
+        <p>Updates in progress: preparing session outcomes, impact notes, and upload-ready evidence files.</p>
+        <span class="program-status"><i class="fas fa-spinner" aria-hidden="true"></i> Updates in Progress</span>
+      </div>
+    </article>
+
+    <article class="program-card program-card--placeholder">
+      <img src="results_display.png" alt="Upcoming portfolio update placeholder" class="program-thumb" loading="lazy" />
+      <div class="program-card-body">
+        <h3>Program Update Slot 02</h3>
+        <p>Updates in progress: refining gallery materials, collaborator profiles, and implementation documentation.</p>
+        <span class="program-status"><i class="fas fa-spinner" aria-hidden="true"></i> Updates in Progress</span>
       </div>
     </article>
   </div>
@@ -890,6 +917,21 @@ It complements the Excel VBA Search Automation System.
             }
           }
         }
+      });
+    }
+
+    const programsViewMoreBtn = document.getElementById('programsViewMore');
+    const programsMoreGrid = document.getElementById('programs-more-grid');
+    const programsViewMoreLabel = document.getElementById('programsViewMoreLabel');
+
+    if (programsViewMoreBtn && programsMoreGrid && programsViewMoreLabel) {
+      programsViewMoreBtn.addEventListener('click', () => {
+        const wasHidden = programsMoreGrid.classList.contains('hidden');
+        programsMoreGrid.classList.toggle('hidden');
+
+        const expanded = wasHidden;
+        programsViewMoreBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        programsViewMoreLabel.textContent = expanded ? 'Hide Updates' : 'View More Updates';
       });
     }
   </script>
