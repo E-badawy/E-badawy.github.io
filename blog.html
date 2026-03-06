@@ -39,25 +39,10 @@
     }
 
     .techblog-sub {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: #3c5c77;
-      max-width: 72ch;
-    }
-
-    .techblog-link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .techblog-link-row a {
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid rgba(124, 192, 235, 0.62);
-      border-radius: 999px;
-      padding: 7px 12px;
-      color: #0f4f7f;
-      background: #e6f4ff;
+      max-width: 80ch;
+      line-height: 1.7;
     }
 
     .techblog-layout {
@@ -81,17 +66,68 @@
       color: #154062;
     }
 
-    .techblog-sidebar a {
+    .techblog-topic {
+      width: 100%;
       display: block;
-      text-decoration: none;
-      padding: 8px 10px;
+      text-align: left;
+      border: 1px solid rgba(136, 197, 236, 0.5);
+      background: #f5fbff;
       border-radius: 8px;
+      padding: 8px 10px;
       color: #1a4f75;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      cursor: pointer;
     }
 
-    .techblog-sidebar a:hover {
+    .techblog-topic:hover {
       background: #e9f5ff;
+    }
+
+    .techblog-topic.is-active {
+      background: #dff1ff;
+      border-color: rgba(95, 173, 225, 0.72);
+      color: #0d4f7f;
+    }
+
+    .techblog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .techblog-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .techblog-tab {
+      border: 1px solid rgba(136, 197, 236, 0.55);
+      border-radius: 999px;
+      background: #eef7ff;
+      color: #1c5278;
+      padding: 7px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .techblog-tab.is-active {
+      background: linear-gradient(130deg, #3db7ff 0%, #89d6ff 100%);
+      color: #07385a;
+      border-color: rgba(88, 179, 232, 0.75);
+    }
+
+    .techblog-filter-state {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #476883;
+      font-weight: 600;
     }
 
     .techblog-post-grid {
@@ -104,6 +140,10 @@
       border-radius: 12px;
       padding: 12px;
       background: #f9fcff;
+    }
+
+    .techblog-post.is-hidden {
+      display: none;
     }
 
     .techblog-post h3 {
@@ -138,36 +178,13 @@
       font-size: 0.9rem;
     }
 
-    .techblog-publications {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px;
-    }
-
-    .techblog-pub-card {
-      border: 1px solid rgba(141, 200, 237, 0.6);
-      border-radius: 12px;
-      padding: 12px;
-      background: #f7fbff;
-    }
-
-    .techblog-pub-card h3 {
-      margin: 0 0 8px;
-      color: #103f62;
-      font-size: 1rem;
-    }
-
-    .techblog-pub-card p {
-      margin: 0 0 8px;
-      color: #3a5d78;
-      font-size: 0.9rem;
-    }
-
-    .techblog-pub-card a {
-      text-decoration: none;
-      color: #0d5d90;
-      font-weight: 700;
+    .techblog-empty {
+      margin: 0;
+      border: 1px dashed rgba(136, 197, 236, 0.7);
+      border-radius: 10px;
+      background: #f0f8ff;
+      color: #3e5f7a;
+      padding: 10px 12px;
       font-size: 0.9rem;
     }
 
@@ -205,47 +222,60 @@
     <section class="techblog-hero">
       <h1 class="techblog-title">Insights Blog</h1>
       <p class="techblog-sub">
-        Technical notes and implementation reflections on analytics systems, model governance,
-        decision intelligence, and applied AI workflows.
+        This blog documents the practical side of my work, how models are scoped, validated, communicated,
+        and translated into implementation-ready decisions across analytics, health, and program contexts.
       </p>
-      <div class="techblog-link-row">
-        <a href="publications"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Open Publications Hub</a>
-      </div>
+      <p class="techblog-sub">
+        Each note is intentionally concise and execution-focused: method choices, tradeoffs, quality controls,
+        and what actually works when data projects move from theory into operational use.
+      </p>
     </section>
 
     <section class="techblog-layout">
-      <aside class="techblog-sidebar">
+      <aside class="techblog-sidebar" aria-label="Browse topics">
         <h2>Browse Topics</h2>
-        <a href="#">Data Architecture</a>
-        <a href="#">M and E Frameworks</a>
-        <a href="#">Predictive Modelling</a>
-        <a href="#">Health Analytics</a>
-        <a href="#">Generative AI Integration</a>
-        <a href="#">Programme Intelligence</a>
+        <button type="button" class="techblog-topic is-active" data-topic="all">All Topics</button>
+        <button type="button" class="techblog-topic" data-topic="architecture">Data Architecture</button>
+        <button type="button" class="techblog-topic" data-topic="me-frameworks">M and E Frameworks</button>
+        <button type="button" class="techblog-topic" data-topic="predictive">Predictive Modelling</button>
+        <button type="button" class="techblog-topic" data-topic="health">Health Analytics</button>
+        <button type="button" class="techblog-topic" data-topic="genai">Generative AI Integration</button>
+        <button type="button" class="techblog-topic" data-topic="program-intelligence">Programme Intelligence</button>
       </aside>
 
       <div class="techblog-main-panel">
-        <h2>Recent Technical Notes</h2>
-        <div class="techblog-post-grid">
-          <article class="techblog-post">
+        <div class="techblog-controls">
+          <div class="techblog-tabs" role="tablist" aria-label="Content arrangement">
+            <button type="button" class="techblog-tab is-active" data-tab="recent" role="tab" aria-selected="true">Recent</button>
+            <button type="button" class="techblog-tab" data-tab="top" role="tab" aria-selected="false">Top Reads</button>
+            <button type="button" class="techblog-tab" data-tab="foryou" role="tab" aria-selected="false">For You</button>
+          </div>
+          <p id="techblogFilterState" class="techblog-filter-state">Showing: Recent - All Topics</p>
+        </div>
+
+        <div class="techblog-post-grid" id="techblogPostGrid">
+          <article class="techblog-post" data-topic="me-frameworks" data-groups="recent top foryou">
             <h3>CRISP-DM in Public Programme Delivery Pipelines</h3>
             <p class="techblog-code-meta">category: methods | read: 6m | status: published</p>
             <p>How I adapt CRISP-DM phases to match institutional timelines and stakeholder decision windows.</p>
             <a href="blog-note-crispdm-delivery">Read note</a>
           </article>
-          <article class="techblog-post">
+
+          <article class="techblog-post" data-topic="predictive" data-groups="recent top">
             <h3>Choosing Between Descriptive and Predictive Workflows</h3>
             <p class="techblog-code-meta">category: modelling | read: 7m | status: published</p>
             <p>Decision criteria for selecting fit-for-purpose analysis depth under real operational constraints.</p>
             <a href="blog-note-descriptive-vs-predictive">Read note</a>
           </article>
-          <article class="techblog-post">
+
+          <article class="techblog-post" data-topic="architecture" data-groups="recent top foryou">
             <h3>Data Quality Checks Before Dashboard Delivery</h3>
             <p class="techblog-code-meta">category: governance | read: 5m | status: published</p>
             <p>A practical checklist for auditability, validation, and source consistency before publishing dashboards.</p>
             <a href="blog-note-data-quality-dashboard">Read note</a>
           </article>
-          <article class="techblog-post">
+
+          <article class="techblog-post" data-topic="genai" data-groups="recent foryou">
             <h3>Prompt Governance for AI-Assisted Analytics Teams</h3>
             <p class="techblog-code-meta">category: genai | read: 8m | status: published</p>
             <p>Prompt standards and review controls that maintain quality when teams adopt generative AI tools.</p>
@@ -253,19 +283,9 @@
           </article>
         </div>
 
-        <h2 style="margin-top:14px;">Publications</h2>
-        <div class="techblog-publications">
-          <article class="techblog-pub-card">
-            <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
-            <p>Professional reflections and implementation updates.</p>
-            <a href="https://linkedin.com/in/elameenbadawy" target="_blank" rel="noopener noreferrer">Open profile</a>
-          </article>
-          <article class="techblog-pub-card">
-            <h3><i class="fab fa-medium"></i> Medium</h3>
-            <p>Technical tutorials and project explainers.</p>
-            <a href="#" target="_blank" rel="noopener noreferrer">Add Medium URL</a>
-          </article>
-        </div>
+        <p id="techblogEmpty" class="techblog-empty" hidden>
+          No notes match this combination yet. Choose another topic or view.
+        </p>
       </div>
     </section>
   </main>
@@ -280,11 +300,10 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <a href="/">Home</a>
+        <a href="/#about">About</a>
         <a href="/#services">Services</a>
-        <a href="/#projects">Projects</a>
+        <a href="/#programs-artifacts">Programs</a>
         <a href="blog">Blog</a>
-        <a href="publications">Publications</a>
-        <a href="/#contact">Contact</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
@@ -298,6 +317,69 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const tabButtons = Array.from(document.querySelectorAll('.techblog-tab'));
+      const topicButtons = Array.from(document.querySelectorAll('.techblog-topic'));
+      const posts = Array.from(document.querySelectorAll('.techblog-post'));
+      const emptyState = document.getElementById('techblogEmpty');
+      const filterState = document.getElementById('techblogFilterState');
+
+      let activeTab = 'recent';
+      let activeTopic = 'all';
+
+      function tabLabel(value) {
+        if (value === 'top') return 'Top Reads';
+        if (value === 'foryou') return 'For You';
+        return 'Recent';
+      }
+
+      function topicLabel(value) {
+        const button = topicButtons.find((btn) => btn.dataset.topic === value);
+        return button ? button.textContent.trim() : 'All Topics';
+      }
+
+      function renderPosts() {
+        let visibleCount = 0;
+
+        posts.forEach((post) => {
+          const groups = (post.dataset.groups || '').split(/\s+/);
+          const postTopic = post.dataset.topic || '';
+          const matchesTab = groups.includes(activeTab);
+          const matchesTopic = activeTopic === 'all' || postTopic === activeTopic;
+          const isVisible = matchesTab && matchesTopic;
+
+          post.classList.toggle('is-hidden', !isVisible);
+          if (isVisible) visibleCount += 1;
+        });
+
+        filterState.textContent = `Showing: ${tabLabel(activeTab)} - ${topicLabel(activeTopic)}`;
+        emptyState.hidden = visibleCount !== 0;
+      }
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+          activeTab = button.dataset.tab || 'recent';
+          tabButtons.forEach((btn) => {
+            const isActive = btn === button;
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+          renderPosts();
+        });
+      });
+
+      topicButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+          activeTopic = button.dataset.topic || 'all';
+          topicButtons.forEach((btn) => btn.classList.toggle('is-active', btn === button));
+          renderPosts();
+        });
+      });
+
+      renderPosts();
+    })();
+  </script>
   <script src="site-nav.js"></script>
   <script src="nav.js"></script>
 </body>

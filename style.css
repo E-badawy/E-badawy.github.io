@@ -513,10 +513,9 @@ body::before {
 .blog-spotlight-copy,
 .blog-spotlight-card {
   border-radius: 16px;
-  border: 1px solid rgba(161, 220, 255, 0.3);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
-  backdrop-filter: blur(7px);
-  box-shadow: 0 16px 36px rgba(2, 16, 33, 0.3);
+  border: 1px solid rgba(181, 230, 255, 0.5);
+  background: linear-gradient(165deg, rgba(8, 42, 69, 0.92) 0%, rgba(10, 49, 80, 0.9) 54%, rgba(14, 61, 96, 0.88) 100%);
+  box-shadow: 0 18px 38px rgba(2, 16, 33, 0.35);
   padding: clamp(18px, 2.2vw, 28px);
 }
 
@@ -529,9 +528,9 @@ body::before {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: #d5ecff;
-  background: rgba(25, 112, 175, 0.5);
-  border: 1px solid rgba(182, 227, 255, 0.35);
+  color: #edf8ff;
+  background: rgba(36, 130, 197, 0.7);
+  border: 1px solid rgba(195, 233, 255, 0.55);
   text-transform: uppercase;
 }
 
@@ -544,7 +543,7 @@ body::before {
 
 .blog-spotlight-lead {
   margin: 0 0 14px;
-  color: #d6e9fa;
+  color: #e3f1fe;
   max-width: 64ch;
 }
 
@@ -562,9 +561,9 @@ body::before {
   padding: 6px 11px;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #d9f0ff;
-  background: rgba(10, 93, 149, 0.48);
-  border: 1px solid rgba(182, 227, 255, 0.28);
+  color: #ecf8ff;
+  background: rgba(14, 102, 161, 0.7);
+  border: 1px solid rgba(188, 229, 255, 0.4);
 }
 
 .blog-spotlight-btn {
