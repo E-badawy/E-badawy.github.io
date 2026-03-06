@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Quality Checks Before Dashboard Delivery | Badawi Amin Muhammed</title>
+  <meta name="description" content="A practical checklist for auditability, validation, and source consistency before publishing dashboards." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .note-wrap {
+      width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
+      margin: 24px auto 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .note-hero,
+    .note-card {
+      background: #ffffff;
+      border: 1px solid rgba(150, 206, 239, 0.6);
+      border-radius: 14px;
+      box-shadow: 0 10px 26px rgba(8, 36, 58, 0.08);
+      padding: 20px;
+    }
+
+    .note-hero h1 {
+      margin: 0 0 8px;
+      color: #113a5d;
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+    }
+
+    .note-meta {
+      margin: 0 0 10px;
+      color: #3f607a;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .note-card p,
+    .note-card li {
+      color: #35556f;
+    }
+
+    .note-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .note-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .note-actions a {
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 195, 236, 0.66);
+      background: #e8f4ff;
+      color: #0f547f;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist - AI/ML Expert - Research Data Analyst</h3>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="/#about" class="nav-btn">About</a>
+      <a href="/#services" class="nav-btn">Services</a>
+      <a href="/#projects" class="nav-btn">Projects</a>
+      <a href="/#programs-artifacts" class="nav-btn">Programs</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="publications" class="nav-btn">Publications</a>
+      <a href="/#contact" class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
+  <main class="note-wrap">
+    <section class="note-hero">
+      <h1>Data Quality Checks Before Dashboard Delivery</h1>
+      <p class="note-meta">Category: Governance | Read: 5 min | Status: Published</p>
+      <p>A practical checklist for auditability, validation, and source consistency before publishing dashboards.</p>
+    </section>
+
+    <section class="note-card">
+      <h2>Key Points</h2>
+      <ul>
+          <li>Validate source freshness and extraction timestamps before visual updates</li>
+          <li>Reconcile KPI calculations with agreed definitions and metadata rules</li>
+          <li>Check missingness patterns, anomalies, and outlier handling logs</li>
+          <li>Run cross-table consistency checks on key identifiers</li>
+          <li>Include a release note that states known data limitations</li>
+      </ul>
+      <div class="note-actions">
+        <a href="blog">Back to Blog</a>
+        <a href="publications">Open Publications</a>
+      </div>
+    </section>
+
+    <section class="note-card">
+      <h2>Implementation Note</h2>
+      <p>Insert a screenshot of your QA checklist or validation sheet to make this note concrete for readers.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <div class="footer-col footer-brand">
+        <h3>Badawi Amin Muhammed</h3>
+        <p>Data Scientist, BI Expert, and Research Analyst building practical analytics and decision-support systems.</p>
+        <a href="consultation" class="footer-cta">Book Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="blog">Blog</a>
+        <a href="publications">Publications</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:officialbadawy@gmail.com">officialbadawy@gmail.com</a>
+        <a href="tel:+2348065440075">+234 806 544 0075</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Badawi Amin Muhammed. All rights reserved.</span>
+      <span>Zaria-Kaduna, Nigeria (WAT)</span>
+    </div>
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

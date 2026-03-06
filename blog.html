@@ -4,208 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Insights Blog | Badawi Amin Muhammed</title>
-  <meta name="description" content="Insights blog featuring data science, AI, BI, and research strategy notes by Badawi Amin Muhammed." />
+  <meta name="description" content="Technical blog for data science, AI, analytics delivery, and governance notes by Badawi Amin Muhammed." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    .blog-minimal-page {
-      font-family: "Work Sans", "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #f6f9fc 0%, #eef4fb 100%);
-      color: #18334b;
+    .techblog-page {
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f3f8fe 0%, #eaf3ff 100%);
+      color: #183550;
     }
 
-    .blog-minimal-wrap {
+    .techblog-wrap {
       width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
       margin: 24px auto 0;
       display: grid;
-      gap: 18px;
+      gap: 14px;
     }
 
-    .blog-minimal-hero,
-    .blog-minimal-section {
+    .techblog-hero {
       background: #ffffff;
-      border: 1px solid rgba(157, 205, 236, 0.55);
-      border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(7, 31, 52, 0.08);
-      padding: clamp(18px, 2.3vw, 30px);
+      border: 1px solid rgba(143, 202, 239, 0.58);
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(8, 36, 58, 0.08);
+      padding: 22px;
     }
 
-    .blog-minimal-title {
-      margin: 0;
-      font-family: "Source Serif 4", Georgia, serif;
-      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-      color: #0f3556;
+    .techblog-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      color: #11395c;
     }
 
-    .blog-minimal-subtitle {
-      margin: 10px 0 16px;
-      color: #3c5872;
+    .techblog-sub {
+      margin: 0 0 12px;
+      color: #3c5c77;
       max-width: 72ch;
     }
 
-    .blog-style-links {
+    .techblog-link-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .blog-style-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .techblog-link-row a {
       text-decoration: none;
-      border-radius: 999px;
-      padding: 9px 13px;
-      font-size: 0.9rem;
       font-weight: 600;
-      border: 1px solid rgba(107, 177, 225, 0.6);
-      color: #0f4a75;
-      background: #e9f4ff;
+      border: 1px solid rgba(124, 192, 235, 0.62);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #0f4f7f;
+      background: #e6f4ff;
     }
 
-    .blog-style-links a:hover {
-      background: #dff0ff;
-    }
-
-    .blog-featured-grid {
+    .techblog-layout {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 260px 1fr;
       gap: 14px;
-      align-items: stretch;
     }
 
-    .blog-featured-panel {
+    .techblog-sidebar,
+    .techblog-main-panel {
+      background: #ffffff;
+      border: 1px solid rgba(143, 202, 239, 0.58);
       border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(153, 208, 241, 0.58);
-      background: #f7fbff;
-    }
-
-    .blog-featured-panel img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .blog-featured-body {
+      box-shadow: 0 8px 22px rgba(8, 36, 58, 0.07);
       padding: 16px;
     }
 
-    .blog-kicker {
-      margin: 0 0 8px;
-      color: #1a5c89;
-      font-size: 0.82rem;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .blog-featured-body h2 {
-      margin: 0 0 8px;
-      font-family: "Source Serif 4", Georgia, serif;
-      color: #103859;
-      font-size: 1.42rem;
-    }
-
-    .blog-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .techblog-sidebar h2 {
       margin: 0 0 10px;
-      color: #4a647c;
-      font-size: 0.88rem;
-    }
-
-    .blog-meta-pill {
-      border: 1px solid rgba(137, 199, 236, 0.62);
-      background: #edf7ff;
-      border-radius: 999px;
-      padding: 4px 9px;
-      font-weight: 600;
-    }
-
-    .blog-featured-body p {
-      margin: 0 0 12px;
-      color: #35536d;
-    }
-
-    .blog-posts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-    }
-
-    .blog-post-card {
-      border: 1px solid rgba(146, 202, 236, 0.56);
-      border-radius: 12px;
-      background: #ffffff;
-      padding: 14px;
-      box-shadow: 0 8px 20px rgba(7, 31, 52, 0.05);
-    }
-
-    .blog-post-card h3 {
-      margin: 0 0 8px;
-      color: #0e395c;
-      font-size: 1.06rem;
-    }
-
-    .blog-post-card p {
-      margin: 0 0 10px;
-      color: #3e5b75;
-      font-size: 0.93rem;
-    }
-
-    .blog-post-card a {
-      text-decoration: none;
-      font-weight: 700;
-      color: #0b578a;
-      font-size: 0.9rem;
-    }
-
-    .pub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
-
-    .pub-card {
-      border: 1px solid rgba(144, 199, 236, 0.56);
-      border-radius: 12px;
-      padding: 14px;
-      background: #f8fcff;
-    }
-
-    .pub-card h3 {
-      margin: 0 0 8px;
-      color: #0f3c60;
       font-size: 1rem;
+      color: #154062;
     }
 
-    .pub-card p {
-      margin: 0 0 10px;
-      color: #3d5973;
+    .techblog-sidebar a {
+      display: block;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #1a4f75;
       font-size: 0.92rem;
     }
 
-    .pub-card a {
+    .techblog-sidebar a:hover {
+      background: #e9f5ff;
+    }
+
+    .techblog-post-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .techblog-post {
+      border: 1px solid rgba(141, 200, 237, 0.6);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f9fcff;
+    }
+
+    .techblog-post h3 {
+      margin: 0 0 8px;
+      color: #133f62;
+      font-size: 1.02rem;
+    }
+
+    .techblog-code-meta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      color: #3f617d;
+      margin: 0 0 8px;
+      background: #eaf5ff;
+      border: 1px solid rgba(133, 195, 235, 0.55);
+      border-radius: 7px;
+      padding: 4px 7px;
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .techblog-post p {
+      margin: 0 0 8px;
+      color: #385974;
+      font-size: 0.92rem;
+    }
+
+    .techblog-post a {
+      color: #0e5b8e;
+      font-weight: 700;
       text-decoration: none;
-      color: #0c5c91;
+      font-size: 0.9rem;
+    }
+
+    .techblog-publications {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .techblog-pub-card {
+      border: 1px solid rgba(141, 200, 237, 0.6);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f7fbff;
+    }
+
+    .techblog-pub-card h3 {
+      margin: 0 0 8px;
+      color: #103f62;
+      font-size: 1rem;
+    }
+
+    .techblog-pub-card p {
+      margin: 0 0 8px;
+      color: #3a5d78;
+      font-size: 0.9rem;
+    }
+
+    .techblog-pub-card a {
+      text-decoration: none;
+      color: #0d5d90;
       font-weight: 700;
       font-size: 0.9rem;
     }
 
-    @media (max-width: 900px) {
-      .blog-featured-grid {
+    @media (max-width: 960px) {
+      .techblog-layout {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
-<body class="blog-minimal-page">
+<body class="techblog-page">
   <header class="site-header">
     <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
     <h1>Badawi Amin Muhammed</h1>
@@ -218,121 +191,81 @@
     </button>
     <nav class="top-nav" id="site-navigation">
       <a href="/" class="nav-btn">Home</a>
-      <a href="blog" class="nav-btn">Blog</a>
-      <a href="blog-chirpy" class="nav-btn">Chirpy Preview</a>
-      <a href="publications" class="nav-btn">Publications</a>
+      <a href="/#about" class="nav-btn">About</a>
+      <a href="/#services" class="nav-btn">Services</a>
+      <a href="/#projects" class="nav-btn">Projects</a>
       <a href="/#programs-artifacts" class="nav-btn">Programs</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="publications" class="nav-btn">Publications</a>
       <a href="/#contact" class="nav-btn">Contact</a>
     </nav>
   </header>
 
-  <main class="blog-minimal-wrap">
-    <section class="blog-minimal-hero">
-      <h1 class="blog-minimal-title">Insights Blog</h1>
-      <p class="blog-minimal-subtitle">
-        Notes from applied data science, monitoring and evaluation architecture, AI integration, and evidence-led program delivery.
-        This version is inspired by a Minimal Mistakes editorial style.
+  <main class="techblog-wrap">
+    <section class="techblog-hero">
+      <h1 class="techblog-title">Insights Blog</h1>
+      <p class="techblog-sub">
+        Technical notes and implementation reflections on analytics systems, model governance,
+        decision intelligence, and applied AI workflows.
       </p>
-      <div class="blog-style-links">
-        <a href="blog-chirpy"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Preview Chirpy Variant</a>
+      <div class="techblog-link-row">
         <a href="publications"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Open Publications Hub</a>
       </div>
     </section>
 
-    <section class="blog-minimal-section">
-      <div class="blog-featured-grid">
-        <article class="blog-featured-panel">
-          <img src="Data_analytics.png" alt="Featured blog post visual" loading="lazy" />
-          <div class="blog-featured-body">
-            <p class="blog-kicker">Featured Article</p>
-            <h2>From Raw Programme Data to Decision Intelligence</h2>
-            <div class="blog-meta-row">
-              <span class="blog-meta-pill">M and E Systems</span>
-              <span>Mar 2026</span>
-              <span>8 min read</span>
-            </div>
-            <p>
-              A practical walkthrough of converting fragmented programme datasets into structured KPI architecture
-              for executive and field decision-making.
-            </p>
-            <a href="#">Read article</a>
-          </div>
-        </article>
+    <section class="techblog-layout">
+      <aside class="techblog-sidebar">
+        <h2>Browse Topics</h2>
+        <a href="#">Data Architecture</a>
+        <a href="#">M and E Frameworks</a>
+        <a href="#">Predictive Modelling</a>
+        <a href="#">Health Analytics</a>
+        <a href="#">Generative AI Integration</a>
+        <a href="#">Programme Intelligence</a>
+      </aside>
 
-        <article class="blog-featured-panel">
-          <img src="workflow.png" alt="Blog strategy snapshot visual" loading="lazy" />
-          <div class="blog-featured-body">
-            <p class="blog-kicker">Series</p>
-            <h2>My Work Structure in Real Projects</h2>
-            <div class="blog-meta-row">
-              <span class="blog-meta-pill">Workflow Design</span>
-              <span>4 parts</span>
-            </div>
-            <p>
-              A structured series explaining how stakeholder analysis, objective mapping, and validation standards
-              connect across project delivery cycles.
-            </p>
-            <a href="#">Open series</a>
-          </div>
-        </article>
-      </div>
-    </section>
+      <div class="techblog-main-panel">
+        <h2>Recent Technical Notes</h2>
+        <div class="techblog-post-grid">
+          <article class="techblog-post">
+            <h3>CRISP-DM in Public Programme Delivery Pipelines</h3>
+            <p class="techblog-code-meta">category: methods | read: 6m | status: published</p>
+            <p>How I adapt CRISP-DM phases to match institutional timelines and stakeholder decision windows.</p>
+            <a href="blog-note-crispdm-delivery">Read note</a>
+          </article>
+          <article class="techblog-post">
+            <h3>Choosing Between Descriptive and Predictive Workflows</h3>
+            <p class="techblog-code-meta">category: modelling | read: 7m | status: published</p>
+            <p>Decision criteria for selecting fit-for-purpose analysis depth under real operational constraints.</p>
+            <a href="blog-note-descriptive-vs-predictive">Read note</a>
+          </article>
+          <article class="techblog-post">
+            <h3>Data Quality Checks Before Dashboard Delivery</h3>
+            <p class="techblog-code-meta">category: governance | read: 5m | status: published</p>
+            <p>A practical checklist for auditability, validation, and source consistency before publishing dashboards.</p>
+            <a href="blog-note-data-quality-dashboard">Read note</a>
+          </article>
+          <article class="techblog-post">
+            <h3>Prompt Governance for AI-Assisted Analytics Teams</h3>
+            <p class="techblog-code-meta">category: genai | read: 8m | status: published</p>
+            <p>Prompt standards and review controls that maintain quality when teams adopt generative AI tools.</p>
+            <a href="blog-note-prompt-governance">Read note</a>
+          </article>
+        </div>
 
-    <section class="blog-minimal-section">
-      <h2>Latest Posts</h2>
-      <div class="blog-posts-grid">
-        <article class="blog-post-card">
-          <h3>Designing KPIs That Actually Drive Decisions</h3>
-          <p>How to avoid vanity indicators and build measurable outputs linked to strategy and operations.</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="blog-post-card">
-          <h3>Data Governance for Real-World Programme Data</h3>
-          <p>Practical governance checkpoints for quality, traceability, and long-term reliability.</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="blog-post-card">
-          <h3>When to Use Predictive Modelling in Public Sector Contexts</h3>
-          <p>A framework for deciding where predictive models are useful and where descriptive analytics is enough.</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="blog-post-card">
-          <h3>Communicating Statistical Findings to Non-Technical Stakeholders</h3>
-          <p>Templates for translating model output into clear policy, operational, and executive messages.</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="blog-post-card">
-          <h3>Field Data Collection Mistakes That Distort Results</h3>
-          <p>Common survey and collection pitfalls that create downstream analysis errors and weak recommendations.</p>
-          <a href="#">Read more</a>
-        </article>
-        <article class="blog-post-card">
-          <h3>Integrating Generative AI Without Breaking Governance</h3>
-          <p>How to insert AI assistants into analytics workflows while preserving quality control and accountability.</p>
-          <a href="#">Read more</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="blog-minimal-section">
-      <h2>Publications</h2>
-      <p>Link your externally published writing from LinkedIn, Substack, and Medium.</p>
-      <div class="pub-grid">
-        <article class="pub-card">
-          <h3><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn Articles</h3>
-          <p>Professional thought pieces, program insights, and implementation notes.</p>
-          <a href="https://linkedin.com/in/elameenbadawy" target="_blank" rel="noopener noreferrer">Open LinkedIn profile</a>
-        </article>
-        <article class="pub-card">
-          <h3><i class="fa-solid fa-newspaper" aria-hidden="true"></i> Substack</h3>
-          <p>Long-form analysis and method explainers for data and AI practice.</p>
-          <a href="#" target="_blank" rel="noopener noreferrer">Add your Substack link</a>
-        </article>
-        <article class="pub-card">
-          <h3><i class="fab fa-medium" aria-hidden="true"></i> Medium</h3>
-          <p>Technical tutorials, reflective case notes, and workflow breakdowns.</p>
-          <a href="#" target="_blank" rel="noopener noreferrer">Add your Medium link</a>
-        </article>
+        <h2 style="margin-top:14px;">Publications</h2>
+        <div class="techblog-publications">
+          <article class="techblog-pub-card">
+            <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
+            <p>Professional reflections and implementation updates.</p>
+            <a href="https://linkedin.com/in/elameenbadawy" target="_blank" rel="noopener noreferrer">Open profile</a>
+          </article>
+          <article class="techblog-pub-card">
+            <h3><i class="fab fa-medium"></i> Medium</h3>
+            <p>Technical tutorials and project explainers.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add Medium URL</a>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -347,6 +280,8 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#projects">Projects</a>
         <a href="blog">Blog</a>
         <a href="publications">Publications</a>
         <a href="/#contact">Contact</a>

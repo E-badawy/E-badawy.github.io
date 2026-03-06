@@ -78,15 +78,15 @@
    <nav class="top-nav" id="site-navigation">
    	 	<a href="#about" class="nav-btn">About</a>
 	   	<a href="#resume" class="nav-btn">Résumé</a>
+	   <a href="#services" class="nav-btn">Services</a>
+      <a href="#my-work-structure" class="nav-btn">My Work Structure</a>
 	   <a href="#certificates" class="nav-btn">Certifications</a>
    	 	<a href="#projects" class="nav-btn">Projects</a>
 	   	<a href="#analytics" class="nav-btn">Analytics</a>
-      <a href="#clients-collaborators" class="nav-btn">Clients & Collaborators</a>
       <a href="#programs-artifacts" class="nav-btn">Programs & Artifacts</a>
+      <a href="#clients-collaborators" class="nav-btn">Clients & Collaborators</a>
       <a href="blog" class="nav-btn">Blog</a>
       <a href="publications" class="nav-btn">Publications</a>
-	   <a href="#services" class="nav-btn">Services</a>
-      <a href="#my-work-structure" class="nav-btn">My Work Structure</a>
    	  	<a href="#contact" class="nav-btn">Contact</a>
 	</nav>
   </header>
@@ -127,97 +127,6 @@
       </a>
     </div>
   </section>
-<!-- ===== PROFESSIONAL SKILLS SECTION ===== -->
-<section id="professional-skills" class="professional-skills">
-  <div class="container">
-    <h2 class="section-title">Professional Skills</h2>
-    <p class="section-subtitle">
-      A concise, professional overview of core Technical, Research, and M&E competencies.
-    </p>
-
-    <div class="skills-grid">
-      <!-- Languages -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-code"></i></div>
-        <h3 class="skill-title">Languages</h3>
-        <p class="skill-items">Python · R · SQL · LaTeX</p>
-      </div>
-
-      <!-- Monitoring & Evaluation -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-project-diagram"></i></div>
-        <h3 class="skill-title">Monitoring &amp; Evaluation</h3>
-        <p class="skill-items">
-          Logical Framework · Theory of Change · Results-Based Management
-        </p>
-      </div>
-
-      <!-- Research -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-flask"></i></div>
-        <h3 class="skill-title">Research</h3>
-        <p class="skill-items">
-          Survey Design · Data Collection · Data Analysis · Publication Ethics
-        </p>
-      </div>
-
-      <!-- Visualization -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
-        <h3 class="skill-title">Visualization</h3>
-        <p class="skill-items">Tableau · Power BI · ggplot2 · Matplotlib</p>
-      </div>
-
-      <!-- Automation -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-cogs"></i></div>
-        <h3 class="skill-title">Automation</h3>
-        <p class="skill-items">Apache Airflow · n8n · Zapier</p>
-      </div>
-
-      <!-- Statistical Analysis -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-calculator"></i></div>
-        <h3 class="skill-title">Computational Frameworks</h3>
-        <p class="skill-items">Machine Learning · Deep Learning · Model Deployment</p>
-      </div>
-
-      <!-- Cloud & DevOps -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-        <h3 class="skill-title">Cloud & DevOps</h3>
-        <p class="skill-items">AWS/Azure Foundations · API Deployment · CI/CD Workflows</p>
-      </div>
-
-      <!-- Program Delivery -->
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-diagram-project"></i></div>
-        <h3 class="skill-title">Program Delivery</h3>
-        <p class="skill-items">Agile Planning · Stakeholder Reporting · Data-Driven Execution</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Animation script -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll(".skill-card");
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    cards.forEach(card => observer.observe(card));
-  });
-</script>
-
 <!-- ===== SERVICES SECTION ===== -->
 <section id="services" class="services-section">
   <h2>Services</h2>
@@ -952,10 +861,11 @@ It complements the Excel VBA Search Automation System.
     <div class="footer-col">
       <h4>Quick Links</h4>
       <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#projects">Projects</a>
+      <a href="#programs-artifacts">Programs</a>
       <a href="blog">Blog</a>
       <a href="publications">Publications</a>
-      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </div>
 
@@ -991,4 +901,5 @@ It complements the Excel VBA Search Automation System.
 <script src="nav.js"></script>
 </body>
 </html>
+
 

@@ -37,13 +37,28 @@
   </url>
 
   <url>
-    <loc>https://e-badawy.github.io/blog-chirpy</loc>
+    <loc>https://e-badawy.github.io/blog-note-crispdm-delivery</loc>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://e-badawy.github.io/publications</loc>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/blog-note-descriptive-vs-predictive</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/blog-note-data-quality-dashboard</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/blog-note-prompt-governance</loc>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
