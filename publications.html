@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications Hub | Badawi Amin Muhammed</title>
+  <meta name="description" content="Publications hub for external articles on LinkedIn, Substack, and Medium." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .pub-page {
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f4f9ff 0%, #edf4fd 100%);
+      color: #1a3750;
+    }
+
+    .pub-wrap {
+      width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
+      margin: 24px auto 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .pub-hero,
+    .pub-section {
+      background: #ffffff;
+      border: 1px solid rgba(148, 205, 239, 0.6);
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(7, 31, 52, 0.08);
+      padding: 20px;
+    }
+
+    .pub-hero h1 {
+      margin: 0 0 8px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: #10395b;
+    }
+
+    .pub-hero p {
+      margin: 0 0 12px;
+      color: #3b5c76;
+      max-width: 72ch;
+    }
+
+    .pub-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pub-link-row a {
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(128, 196, 237, 0.64);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #0f4f7e;
+      background: #e7f3ff;
+    }
+
+    .pub-platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .pub-platform {
+      border: 1px solid rgba(140, 201, 238, 0.6);
+      border-radius: 12px;
+      padding: 14px;
+      background: #f8fcff;
+    }
+
+    .pub-platform h2 {
+      margin: 0 0 10px;
+      color: #0f3f62;
+      font-size: 1.08rem;
+    }
+
+    .pub-item {
+      border-top: 1px dashed rgba(132, 196, 236, 0.65);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .pub-item:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .pub-item h3 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+      color: #15476d;
+    }
+
+    .pub-item p {
+      margin: 0 0 8px;
+      color: #3d5d77;
+      font-size: 0.9rem;
+    }
+
+    .pub-item a {
+      text-decoration: none;
+      color: #0c5f94;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .pub-note {
+      margin: 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(132, 196, 236, 0.65);
+      background: #eaf5ff;
+      color: #2f536f;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body class="pub-page">
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist - AI/ML Expert - Research Data Analyst</h3>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="blog-chirpy" class="nav-btn">Chirpy Preview</a>
+      <a href="publications" class="nav-btn">Publications</a>
+      <a href="/#programs-artifacts" class="nav-btn">Programs</a>
+      <a href="/#contact" class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
+  <main class="pub-wrap">
+    <section class="pub-hero">
+      <h1>Publications Hub</h1>
+      <p>
+        Central page for externally published articles and thought leadership across LinkedIn, Substack, and Medium.
+        Update each card with your real article titles and links.
+      </p>
+      <div class="pub-link-row">
+        <a href="blog"><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i> Open Minimal Blog</a>
+        <a href="blog-chirpy"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Open Chirpy Preview</a>
+      </div>
+    </section>
+
+    <section class="pub-section">
+      <div class="pub-platform-grid">
+        <article class="pub-platform">
+          <h2><i class="fab fa-linkedin"></i> LinkedIn Articles</h2>
+          <div class="pub-item">
+            <h3>Evidence-Driven Program Design in Emerging Data Ecosystems</h3>
+            <p>Short-form insights on translating field data into policy-relevant decisions.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add article link</a>
+          </div>
+          <div class="pub-item">
+            <h3>From KPI Architecture to Executive Decision Notes</h3>
+            <p>How metric hierarchies improve accountability and planning outcomes.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add article link</a>
+          </div>
+          <div class="pub-item">
+            <h3>LinkedIn Profile</h3>
+            <p>Primary publishing profile for professional updates.</p>
+            <a href="https://linkedin.com/in/elameenbadawy" target="_blank" rel="noopener noreferrer">Open profile</a>
+          </div>
+        </article>
+
+        <article class="pub-platform">
+          <h2><i class="fa-solid fa-newspaper"></i> Substack</h2>
+          <div class="pub-item">
+            <h3>Designing Practical AI Workflows for Program Teams</h3>
+            <p>Long-form explanation of robust AI integration in monitoring and evaluation settings.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add article link</a>
+          </div>
+          <div class="pub-item">
+            <h3>Data Governance in Low-Resource Environments</h3>
+            <p>Framework for preserving integrity while operating under infrastructure constraints.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add article link</a>
+          </div>
+          <div class="pub-item">
+            <h3>Substack Publication</h3>
+            <p>Use your own publication URL as the hub anchor.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add Substack URL</a>
+          </div>
+        </article>
+
+        <article class="pub-platform">
+          <h2><i class="fab fa-medium"></i> Medium</h2>
+          <div class="pub-item">
+            <h3>A Reproducible Approach to Program Analytics Reporting</h3>
+            <p>Standardized methods for generating transparent and reusable reporting outputs.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add article link</a>
+          </div>
+          <div class="pub-item">
+            <h3>Comparing Predictive Models for Operational Planning</h3>
+            <p>Model selection notes for decision scenarios with limited historical data.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add article link</a>
+          </div>
+          <div class="pub-item">
+            <h3>Medium Publication</h3>
+            <p>Set your profile or publication URL here.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add Medium URL</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pub-section">
+      <p class="pub-note">
+        Quick update workflow: replace each placeholder `#` link with your article URL, then commit and push.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <div class="footer-col footer-brand">
+        <h3>Badawi Amin Muhammed</h3>
+        <p>Data Scientist, BI Expert, and Research Analyst building practical analytics and decision-support systems.</p>
+        <a href="consultation" class="footer-cta">Book Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="blog">Blog</a>
+        <a href="publications">Publications</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:officialbadawy@gmail.com">officialbadawy@gmail.com</a>
+        <a href="tel:+2348065440075">+234 806 544 0075</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Badawi Amin Muhammed. All rights reserved.</span>
+      <span>Zaria-Kaduna, Nigeria (WAT)</span>
+    </div>
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

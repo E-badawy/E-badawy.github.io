@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights Blog | Badawi Amin Muhammed</title>
+  <meta name="description" content="Insights blog featuring data science, AI, BI, and research strategy notes by Badawi Amin Muhammed." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .blog-minimal-page {
+      font-family: "Work Sans", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f6f9fc 0%, #eef4fb 100%);
+      color: #18334b;
+    }
+
+    .blog-minimal-wrap {
+      width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
+      margin: 24px auto 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .blog-minimal-hero,
+    .blog-minimal-section {
+      background: #ffffff;
+      border: 1px solid rgba(157, 205, 236, 0.55);
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(7, 31, 52, 0.08);
+      padding: clamp(18px, 2.3vw, 30px);
+    }
+
+    .blog-minimal-title {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      color: #0f3556;
+    }
+
+    .blog-minimal-subtitle {
+      margin: 10px 0 16px;
+      color: #3c5872;
+      max-width: 72ch;
+    }
+
+    .blog-style-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .blog-style-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(107, 177, 225, 0.6);
+      color: #0f4a75;
+      background: #e9f4ff;
+    }
+
+    .blog-style-links a:hover {
+      background: #dff0ff;
+    }
+
+    .blog-featured-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .blog-featured-panel {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(153, 208, 241, 0.58);
+      background: #f7fbff;
+    }
+
+    .blog-featured-panel img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-featured-body {
+      padding: 16px;
+    }
+
+    .blog-kicker {
+      margin: 0 0 8px;
+      color: #1a5c89;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .blog-featured-body h2 {
+      margin: 0 0 8px;
+      font-family: "Source Serif 4", Georgia, serif;
+      color: #103859;
+      font-size: 1.42rem;
+    }
+
+    .blog-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 10px;
+      color: #4a647c;
+      font-size: 0.88rem;
+    }
+
+    .blog-meta-pill {
+      border: 1px solid rgba(137, 199, 236, 0.62);
+      background: #edf7ff;
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-weight: 600;
+    }
+
+    .blog-featured-body p {
+      margin: 0 0 12px;
+      color: #35536d;
+    }
+
+    .blog-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .blog-post-card {
+      border: 1px solid rgba(146, 202, 236, 0.56);
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 14px;
+      box-shadow: 0 8px 20px rgba(7, 31, 52, 0.05);
+    }
+
+    .blog-post-card h3 {
+      margin: 0 0 8px;
+      color: #0e395c;
+      font-size: 1.06rem;
+    }
+
+    .blog-post-card p {
+      margin: 0 0 10px;
+      color: #3e5b75;
+      font-size: 0.93rem;
+    }
+
+    .blog-post-card a {
+      text-decoration: none;
+      font-weight: 700;
+      color: #0b578a;
+      font-size: 0.9rem;
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .pub-card {
+      border: 1px solid rgba(144, 199, 236, 0.56);
+      border-radius: 12px;
+      padding: 14px;
+      background: #f8fcff;
+    }
+
+    .pub-card h3 {
+      margin: 0 0 8px;
+      color: #0f3c60;
+      font-size: 1rem;
+    }
+
+    .pub-card p {
+      margin: 0 0 10px;
+      color: #3d5973;
+      font-size: 0.92rem;
+    }
+
+    .pub-card a {
+      text-decoration: none;
+      color: #0c5c91;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .blog-featured-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="blog-minimal-page">
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist - AI/ML Expert - Research Data Analyst</h3>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="blog-chirpy" class="nav-btn">Chirpy Preview</a>
+      <a href="publications" class="nav-btn">Publications</a>
+      <a href="/#programs-artifacts" class="nav-btn">Programs</a>
+      <a href="/#contact" class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
+  <main class="blog-minimal-wrap">
+    <section class="blog-minimal-hero">
+      <h1 class="blog-minimal-title">Insights Blog</h1>
+      <p class="blog-minimal-subtitle">
+        Notes from applied data science, monitoring and evaluation architecture, AI integration, and evidence-led program delivery.
+        This version is inspired by a Minimal Mistakes editorial style.
+      </p>
+      <div class="blog-style-links">
+        <a href="blog-chirpy"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Preview Chirpy Variant</a>
+        <a href="publications"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Open Publications Hub</a>
+      </div>
+    </section>
+
+    <section class="blog-minimal-section">
+      <div class="blog-featured-grid">
+        <article class="blog-featured-panel">
+          <img src="Data_analytics.png" alt="Featured blog post visual" loading="lazy" />
+          <div class="blog-featured-body">
+            <p class="blog-kicker">Featured Article</p>
+            <h2>From Raw Programme Data to Decision Intelligence</h2>
+            <div class="blog-meta-row">
+              <span class="blog-meta-pill">M and E Systems</span>
+              <span>Mar 2026</span>
+              <span>8 min read</span>
+            </div>
+            <p>
+              A practical walkthrough of converting fragmented programme datasets into structured KPI architecture
+              for executive and field decision-making.
+            </p>
+            <a href="#">Read article</a>
+          </div>
+        </article>
+
+        <article class="blog-featured-panel">
+          <img src="workflow.png" alt="Blog strategy snapshot visual" loading="lazy" />
+          <div class="blog-featured-body">
+            <p class="blog-kicker">Series</p>
+            <h2>My Work Structure in Real Projects</h2>
+            <div class="blog-meta-row">
+              <span class="blog-meta-pill">Workflow Design</span>
+              <span>4 parts</span>
+            </div>
+            <p>
+              A structured series explaining how stakeholder analysis, objective mapping, and validation standards
+              connect across project delivery cycles.
+            </p>
+            <a href="#">Open series</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="blog-minimal-section">
+      <h2>Latest Posts</h2>
+      <div class="blog-posts-grid">
+        <article class="blog-post-card">
+          <h3>Designing KPIs That Actually Drive Decisions</h3>
+          <p>How to avoid vanity indicators and build measurable outputs linked to strategy and operations.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="blog-post-card">
+          <h3>Data Governance for Real-World Programme Data</h3>
+          <p>Practical governance checkpoints for quality, traceability, and long-term reliability.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="blog-post-card">
+          <h3>When to Use Predictive Modelling in Public Sector Contexts</h3>
+          <p>A framework for deciding where predictive models are useful and where descriptive analytics is enough.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="blog-post-card">
+          <h3>Communicating Statistical Findings to Non-Technical Stakeholders</h3>
+          <p>Templates for translating model output into clear policy, operational, and executive messages.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="blog-post-card">
+          <h3>Field Data Collection Mistakes That Distort Results</h3>
+          <p>Common survey and collection pitfalls that create downstream analysis errors and weak recommendations.</p>
+          <a href="#">Read more</a>
+        </article>
+        <article class="blog-post-card">
+          <h3>Integrating Generative AI Without Breaking Governance</h3>
+          <p>How to insert AI assistants into analytics workflows while preserving quality control and accountability.</p>
+          <a href="#">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="blog-minimal-section">
+      <h2>Publications</h2>
+      <p>Link your externally published writing from LinkedIn, Substack, and Medium.</p>
+      <div class="pub-grid">
+        <article class="pub-card">
+          <h3><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn Articles</h3>
+          <p>Professional thought pieces, program insights, and implementation notes.</p>
+          <a href="https://linkedin.com/in/elameenbadawy" target="_blank" rel="noopener noreferrer">Open LinkedIn profile</a>
+        </article>
+        <article class="pub-card">
+          <h3><i class="fa-solid fa-newspaper" aria-hidden="true"></i> Substack</h3>
+          <p>Long-form analysis and method explainers for data and AI practice.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">Add your Substack link</a>
+        </article>
+        <article class="pub-card">
+          <h3><i class="fab fa-medium" aria-hidden="true"></i> Medium</h3>
+          <p>Technical tutorials, reflective case notes, and workflow breakdowns.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">Add your Medium link</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <div class="footer-col footer-brand">
+        <h3>Badawi Amin Muhammed</h3>
+        <p>Data Scientist, BI Expert, and Research Analyst building practical analytics and decision-support systems.</p>
+        <a href="consultation" class="footer-cta">Book Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="blog">Blog</a>
+        <a href="publications">Publications</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:officialbadawy@gmail.com">officialbadawy@gmail.com</a>
+        <a href="tel:+2348065440075">+234 806 544 0075</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Badawi Amin Muhammed. All rights reserved.</span>
+      <span>Zaria-Kaduna, Nigeria (WAT)</span>
+    </div>
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

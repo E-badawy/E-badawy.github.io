@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights Blog (Chirpy Preview) | Badawi Amin Muhammed</title>
+  <meta name="description" content="Chirpy-inspired technical blog preview for Badawi Amin Muhammed with publication links." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .chirpy-preview-page {
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f3f8fe 0%, #eaf3ff 100%);
+      color: #183550;
+    }
+
+    .chirpy-wrap {
+      width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
+      margin: 24px auto 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .chirpy-hero {
+      background: #ffffff;
+      border: 1px solid rgba(143, 202, 239, 0.58);
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(8, 36, 58, 0.08);
+      padding: 22px;
+    }
+
+    .chirpy-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      color: #11395c;
+    }
+
+    .chirpy-sub {
+      margin: 0 0 12px;
+      color: #3c5c77;
+      max-width: 72ch;
+    }
+
+    .chirpy-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chirpy-link-row a {
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(124, 192, 235, 0.62);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #0f4f7f;
+      background: #e6f4ff;
+    }
+
+    .chirpy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 14px;
+    }
+
+    .chirpy-sidebar,
+    .chirpy-main-panel {
+      background: #ffffff;
+      border: 1px solid rgba(143, 202, 239, 0.58);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(8, 36, 58, 0.07);
+      padding: 16px;
+    }
+
+    .chirpy-sidebar h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #154062;
+    }
+
+    .chirpy-sidebar a {
+      display: block;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #1a4f75;
+      font-size: 0.92rem;
+    }
+
+    .chirpy-sidebar a:hover {
+      background: #e9f5ff;
+    }
+
+    .chirpy-post-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .chirpy-post {
+      border: 1px solid rgba(141, 200, 237, 0.6);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f9fcff;
+    }
+
+    .chirpy-post h3 {
+      margin: 0 0 8px;
+      color: #133f62;
+      font-size: 1.02rem;
+    }
+
+    .chirpy-code-meta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      color: #3f617d;
+      margin: 0 0 8px;
+      background: #eaf5ff;
+      border: 1px solid rgba(133, 195, 235, 0.55);
+      border-radius: 7px;
+      padding: 4px 7px;
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .chirpy-post p {
+      margin: 0 0 8px;
+      color: #385974;
+      font-size: 0.92rem;
+    }
+
+    .chirpy-post a {
+      color: #0e5b8e;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .chirpy-publications {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .chirpy-pub-card {
+      border: 1px solid rgba(141, 200, 237, 0.6);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f7fbff;
+    }
+
+    .chirpy-pub-card h3 {
+      margin: 0 0 8px;
+      color: #103f62;
+      font-size: 1rem;
+    }
+
+    .chirpy-pub-card p {
+      margin: 0 0 8px;
+      color: #3a5d78;
+      font-size: 0.9rem;
+    }
+
+    .chirpy-pub-card a {
+      text-decoration: none;
+      color: #0d5d90;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .chirpy-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="chirpy-preview-page">
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist - AI/ML Expert - Research Data Analyst</h3>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="blog" class="nav-btn">Minimal Blog</a>
+      <a href="blog-chirpy" class="nav-btn">Chirpy Preview</a>
+      <a href="publications" class="nav-btn">Publications</a>
+      <a href="/#programs-artifacts" class="nav-btn">Programs</a>
+      <a href="/#contact" class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
+  <main class="chirpy-wrap">
+    <section class="chirpy-hero">
+      <h1 class="chirpy-title">Insights Blog - Chirpy Style Preview</h1>
+      <p class="chirpy-sub">
+        Technical blog layout with an information-dense structure, metadata blocks, and quick navigation behavior.
+      </p>
+      <div class="chirpy-link-row">
+        <a href="blog"><i class="fa-solid fa-swatchbook" aria-hidden="true"></i> Switch to Minimal Style</a>
+        <a href="publications"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Open Publications Hub</a>
+      </div>
+    </section>
+
+    <section class="chirpy-layout">
+      <aside class="chirpy-sidebar">
+        <h2>Browse Topics</h2>
+        <a href="#">Data Architecture</a>
+        <a href="#">M and E Frameworks</a>
+        <a href="#">Predictive Modelling</a>
+        <a href="#">Health Analytics</a>
+        <a href="#">Generative AI Integration</a>
+        <a href="#">Programme Intelligence</a>
+      </aside>
+
+      <div class="chirpy-main-panel">
+        <h2>Recent Technical Notes</h2>
+        <div class="chirpy-post-grid">
+          <article class="chirpy-post">
+            <h3>CRISP-DM in Public Programme Delivery Pipelines</h3>
+            <p class="chirpy-code-meta">category: methods | read: 6m | status: published</p>
+            <p>How I adapt CRISP-DM phases to match institutional timelines and stakeholder decision windows.</p>
+            <a href="#">Read note</a>
+          </article>
+          <article class="chirpy-post">
+            <h3>Choosing Between Descriptive and Predictive Workflows</h3>
+            <p class="chirpy-code-meta">category: modelling | read: 7m | status: published</p>
+            <p>Decision criteria for selecting fit-for-purpose analysis depth under real operational constraints.</p>
+            <a href="#">Read note</a>
+          </article>
+          <article class="chirpy-post">
+            <h3>Data Quality Checks Before Dashboard Delivery</h3>
+            <p class="chirpy-code-meta">category: governance | read: 5m | status: published</p>
+            <p>A practical checklist for auditability, validation, and source consistency before publishing dashboards.</p>
+            <a href="#">Read note</a>
+          </article>
+          <article class="chirpy-post">
+            <h3>Prompt Governance for AI-Assisted Analytics Teams</h3>
+            <p class="chirpy-code-meta">category: genai | read: 8m | status: draft</p>
+            <p>Prompt standards and review controls that maintain quality when teams adopt generative AI tools.</p>
+            <a href="#">Read note</a>
+          </article>
+        </div>
+
+        <h2 style="margin-top:14px;">Publications</h2>
+        <div class="chirpy-publications">
+          <article class="chirpy-pub-card">
+            <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
+            <p>Professional reflections and implementation updates.</p>
+            <a href="https://linkedin.com/in/elameenbadawy" target="_blank" rel="noopener noreferrer">Open profile</a>
+          </article>
+          <article class="chirpy-pub-card">
+            <h3><i class="fa-solid fa-newspaper"></i> Substack</h3>
+            <p>Long-form essays and strategic deep-dives.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add Substack URL</a>
+          </article>
+          <article class="chirpy-pub-card">
+            <h3><i class="fab fa-medium"></i> Medium</h3>
+            <p>Technical tutorials and project explainers.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer">Add Medium URL</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <div class="footer-col footer-brand">
+        <h3>Badawi Amin Muhammed</h3>
+        <p>Data Scientist, BI Expert, and Research Analyst building practical analytics and decision-support systems.</p>
+        <a href="consultation" class="footer-cta">Book Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="blog">Blog</a>
+        <a href="publications">Publications</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:officialbadawy@gmail.com">officialbadawy@gmail.com</a>
+        <a href="tel:+2348065440075">+234 806 544 0075</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Badawi Amin Muhammed. All rights reserved.</span>
+      <span>Zaria-Kaduna, Nigeria (WAT)</span>
+    </div>
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>
