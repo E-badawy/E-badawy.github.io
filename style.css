@@ -286,6 +286,17 @@ body.home-page {
   text-align: left;
 }
 
+.nav-title {
+  display: block;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(210, 233, 255, 0.85);
+}
+
 .home-page .hero-grid {
   grid-area: hero;
   padding: clamp(1.4rem, 2.8vw, 3rem) clamp(1.2rem, 4vw, 4rem);
