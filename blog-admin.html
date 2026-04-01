@@ -161,6 +161,15 @@
       color: #4a647d;
       line-height: 1.6;
     }
+
+    .admin-note ol {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .admin-note li {
+      margin: 4px 0;
+    }
     @media (max-width: 900px) {
       .admin-grid {
         grid-template-columns: 1fr;
@@ -176,6 +185,17 @@
         Paste your post details here to create a new blog card with optional images and rich content.
         When you are done, download the updated <strong>blog-posts.json</strong> and replace the file in your repo, then push.
       </p>
+      <div class="admin-note">
+        <strong>Posting steps:</strong>
+        <ol>
+          <li>Fill the form and click <strong>Add Post</strong>.</li>
+          <li>Click <strong>Download blog-posts.json</strong>.</li>
+          <li>Upload/replace <code>blog-posts.json</code> in your GitHub repo.</li>
+          <li>If you added images, upload them to <code>images/blog/</code>.</li>
+          <li>Commit + push (or use GitHub web to commit).</li>
+          <li>Wait 1–2 minutes, then refresh your blog page.</li>
+        </ol>
+      </div>
     </section>
 
     <section class="admin-grid">
@@ -196,7 +216,7 @@
           </div>
           <div class="admin-row">
             <label for="postImage">Cover image URL (optional)</label>
-            <input id="postImage" name="image" placeholder="images/my-cover.jpg or https://..." />
+            <input id="postImage" name="image" placeholder="images/blog/my-cover.jpg or https://..." />
           </div>
           <div class="admin-row">
             <label for="postGallery">Gallery image URLs (optional)</label>
@@ -242,8 +262,8 @@
             </div>
           </div>
           <div class="admin-row">
-            <label for="postUrl">URL (blog page slug or full link)</label>
-            <input id="postUrl" name="url" placeholder="blog-note-your-post or https://linkedin.com/..." required />
+            <label for="postUrl">URL (optional)</label>
+            <input id="postUrl" name="url" placeholder="blog-note-your-post or https://linkedin.com/..." />
           </div>
           <div class="admin-row">
             <label for="postLinkText">Link text</label>
@@ -269,10 +289,10 @@
         <strong>blog-posts.json</strong> in the repo with the downloaded file, then commit and push.
       </p>
       <p class="admin-note">
-        <strong>Images:</strong> If you have a local image file, upload it to your repo first (e.g. <code>images/my-post.jpg</code>).
+        <strong>Images:</strong> If you have a local image file, upload it to your repo first (e.g. <code>images/blog/my-post.jpg</code>).
         Then use that path in the Cover image or Gallery fields. Example:
-        <code>images/my-post.jpg</code> or the full live URL:
-        <code>https://e-badawy.github.io/images/my-post.jpg</code>.
+        <code>images/blog/my-post.jpg</code> or the full live URL:
+        <code>https://e-badawy.github.io/images/blog/my-post.jpg</code>.
       </p>
       <textarea class="admin-json" id="jsonOutput" readonly></textarea>
       <div class="admin-actions">
@@ -460,7 +480,7 @@
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const post = getFormData();
-      if (!post.title || !post.summary || !post.url) return;
+      if (!post.title || !post.summary) return;
       if (editIndex >= 0) {
         posts[editIndex] = post;
       } else {

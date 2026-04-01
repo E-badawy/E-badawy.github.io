@@ -7,6 +7,13 @@
     "read": "6m",
     "status": "published",
     "summary": "How I adapt CRISP-DM phases to match institutional timelines and stakeholder decision windows.",
+    "content": [
+      "This note breaks down how CRISP-DM can be tuned for real-world programme delivery, especially when multiple stakeholders need answers at different times.",
+      "I highlight where discovery, data preparation, and evaluation should be compressed or extended to match operational decision windows.",
+      "The goal is to keep governance intact while still moving quickly enough to inform action."
+    ],
+    "image": "",
+    "gallery": [],
     "url": "blog-note-crispdm-delivery",
     "linkText": "Read note"
   },
@@ -18,6 +25,13 @@
     "read": "7m",
     "status": "published",
     "summary": "Decision criteria for selecting fit-for-purpose analysis depth under real operational constraints.",
+    "content": [
+      "Some problems require only clear descriptive insight, while others need full predictive modelling.",
+      "This note explains how to decide between the two based on uncertainty, time pressure, and available data quality.",
+      "I share a short decision framework used in delivery work to avoid over-engineering."
+    ],
+    "image": "",
+    "gallery": [],
     "url": "blog-note-descriptive-vs-predictive",
     "linkText": "Read note"
   },
@@ -29,6 +43,13 @@
     "read": "5m",
     "status": "published",
     "summary": "A practical checklist for auditability, validation, and source consistency before publishing dashboards.",
+    "content": [
+      "Before any dashboard goes live, I run a short quality checklist that protects stakeholder trust.",
+      "This includes source validation, reconciliation against official figures, and checks for missing or biased fields.",
+      "The checklist is lightweight but strong enough for audit-ready delivery."
+    ],
+    "image": "Data_analytics.png",
+    "gallery": [],
     "url": "blog-note-data-quality-dashboard",
     "linkText": "Read note"
   },
@@ -40,6 +61,13 @@
     "read": "8m",
     "status": "published",
     "summary": "Prompt standards and review controls that maintain quality when teams adopt generative AI tools.",
+    "content": [
+      "As teams scale AI-assisted analytics, prompt quality becomes a governance issue.",
+      "This note outlines prompt standards, review checkpoints, and lightweight QA protocols.",
+      "The approach keeps creativity while protecting data integrity and decision quality."
+    ],
+    "image": "",
+    "gallery": [],
     "url": "blog-note-prompt-governance",
     "linkText": "Read note"
   }
