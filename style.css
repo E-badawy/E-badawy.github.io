@@ -343,6 +343,18 @@ body.home-page {
   max-width: 62ch;
 }
 
+.hero-bullets {
+  margin: 0 0 18px;
+  padding-left: 1.2rem;
+  color: rgba(214, 232, 247, 0.9);
+  font-weight: 600;
+  max-width: 62ch;
+}
+
+.hero-bullets li {
+  margin: 6px 0;
+}
+
 .hero-subscribe {
   display: flex;
   justify-content: flex-start;
@@ -351,10 +363,21 @@ body.home-page {
 
 .hero-signature {
   margin-top: 14px;
-  font-size: 0.95rem;
+  display: grid;
+  gap: 4px;
   color: rgba(214, 232, 247, 0.85);
-  letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.hero-signature-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.hero-signature-title {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
 }
 
 .hero-btn {
@@ -1544,7 +1567,7 @@ h2 {
 
 /* ===== ABOUT SECTION ===== */
 #about {
-  background-color: #f9fafc;
+  background: linear-gradient(140deg, #061e32 0%, #0a3b62 55%, #c69a3b 100%);
   padding: 60px 20px;
   text-align: center;
   position: relative;
@@ -1556,9 +1579,9 @@ h2 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 20%, rgba(74, 168, 255, 0.16), transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(146, 220, 255, 0.18), transparent 50%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(227, 240, 255, 0.35));
+    radial-gradient(circle at 18% 18%, rgba(90, 178, 255, 0.3), transparent 48%),
+    radial-gradient(circle at 85% 12%, rgba(244, 203, 111, 0.28), transparent 52%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.45), rgba(210, 233, 255, 0.18));
   opacity: 0.9;
   z-index: 0;
 }
@@ -1568,8 +1591,8 @@ h2 {
   position: absolute;
   inset: -20% -10%;
   background:
-    linear-gradient(rgba(8, 36, 58, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(8, 36, 58, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(10, 54, 86, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 154, 59, 0.22) 1px, transparent 1px);
   background-size: 36px 36px;
   opacity: 0.35;
   z-index: 0;
@@ -1577,10 +1600,10 @@ h2 {
 }
 
 #about h2 {
-  color: #001f3f;
+  color: #f2d48a;
   font-size: 2em;
   margin-bottom: 25px;
-  border-bottom: 3px solid #001f3f;
+  border-bottom: 3px solid rgba(242, 212, 138, 0.75);
   display: inline-block;
   padding-bottom: 5px;
   position: relative;
@@ -1597,6 +1620,13 @@ h2 {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(232, 198, 120, 0.45);
+  box-shadow:
+    0 20px 46px rgba(4, 24, 40, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .profile-img {
@@ -2952,8 +2982,7 @@ body.home-page .top-nav {
   backdrop-filter: none !important;
 }
 
-body.home-page section,
-body.home-page #about,
+body.home-page section:not(#about),
 body.home-page #resume,
 body.home-page .professional-skills,
 body.home-page .services-section,
@@ -3245,8 +3274,20 @@ section {
     font-size: 0.98rem;
   }
 
+  .hero-bullets {
+    font-size: 0.95rem;
+  }
+
   .hero-signature {
     font-size: 0.8rem;
+  }
+
+  .hero-signature-name {
+    font-size: 0.9rem;
+  }
+
+  .hero-signature-title {
+    font-size: 0.78rem;
   }
 
   .hero-subscribe {
