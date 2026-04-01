@@ -60,8 +60,8 @@ body::before {
 
 /* ---------- HEADER ---------- */
 :root {
-  --page-max-width: 1360px;
-  --page-gutter: clamp(14px, 2.4vw, 36px);
+  --page-max-width: 100%;
+  --page-gutter: 0px;
 }
 
 .site-header {
@@ -2862,6 +2862,29 @@ body.home-page .analytics-kpi {
   flex-wrap: wrap;
   font-size: 0.9rem;
   color: rgba(209, 234, 252, 0.9);
+}
+
+/* ===== EDGE-TO-EDGE LAYOUT ===== */
+.site-header,
+.top-nav,
+section,
+.site-footer .footer-wrap,
+.site-footer .footer-bottom {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+}
+
+.site-header,
+.top-nav,
+section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+section {
+  box-shadow: none;
 }
 
 @media (max-width: 900px) {
