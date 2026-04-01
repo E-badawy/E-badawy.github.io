@@ -163,25 +163,27 @@ body.home-page {
 }
 
 .home-page .site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(4, 28, 47, 0.96) 0%,
-    rgba(4, 28, 47, 0.74) 40%,
-    rgba(4, 28, 47, 0.35) 62%,
-    rgba(4, 28, 47, 0.12) 78%,
-    rgba(4, 28, 47, 0) 92%
-  );
-  z-index: 1;
+  content: none;
+  display: none;
 }
 
 .home-page .site-header::after {
   z-index: 2;
 }
 
-.home-page .site-header > :not(.hero-watermark) {
+.home-page .site-header > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-grid {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(420px, 60vh, 640px);
+  padding: clamp(1.4rem, 2.8vw, 3rem) clamp(1.2rem, 4vw, 4rem);
+}
+
+.hero-grid > :not(.hero-watermark) {
   position: relative;
   z-index: 2;
 }
@@ -189,24 +191,29 @@ body.home-page {
 .hero-watermark {
   position: absolute;
   inset: 0;
-  background-image: url("refined_portrait.jpg");
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(6, 31, 51, 0.98) 0%,
+      rgba(6, 31, 51, 0.72) 42%,
+      rgba(6, 31, 51, 0.32) 64%,
+      rgba(6, 31, 51, 0.12) 78%,
+      rgba(6, 31, 51, 0) 92%
+    ),
+    url("refined_portrait.jpg");
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: min(48vw, 600px) auto;
-  opacity: 0.9;
-  filter: saturate(1.05) contrast(1.05);
-  z-index: 0;
+  background-position: left center, right center;
+  background-size: 100% 100%, auto 100%;
+  opacity: 0.95;
+  filter: saturate(1.05) contrast(1.08);
+  z-index: 1;
   pointer-events: none;
 }
 
 @media (max-width: 700px) {
-  .home-page .site-header::before {
-    opacity: 0.75;
-  }
-
   .hero-watermark {
-    background-size: min(64vw, 360px) auto;
-    opacity: 0.75;
+    background-size: 100% 100%, auto 100%;
+    opacity: 0.8;
   }
 }
 
@@ -281,7 +288,7 @@ body.home-page {
 
 .home-page .hero-grid {
   grid-area: hero;
-  padding: 0 clamp(1.2rem, 4vw, 4rem);
+  padding: clamp(1.4rem, 2.8vw, 3rem) clamp(1.2rem, 4vw, 4rem);
 }
 
 .home-page .header-mobile-controls {
@@ -336,11 +343,10 @@ body.home-page {
   max-width: 62ch;
 }
 
-.hero-cta {
+.hero-subscribe {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 18px;
+  justify-content: flex-start;
+  margin-top: 16px;
 }
 
 .hero-btn {
@@ -3175,12 +3181,11 @@ section {
     font-size: 0.98rem;
   }
 
-  .hero-cta {
-    flex-direction: column;
-    align-items: stretch;
+  .hero-subscribe {
+    width: 100%;
   }
 
-  .hero-cta .hero-btn {
+  .hero-subscribe .hero-btn {
     width: 100%;
     justify-content: center;
   }
@@ -3203,9 +3208,36 @@ section {
   body.mobile-desktop-fit .site-header,
   body.mobile-desktop-fit .top-nav,
   body.mobile-desktop-fit section {
-    width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2))) !important;
-    margin: 2em auto !important;
-    padding: clamp(1.2em, 2vw, 1.8em) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  body.mobile-desktop-fit .hero-grid {
+    min-height: clamp(420px, 60vh, 640px) !important;
+    padding: clamp(1.4rem, 2.8vw, 3rem) clamp(1.2rem, 4vw, 4rem) !important;
+  }
+
+  body.mobile-desktop-fit .hero-copy h1 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  body.mobile-desktop-fit .hero-intro {
+    font-size: 1.05rem !important;
+  }
+
+  body.mobile-desktop-fit .hero-summary {
+    font-size: 1rem !important;
+  }
+
+  body.mobile-desktop-fit .hero-subscribe {
+    width: auto !important;
+  }
+
+  body.mobile-desktop-fit .hero-subscribe .hero-btn {
+    width: auto !important;
   }
 
   body.mobile-desktop-fit .about-container {
@@ -3237,17 +3269,17 @@ section {
   }
 
   body.mobile-desktop-fit .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 30px !important;
   }
 
   body.mobile-desktop-fit .certificates-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 30px !important;
   }
 
   body.mobile-desktop-fit .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 30px !important;
   }
 
