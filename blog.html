@@ -321,7 +321,8 @@
     (function () {
       const tabButtons = Array.from(document.querySelectorAll('.techblog-tab'));
       const topicButtons = Array.from(document.querySelectorAll('.techblog-topic'));
-      const posts = Array.from(document.querySelectorAll('.techblog-post'));
+      const postGrid = document.getElementById('techblogPostGrid');
+      let posts = Array.from(document.querySelectorAll('.techblog-post'));
       const emptyState = document.getElementById('techblogEmpty');
       const filterState = document.getElementById('techblogFilterState');
 
@@ -337,6 +338,62 @@
       function topicLabel(value) {
         const button = topicButtons.find((btn) => btn.dataset.topic === value);
         return button ? button.textContent.trim() : 'All Topics';
+      }
+
+      function buildPostCard(post) {
+        const article = document.createElement('article');
+        article.className = 'techblog-post';
+        article.dataset.topic = post.topic || 'all';
+        article.dataset.groups = Array.isArray(post.groups)
+          ? post.groups.join(' ')
+          : String(post.groups || 'recent');
+
+        const title = document.createElement('h3');
+        title.textContent = post.title || 'Untitled note';
+
+        const meta = document.createElement('p');
+        meta.className = 'techblog-code-meta';
+        const metaParts = [];
+        if (post.category) metaParts.push(`category: ${post.category}`);
+        if (post.read) metaParts.push(`read: ${post.read}`);
+        if (post.status) metaParts.push(`status: ${post.status}`);
+        meta.textContent = metaParts.join(' | ');
+
+        const summary = document.createElement('p');
+        summary.textContent = post.summary || '';
+
+        const link = document.createElement('a');
+        link.href = post.url || '#';
+        link.textContent = post.linkText || 'Read note';
+        if (/^https?:\/\//i.test(link.href)) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+        }
+
+        article.appendChild(title);
+        if (meta.textContent) article.appendChild(meta);
+        if (summary.textContent) article.appendChild(summary);
+        article.appendChild(link);
+
+        return article;
+      }
+
+      async function hydratePosts() {
+        try {
+          const res = await fetch('blog-posts.json', { cache: 'no-store' });
+          if (!res.ok) return;
+          const data = await res.json();
+          if (!Array.isArray(data) || data.length === 0) return;
+
+          postGrid.innerHTML = '';
+          data.forEach((post) => {
+            postGrid.appendChild(buildPostCard(post));
+          });
+          posts = Array.from(document.querySelectorAll('.techblog-post'));
+          renderPosts();
+        } catch (_) {
+          // Keep static posts if JSON fetch fails.
+        }
       }
 
       function renderPosts() {
@@ -378,6 +435,7 @@
       });
 
       renderPosts();
+      hydratePosts();
     })();
   </script>
   <script src="site-nav.js"></script>

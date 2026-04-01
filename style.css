@@ -1432,7 +1432,7 @@ body.home-page {
     padding: 12px;
     margin: 12px auto 0;
     border-radius: 18px;
-    border: 1px solid rgba(177, 233, 255, 0.3);
+    border: none;
     background: rgba(2, 25, 44, 0.34);
     backdrop-filter: blur(6px);
     box-sizing: border-box;
@@ -2956,7 +2956,7 @@ body:not(.home-page) .site-header p {
 
 body:not(.home-page) .top-nav {
   background: #0a3558 !important;
-  border: 1px solid rgba(173, 217, 245, 0.42) !important;
+  border: none !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }

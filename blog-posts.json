@@ -1,0 +1,46 @@
+[
+  {
+    "title": "CRISP-DM in Public Programme Delivery Pipelines",
+    "topic": "me-frameworks",
+    "groups": ["recent", "top", "foryou"],
+    "category": "methods",
+    "read": "6m",
+    "status": "published",
+    "summary": "How I adapt CRISP-DM phases to match institutional timelines and stakeholder decision windows.",
+    "url": "blog-note-crispdm-delivery",
+    "linkText": "Read note"
+  },
+  {
+    "title": "Choosing Between Descriptive and Predictive Workflows",
+    "topic": "predictive",
+    "groups": ["recent", "top"],
+    "category": "modelling",
+    "read": "7m",
+    "status": "published",
+    "summary": "Decision criteria for selecting fit-for-purpose analysis depth under real operational constraints.",
+    "url": "blog-note-descriptive-vs-predictive",
+    "linkText": "Read note"
+  },
+  {
+    "title": "Data Quality Checks Before Dashboard Delivery",
+    "topic": "architecture",
+    "groups": ["recent", "top", "foryou"],
+    "category": "governance",
+    "read": "5m",
+    "status": "published",
+    "summary": "A practical checklist for auditability, validation, and source consistency before publishing dashboards.",
+    "url": "blog-note-data-quality-dashboard",
+    "linkText": "Read note"
+  },
+  {
+    "title": "Prompt Governance for AI-Assisted Analytics Teams",
+    "topic": "genai",
+    "groups": ["recent", "foryou"],
+    "category": "genai",
+    "read": "8m",
+    "status": "published",
+    "summary": "Prompt standards and review controls that maintain quality when teams adopt generative AI tools.",
+    "url": "blog-note-prompt-governance",
+    "linkText": "Read note"
+  }
+]

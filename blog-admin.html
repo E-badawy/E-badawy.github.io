@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Admin | Badawi Amin Muhammed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body.blog-admin {
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f2f7ff 0%, #e6f0ff 100%);
+      color: #12324f;
+    }
+    .admin-wrap {
+      width: min(1100px, 92vw);
+      margin: 32px auto 60px;
+      display: grid;
+      gap: 18px;
+    }
+    .admin-hero {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(120, 185, 230, 0.5);
+      padding: 20px 24px;
+      box-shadow: 0 16px 34px rgba(8, 36, 58, 0.12);
+    }
+    .admin-hero h1 {
+      margin: 0 0 6px;
+      font-size: 1.8rem;
+      color: #0c3a5c;
+    }
+    .admin-hero p {
+      margin: 0;
+      color: #3b5e7a;
+      line-height: 1.6;
+    }
+    .admin-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 18px;
+    }
+    .admin-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(120, 185, 230, 0.45);
+      padding: 20px;
+      box-shadow: 0 12px 28px rgba(7, 31, 53, 0.1);
+    }
+    .admin-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      color: #0c3a5c;
+    }
+    .admin-form {
+      display: grid;
+      gap: 12px;
+    }
+    .admin-form label {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #244b6b;
+    }
+    .admin-form input,
+    .admin-form select,
+    .admin-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(134, 196, 236, 0.6);
+      font-size: 0.92rem;
+      font-family: inherit;
+    }
+    .admin-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .admin-row {
+      display: grid;
+      gap: 8px;
+    }
+    .admin-inline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .admin-actions button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      background: #0b4f82;
+      color: #ffffff;
+    }
+    .admin-actions button.secondary {
+      background: #e6f0fb;
+      color: #0b4f82;
+      border: 1px solid rgba(112, 176, 221, 0.6);
+    }
+    .post-list {
+      display: grid;
+      gap: 10px;
+    }
+    .post-item {
+      border: 1px solid rgba(128, 188, 231, 0.5);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #f7fbff;
+      display: grid;
+      gap: 6px;
+    }
+    .post-item h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      color: #103b5d;
+    }
+    .post-meta {
+      font-size: 0.82rem;
+      color: #45627c;
+    }
+    .post-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .post-actions button {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      background: #0b4f82;
+      color: #ffffff;
+    }
+    .post-actions button.secondary {
+      background: #e6f0fb;
+      color: #0b4f82;
+      border: 1px solid rgba(112, 176, 221, 0.6);
+    }
+    .admin-json {
+      width: 100%;
+      min-height: 220px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(128, 188, 231, 0.5);
+      background: #f8fbff;
+    }
+    .admin-note {
+      font-size: 0.9rem;
+      color: #4a647d;
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="blog-admin">
+  <main class="admin-wrap">
+    <section class="admin-hero">
+      <h1>Blog Admin</h1>
+      <p>
+        Paste your post details here to create a new blog card. When you are done, download the
+        updated <strong>blog-posts.json</strong> and replace the file in your repo, then push.
+      </p>
+    </section>
+
+    <section class="admin-grid">
+      <div class="admin-card">
+        <h2>Create / Edit Post</h2>
+        <form class="admin-form" id="blogAdminForm">
+          <div class="admin-row">
+            <label for="postTitle">Post title</label>
+            <input id="postTitle" name="title" placeholder="Title of the post" required />
+          </div>
+          <div class="admin-row">
+            <label for="postSummary">Summary</label>
+            <textarea id="postSummary" name="summary" placeholder="1–2 sentence summary" required></textarea>
+          </div>
+          <div class="admin-inline">
+            <div class="admin-row">
+              <label for="postTopic">Topic</label>
+              <select id="postTopic" name="topic">
+                <option value="architecture">Data Architecture</option>
+                <option value="me-frameworks">M and E Frameworks</option>
+                <option value="predictive">Predictive Modelling</option>
+                <option value="health">Health Analytics</option>
+                <option value="genai">Generative AI Integration</option>
+                <option value="program-intelligence">Programme Intelligence</option>
+              </select>
+            </div>
+            <div class="admin-row">
+              <label for="postCategory">Category</label>
+              <input id="postCategory" name="category" placeholder="methods / modelling / linkedin" />
+            </div>
+          </div>
+          <div class="admin-inline">
+            <div class="admin-row">
+              <label for="postRead">Read time</label>
+              <input id="postRead" name="read" placeholder="e.g. 5m" />
+            </div>
+            <div class="admin-row">
+              <label for="postStatus">Status</label>
+              <select id="postStatus" name="status">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="planned">Planned</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-row">
+            <label>Groups (tabs)</label>
+            <div class="admin-inline">
+              <label><input type="checkbox" name="groups" value="recent" checked /> Recent</label>
+              <label><input type="checkbox" name="groups" value="top" /> Top Reads</label>
+              <label><input type="checkbox" name="groups" value="foryou" /> For You</label>
+            </div>
+          </div>
+          <div class="admin-row">
+            <label for="postUrl">URL (blog page slug or full link)</label>
+            <input id="postUrl" name="url" placeholder="blog-note-your-post or https://linkedin.com/..." required />
+          </div>
+          <div class="admin-row">
+            <label for="postLinkText">Link text</label>
+            <input id="postLinkText" name="linkText" placeholder="Read note / Read on LinkedIn" />
+          </div>
+          <div class="admin-actions">
+            <button type="submit" id="savePostBtn">Add Post</button>
+            <button type="button" class="secondary" id="resetFormBtn">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-card">
+        <h2>Current Posts</h2>
+        <div class="post-list" id="postList"></div>
+      </div>
+    </section>
+
+    <section class="admin-card">
+      <h2>Export</h2>
+      <p class="admin-note">
+        Use the buttons below to copy or download your JSON. Replace
+        <strong>blog-posts.json</strong> in the repo with the downloaded file, then commit and push.
+      </p>
+      <textarea class="admin-json" id="jsonOutput" readonly></textarea>
+      <div class="admin-actions">
+        <button type="button" id="copyJsonBtn">Copy JSON</button>
+        <button type="button" class="secondary" id="downloadJsonBtn">Download blog-posts.json</button>
+        <button type="button" class="secondary" id="reloadJsonBtn">Reload from Repo</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('blogAdminForm');
+    const listEl = document.getElementById('postList');
+    const jsonOutput = document.getElementById('jsonOutput');
+    const saveBtn = document.getElementById('savePostBtn');
+    const resetBtn = document.getElementById('resetFormBtn');
+    const copyBtn = document.getElementById('copyJsonBtn');
+    const downloadBtn = document.getElementById('downloadJsonBtn');
+    const reloadBtn = document.getElementById('reloadJsonBtn');
+
+    let posts = [];
+    let editIndex = -1;
+
+    function normalizeGroups() {
+      return Array.from(form.querySelectorAll('input[name="groups"]:checked'))
+        .map((input) => input.value)
+        .filter(Boolean);
+    }
+
+    function getFormData() {
+      const groups = normalizeGroups();
+      return {
+        title: form.title.value.trim(),
+        topic: form.topic.value,
+        groups: groups.length ? groups : ['recent'],
+        category: form.category.value.trim(),
+        read: form.read.value.trim(),
+        status: form.status.value,
+        summary: form.summary.value.trim(),
+        url: form.url.value.trim(),
+        linkText: form.linkText.value.trim() || 'Read note'
+      };
+    }
+
+    function setFormData(post) {
+      form.title.value = post.title || '';
+      form.summary.value = post.summary || '';
+      form.topic.value = post.topic || 'architecture';
+      form.category.value = post.category || '';
+      form.read.value = post.read || '';
+      form.status.value = post.status || 'published';
+      form.url.value = post.url || '';
+      form.linkText.value = post.linkText || '';
+      const groups = new Set(post.groups || []);
+      form.querySelectorAll('input[name="groups"]').forEach((input) => {
+        input.checked = groups.has(input.value);
+      });
+    }
+
+    function resetForm() {
+      form.reset();
+      form.linkText.value = '';
+      form.category.value = '';
+      form.read.value = '';
+      editIndex = -1;
+      saveBtn.textContent = 'Add Post';
+      const recentCheckbox = form.querySelector('input[name="groups"][value="recent"]');
+      if (recentCheckbox) recentCheckbox.checked = true;
+    }
+
+    function saveState() {
+      localStorage.setItem('blogPostsAdmin', JSON.stringify(posts));
+      jsonOutput.value = JSON.stringify(posts, null, 2);
+    }
+
+    function renderPosts() {
+      listEl.innerHTML = '';
+      posts.forEach((post, index) => {
+        const item = document.createElement('div');
+        item.className = 'post-item';
+
+        const title = document.createElement('h3');
+        title.textContent = post.title || 'Untitled';
+
+        const meta = document.createElement('div');
+        meta.className = 'post-meta';
+        meta.textContent = `${post.topic || 'topic'} · ${post.category || 'category'} · ${post.read || 'read'} · ${post.status || 'status'}`;
+
+        const actions = document.createElement('div');
+        actions.className = 'post-actions';
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.addEventListener('click', () => {
+          editIndex = index;
+          setFormData(post);
+          saveBtn.textContent = 'Update Post';
+        });
+
+        const upBtn = document.createElement('button');
+        upBtn.textContent = 'Up';
+        upBtn.classList.add('secondary');
+        upBtn.disabled = index === 0;
+        upBtn.addEventListener('click', () => {
+          if (index === 0) return;
+          [posts[index - 1], posts[index]] = [posts[index], posts[index - 1]];
+          saveState();
+          renderPosts();
+        });
+
+        const downBtn = document.createElement('button');
+        downBtn.textContent = 'Down';
+        downBtn.classList.add('secondary');
+        downBtn.disabled = index === posts.length - 1;
+        downBtn.addEventListener('click', () => {
+          if (index === posts.length - 1) return;
+          [posts[index + 1], posts[index]] = [posts[index], posts[index + 1]];
+          saveState();
+          renderPosts();
+        });
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.classList.add('secondary');
+        removeBtn.addEventListener('click', () => {
+          posts.splice(index, 1);
+          saveState();
+          renderPosts();
+        });
+
+        actions.append(editBtn, upBtn, downBtn, removeBtn);
+        item.append(title, meta, actions);
+        listEl.appendChild(item);
+      });
+    }
+
+    async function loadFromRepo() {
+      try {
+        const res = await fetch('blog-posts.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed');
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error('Invalid');
+        posts = data;
+        saveState();
+        renderPosts();
+      } catch (_) {
+        // Keep local state if fetch fails.
+      }
+    }
+
+    function loadInitial() {
+      const stored = localStorage.getItem('blogPostsAdmin');
+      if (stored) {
+        try {
+          const data = JSON.parse(stored);
+          if (Array.isArray(data)) {
+            posts = data;
+            saveState();
+            renderPosts();
+            return;
+          }
+        } catch (_) {}
+      }
+      loadFromRepo();
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const post = getFormData();
+      if (!post.title || !post.summary || !post.url) return;
+      if (editIndex >= 0) {
+        posts[editIndex] = post;
+      } else {
+        posts.unshift(post);
+      }
+      saveState();
+      renderPosts();
+      resetForm();
+    });
+
+    resetBtn.addEventListener('click', resetForm);
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(jsonOutput.value);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => (copyBtn.textContent = 'Copy JSON'), 1400);
+      } catch (_) {}
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      const blob = new Blob([jsonOutput.value], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'blog-posts.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    reloadBtn.addEventListener('click', loadFromRepo);
+
+    loadInitial();
+  </script>
+</body>
+</html>
