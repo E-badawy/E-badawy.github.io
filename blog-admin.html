@@ -173,8 +173,8 @@
     <section class="admin-hero">
       <h1>Blog Admin</h1>
       <p>
-        Paste your post details here to create a new blog card. When you are done, download the
-        updated <strong>blog-posts.json</strong> and replace the file in your repo, then push.
+        Paste your post details here to create a new blog card with optional images and rich content.
+        When you are done, download the updated <strong>blog-posts.json</strong> and replace the file in your repo, then push.
       </p>
     </section>
 
@@ -189,6 +189,18 @@
           <div class="admin-row">
             <label for="postSummary">Summary</label>
             <textarea id="postSummary" name="summary" placeholder="1–2 sentence summary" required></textarea>
+          </div>
+          <div class="admin-row">
+            <label for="postContent">Rich content (paragraphs)</label>
+            <textarea id="postContent" name="content" placeholder="Write multiple paragraphs. Leave a blank line between paragraphs."></textarea>
+          </div>
+          <div class="admin-row">
+            <label for="postImage">Cover image URL (optional)</label>
+            <input id="postImage" name="image" placeholder="images/my-cover.jpg or https://..." />
+          </div>
+          <div class="admin-row">
+            <label for="postGallery">Gallery image URLs (optional)</label>
+            <textarea id="postGallery" name="gallery" placeholder="One image URL per line"></textarea>
           </div>
           <div class="admin-inline">
             <div class="admin-row">
@@ -256,6 +268,12 @@
         Use the buttons below to copy or download your JSON. Replace
         <strong>blog-posts.json</strong> in the repo with the downloaded file, then commit and push.
       </p>
+      <p class="admin-note">
+        <strong>Images:</strong> If you have a local image file, upload it to your repo first (e.g. <code>images/my-post.jpg</code>).
+        Then use that path in the Cover image or Gallery fields. Example:
+        <code>images/my-post.jpg</code> or the full live URL:
+        <code>https://e-badawy.github.io/images/my-post.jpg</code>.
+      </p>
       <textarea class="admin-json" id="jsonOutput" readonly></textarea>
       <div class="admin-actions">
         <button type="button" id="copyJsonBtn">Copy JSON</button>
@@ -286,6 +304,14 @@
 
     function getFormData() {
       const groups = normalizeGroups();
+      const content = form.content.value
+        .split(/\n\s*\n/)
+        .map((item) => item.trim())
+        .filter(Boolean);
+      const gallery = form.gallery.value
+        .split(/\n+/)
+        .map((item) => item.trim())
+        .filter(Boolean);
       return {
         title: form.title.value.trim(),
         topic: form.topic.value,
@@ -294,6 +320,9 @@
         read: form.read.value.trim(),
         status: form.status.value,
         summary: form.summary.value.trim(),
+        content,
+        image: form.image.value.trim(),
+        gallery,
         url: form.url.value.trim(),
         linkText: form.linkText.value.trim() || 'Read note'
       };
@@ -302,6 +331,9 @@
     function setFormData(post) {
       form.title.value = post.title || '';
       form.summary.value = post.summary || '';
+      form.content.value = Array.isArray(post.content) ? post.content.join('\n\n') : '';
+      form.image.value = post.image || '';
+      form.gallery.value = Array.isArray(post.gallery) ? post.gallery.join('\n') : '';
       form.topic.value = post.topic || 'architecture';
       form.category.value = post.category || '';
       form.read.value = post.read || '';
@@ -319,6 +351,9 @@
       form.linkText.value = '';
       form.category.value = '';
       form.read.value = '';
+      form.content.value = '';
+      form.image.value = '';
+      form.gallery.value = '';
       editIndex = -1;
       saveBtn.textContent = 'Add Post';
       const recentCheckbox = form.querySelector('input[name="groups"][value="recent"]');
@@ -341,7 +376,8 @@
 
         const meta = document.createElement('div');
         meta.className = 'post-meta';
-        meta.textContent = `${post.topic || 'topic'} · ${post.category || 'category'} · ${post.read || 'read'} · ${post.status || 'status'}`;
+        const imageFlag = post.image ? 'image' : 'no-image';
+        meta.textContent = `${post.topic || 'topic'} · ${post.category || 'category'} · ${post.read || 'read'} · ${post.status || 'status'} · ${imageFlag}`;
 
         const actions = document.createElement('div');
         actions.className = 'post-actions';
