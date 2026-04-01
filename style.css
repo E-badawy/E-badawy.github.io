@@ -161,11 +161,54 @@ body.home-page {
   align-items: start;
 }
 
+.home-page .site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(4, 28, 47, 0.92) 0%,
+      rgba(4, 28, 47, 0.72) 32%,
+      rgba(4, 28, 47, 0.45) 52%,
+      rgba(4, 28, 47, 0.2) 68%,
+      rgba(4, 28, 47, 0) 82%
+    ),
+    url("my profile header photo.png");
+  background-repeat: no-repeat;
+  background-position: left center, left center;
+  background-size: 100% 100%, 520px auto;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.home-page .site-header::after {
+  z-index: 1;
+}
+
+.home-page .site-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 700px) {
+  .home-page .site-header::before {
+    background-size: 100% 100%, 360px auto;
+    opacity: 0.25;
+  }
+}
+
 .hero-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+}
+
+@media (min-width: 980px) {
+  .home-page .hero-top {
+    display: none;
+  }
 }
 
 .hero-brand {
@@ -240,7 +283,7 @@ body.home-page {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr;
   gap: clamp(18px, 3vw, 38px);
   align-items: stretch;
 }
@@ -402,6 +445,16 @@ body.home-page {
 
   .home-page .top-nav {
     width: 100%;
+  }
+
+  .home-page .hero-top {
+    justify-content: flex-end;
+  }
+
+  .home-page .site-header {
+    min-height: auto;
+    padding-top: 1.2rem;
+    padding-bottom: 1.8rem;
   }
 
   .hero-grid {
@@ -2947,8 +3000,8 @@ section {
   .site-header,
   .top-nav,
   section {
-    width: calc(100% - 16px) !important;
-    margin: 12px auto !important;
+    width: 100% !important;
+    margin: 12px 0 !important;
     padding: 1rem !important;
   }
 
@@ -2996,6 +3049,35 @@ section {
   .analytics-kpis {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 14px !important;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 7.2vw, 2.6rem);
+    line-height: 1.15;
+  }
+
+  .hero-kicker {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-summary {
+    font-size: 0.98rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+    margin-top: 12px;
   }
 
   /* Optional desktop-fit mode (toggle-controlled). */
