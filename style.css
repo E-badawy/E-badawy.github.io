@@ -242,7 +242,13 @@ body.home-page {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(18px, 3vw, 38px);
-  align-items: center;
+  align-items: stretch;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .hero-copy h1 {
@@ -291,6 +297,7 @@ body.home-page {
 .hero-highlights {
   display: grid;
   gap: 10px;
+  margin-top: auto;
 }
 
 .hero-highlight {
@@ -321,10 +328,12 @@ body.home-page {
   position: relative;
   display: grid;
   place-items: center;
+  align-self: stretch;
 }
 
 .hero-portrait {
   width: min(360px, 100%);
+  height: clamp(360px, 55vh, 520px);
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(171, 223, 255, 0.45);
@@ -334,7 +343,7 @@ body.home-page {
 .hero-portrait img {
   width: 100%;
   display: block;
-  height: 420px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -402,6 +411,16 @@ body.home-page {
   .hero-visual {
     order: -1;
     gap: 12px;
+  }
+}
+
+@media (min-width: 980px) {
+  .home-page .top-nav {
+    display: flex;
+  }
+
+  .home-page .nav-toggle {
+    display: none;
   }
 }
 
@@ -1421,6 +1440,16 @@ h2 {
   line-height: 1.7;
   color: #333;
   font-size: 1.05em;
+}
+
+.about-list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+  color: #1a2f44;
+}
+
+.about-list li {
+  margin: 0.35rem 0;
 }
 
 /* ===== PROFESSIONAL SKILLS SECTION ===== */

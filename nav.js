@@ -141,13 +141,31 @@ document.addEventListener("DOMContentLoaded", function () {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   };
 
+  const shouldKeepNavOpen = function () {
+    return (
+      body.classList.contains("home-page") &&
+      window.matchMedia &&
+      window.matchMedia("(min-width: 980px)").matches
+    );
+  };
+
   const closeNav = function () {
+    if (shouldKeepNavOpen()) return;
     setNavState(false);
   };
 
   const mediaQuery = window.matchMedia ? window.matchMedia("(min-width: 980px)") : null;
-  if (mediaQuery && mediaQuery.matches) {
-    setNavState(true);
+  if (mediaQuery) {
+    if (mediaQuery.matches) {
+      setNavState(true);
+    }
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", function (event) {
+        if (event.matches && body.classList.contains("home-page")) {
+          setNavState(true);
+        }
+      });
+    }
   }
 
   navToggle.addEventListener("click", function () {
