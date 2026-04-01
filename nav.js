@@ -103,11 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!controlsWrap) {
       controlsWrap = document.createElement("div");
       controlsWrap.className = "header-mobile-controls";
-      const parent = navToggle.parentElement;
+      const parent = navToggle.parentElement || body;
       if (parent) {
-        parent.insertBefore(controlsWrap, topNav || navToggle.nextSibling);
+        parent.insertBefore(controlsWrap, navToggle);
         controlsWrap.appendChild(navToggle);
       }
+    }
+    if (!controlsWrap.contains(navToggle)) {
+      controlsWrap.insertBefore(navToggle, controlsWrap.firstChild);
     }
     controlsWrap.appendChild(toggleBtn);
 
@@ -132,16 +135,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!navToggle || !topNav) return;
 
-  const closeNav = function () {
-    topNav.classList.remove("is-open");
-    navToggle.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  };
-
-  navToggle.addEventListener("click", function () {
-    const isOpen = topNav.classList.toggle("is-open");
+  const setNavState = function (isOpen) {
+    topNav.classList.toggle("is-open", isOpen);
     navToggle.classList.toggle("is-open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  const closeNav = function () {
+    setNavState(false);
+  };
+
+  const mediaQuery = window.matchMedia ? window.matchMedia("(min-width: 980px)") : null;
+  if (mediaQuery && mediaQuery.matches) {
+    setNavState(true);
+  }
+
+  navToggle.addEventListener("click", function () {
+    const isOpen = !topNav.classList.contains("is-open");
+    setNavState(isOpen);
   });
 
   topNav.querySelectorAll("a").forEach(function (link) {
