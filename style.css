@@ -159,42 +159,54 @@ body.home-page {
     "nav hero";
   gap: 18px 28px;
   align-items: start;
+  background: #061f33;
 }
 
 .home-page .site-header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(4, 28, 47, 0.94) 0%,
-      rgba(4, 28, 47, 0.72) 36%,
-      rgba(4, 28, 47, 0.38) 58%,
-      rgba(4, 28, 47, 0.15) 74%,
-      rgba(4, 28, 47, 0) 88%
-    ),
-    url("refined_portrait.jpg");
-  background-repeat: no-repeat;
-  background-position: left center, right center;
-  background-size: 100% 100%, 560px auto;
-  opacity: 0.75;
-  z-index: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 28, 47, 0.96) 0%,
+    rgba(4, 28, 47, 0.74) 40%,
+    rgba(4, 28, 47, 0.35) 62%,
+    rgba(4, 28, 47, 0.12) 78%,
+    rgba(4, 28, 47, 0) 92%
+  );
+  z-index: 1;
 }
 
 .home-page .site-header::after {
-  z-index: 1;
+  z-index: 2;
 }
 
-.home-page .site-header > * {
+.home-page .site-header > :not(.hero-watermark) {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.hero-watermark {
+  position: absolute;
+  inset: 0;
+  background-image: url("refined_portrait.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: min(48vw, 600px) auto;
+  opacity: 0.9;
+  filter: saturate(1.05) contrast(1.05);
+  z-index: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 700px) {
   .home-page .site-header::before {
-    background-size: 100% 100%, 340px auto;
-    opacity: 0.6;
+    opacity: 0.75;
+  }
+
+  .hero-watermark {
+    background-size: min(64vw, 360px) auto;
+    opacity: 0.75;
   }
 }
 
@@ -269,6 +281,7 @@ body.home-page {
 
 .home-page .hero-grid {
   grid-area: hero;
+  padding: 0 clamp(1.2rem, 4vw, 4rem);
 }
 
 .home-page .header-mobile-controls {
@@ -308,6 +321,13 @@ body.home-page {
   text-transform: uppercase;
   color: rgba(170, 218, 255, 0.9);
   font-weight: 700;
+}
+
+.hero-intro {
+  margin: 0 0 10px;
+  color: rgba(214, 232, 247, 0.92);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .hero-summary {
@@ -500,8 +520,39 @@ body.home-page {
   color: #444;
 }
 
-.consultation-purpose {
+.consultation-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.meta-pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 128, 237, 0.35);
+  background: rgba(47, 128, 237, 0.08);
+  color: #1c3d66;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.consultation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 24px;
+  align-items: stretch;
   margin-bottom: 40px;
+}
+
+.consultation-purpose {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+  height: 100%;
 }
 
 .consultation-purpose h2 {
@@ -512,6 +563,7 @@ body.home-page {
 .consultation-purpose ul {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 .consultation-purpose li {
@@ -598,7 +650,7 @@ body.home-page {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
   max-width: 100%;
   margin: auto;
@@ -1634,7 +1686,7 @@ h2 {
 /* Grid layout for certificates cards */
 .certificates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
   max-width: 100%;
   margin: 0 auto;
@@ -1723,7 +1775,7 @@ h2 {
 /* Grid layout for project cards */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
   max-width: 100%;
   margin: 0 auto;
@@ -2316,7 +2368,9 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 0;
+  height: 100%;
+  align-content: stretch;
 }
 
 .pricing-card {
@@ -2325,6 +2379,58 @@ h2 {
   background: #f9fbff;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.pricing-card span {
+  display: block;
+  font-weight: 600;
+  color: #3a5675;
+  margin-bottom: 12px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.pricing-card li {
+  padding: 6px 0;
+  position: relative;
+  padding-left: 20px;
+  color: #1f2f44;
+}
+
+.pricing-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2f80ed;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .consultation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consultation-purpose {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .services-grid,
+  .certificates-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .pricing-card.highlight {
@@ -3059,6 +3165,10 @@ section {
   .hero-kicker {
     font-size: 0.8rem;
     letter-spacing: 0.08em;
+  }
+
+  .hero-intro {
+    font-size: 1rem;
   }
 
   .hero-summary {
