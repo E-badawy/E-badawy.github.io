@@ -1471,6 +1471,14 @@ body.home-page {
   border-radius: 10px;
 }
 
+.solution-deliverables {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: #2f4c66;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .company-team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
