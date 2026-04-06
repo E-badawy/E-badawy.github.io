@@ -1064,6 +1064,52 @@ body.home-page {
   line-height: 1.6;
 }
 
+/* ===== CERTIFICATIONS SUMMARY (HOME) ===== */
+.certifications-summary {
+  padding: 72px 0;
+  background: #f7fbff;
+}
+
+.certifications-summary-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 20px;
+}
+
+.certifications-summary-copy {
+  max-width: 700px;
+}
+
+.certifications-summary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.certifications-summary-tags span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0c3b60;
+  background: rgba(188, 228, 255, 0.6);
+  border: 1px solid rgba(141, 200, 237, 0.6);
+}
+
+.certifications-summary-btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .certifications-summary-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 960px) {
   .company-summary-shell {
     grid-template-columns: 1fr;
@@ -1376,6 +1422,108 @@ body.home-page {
   line-height: 1.6;
 }
 
+.company-solution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.company-solution-card {
+  border: 1px solid rgba(141, 200, 237, 0.5);
+  border-radius: 12px;
+  padding: 16px;
+  background: #f8fbff;
+}
+
+.company-solution-card h3 {
+  margin: 0 0 8px;
+  color: #0c395e;
+}
+
+.solution-status {
+  display: inline-flex;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f4f7e;
+  border: 1px dashed rgba(103, 178, 227, 0.7);
+  background: #eef7ff;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.company-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid rgba(141, 200, 237, 0.5);
+  border-radius: 12px;
+  padding: 14px;
+  background: #f8fbff;
+}
+
+.team-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #0c3a5f, #1f6fb2);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.team-details h3 {
+  margin: 0 0 4px;
+  color: #0c395e;
+  font-size: 1rem;
+}
+
+.team-details p {
+  margin: 0 0 6px;
+  color: #3c5972;
+  font-size: 0.9rem;
+}
+
+.team-details a {
+  color: #0e5b8e;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+/* ===== CERTIFICATIONS PAGE ===== */
+.certifications-page {
+  width: min(var(--page-max-width), calc(100% - (var(--page-gutter) * 2)));
+  margin: 24px auto 0;
+  display: grid;
+  gap: 18px;
+}
+
+.certifications-hero,
+.certifications-list {
+  background: #ffffff;
+  border: 1px solid rgba(143, 202, 239, 0.58);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(8, 36, 58, 0.08);
+  padding: 20px;
+}
+
+.certifications-hero h1 {
+  margin: 0 0 8px;
+  color: #113a5d;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+}
+
 .company-brief-card {
   border: 1px solid rgba(141, 200, 237, 0.5);
   border-radius: 14px;
@@ -1471,6 +1619,24 @@ body.home-page {
   border-bottom: 1px solid rgba(141, 200, 237, 0.5);
   padding-bottom: 16px;
   margin-bottom: 18px;
+}
+
+.brief-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brief-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #0c3a5f, #1363a4);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .brief-kicker {

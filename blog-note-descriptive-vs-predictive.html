@@ -89,7 +89,7 @@
     </nav>
   </header>
 
-  <main class="note-wrap">
+    <main class="note-wrap">
     <section class="note-hero">
       <h1>Choosing Between Descriptive and Predictive Workflows</h1>
       <p class="note-meta">Category: Modelling | Read: 7 min | Status: Published</p>
@@ -97,23 +97,86 @@
     </section>
 
     <section class="note-card">
-      <h2>Key Points</h2>
+      <h2>Start with decision intent</h2>
+      <p>
+        The first question is not which algorithm to use. It is what decision the organisation must make in the next
+        cycle. Descriptive workflows are ideal when the primary task is to understand current performance, identify
+        bottlenecks, or compare regions, teams, or programmes. Predictive workflows are appropriate when a forward
+        looking decision is needed, such as forecasting demand, estimating risk, or allocating resources before a
+        reporting window closes.
+      </p>
+      <p>
+        If decision makers need clarity on what is happening now, descriptive analytics is usually enough and often
+        more useful. It produces dashboards, trend analysis, and segmentation that explain why outcomes look the way
+        they do. Predictive models should only be introduced when the decision itself depends on a future outcome
+        that can be estimated with reasonable confidence and the organisation is prepared to act on those estimates.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Assess data readiness before choosing predictive</h2>
+      <p>
+        Predictive models are only as good as the data history they are trained on. If you have short, inconsistent,
+        or biased historical data, a predictive model can create false certainty. In many public and private sector
+        settings, descriptive analytics is safer because it highlights data gaps rather than covering them with model
+        assumptions.
+      </p>
+      <p>
+        A quick readiness scan includes data volume, stability of definitions, frequency of missing values, and
+        whether the data generating process is consistent over time. If any of these are weak, a descriptive approach
+        paired with a data quality improvement plan will produce more reliable outcomes.
+      </p>
       <ul>
-          <li>Start with decision intent: explain current performance or forecast future outcomes</li>
-          <li>Use descriptive workflows when data quality or historical depth is limited</li>
-          <li>Choose predictive workflows where forward-looking risk or allocation decisions are required</li>
-          <li>Assess implementation readiness, not only model feasibility</li>
-          <li>Document uncertainty boundaries and fallback descriptive options</li>
+        <li>Use descriptive analytics when data history is limited or inconsistent.</li>
+        <li>Move to predictive only when data definitions and pipelines are stable.</li>
+        <li>Document uncertainty if predictive outputs will shape budget or staffing.</li>
       </ul>
+    </section>
+
+    <section class="note-card">
+      <h2>Cost, risk, and implementation readiness</h2>
+      <p>
+        Predictive workflows often require additional engineering, monitoring, and model governance. That cost is
+        justified when the decision impact is high and the organisation can absorb the operational overhead. If the
+        organisation lacks model monitoring, retraining plans, or clear accountability, then descriptive analytics is
+        more sustainable and less risky.
+      </p>
+      <p>
+        Another practical filter is change management. If users are not ready to trust a model, the output will not be
+        used. In those cases, a descriptive workflow with strong storytelling and clear KPIs can build the confidence
+        needed before a predictive approach is introduced later.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>A simple decision framework</h2>
+      <p>
+        I use a short decision matrix to keep this conversation grounded in reality. It can be used in a scoping
+        workshop or internal planning session.
+      </p>
+      <ul>
+        <li>Is the decision about understanding what happened, or what will happen?</li>
+        <li>Is there enough historical data with stable definitions?</li>
+        <li>Will stakeholders act on the prediction, or only use it for insight?</li>
+        <li>Can the team maintain model monitoring and retraining?</li>
+        <li>Is the cost of a wrong prediction acceptable?</li>
+      </ul>
+      <p>
+        If most answers point to uncertainty or low readiness, use descriptive analytics and plan for predictive later.
+        If most answers point to stability and high decision impact, then predictive modelling is justified.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Implementation note</h2>
+      <p>
+        Add a simple decision matrix visual to this page when available. It helps non-technical stakeholders see the
+        tradeoffs and agree on an approach before data work begins.
+      </p>
       <div class="note-actions">
         <a href="blog">Back to Blog</a>
         <a href="publications">Open Publications</a>
       </div>
-    </section>
-
-    <section class="note-card">
-      <h2>Implementation Note</h2>
-      <p>You can embed a simple decision matrix image here to show your own model-selection rule.</p>
     </section>
   </main>
 
@@ -148,6 +211,7 @@
   <script src="nav.js"></script>
 </body>
 </html>
+
 
 
 

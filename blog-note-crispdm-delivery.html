@@ -89,7 +89,7 @@
     </nav>
   </header>
 
-  <main class="note-wrap">
+    <main class="note-wrap">
     <section class="note-hero">
       <h1>CRISP-DM in Public Programme Delivery Pipelines</h1>
       <p class="note-meta">Category: Methods | Read: 6 min | Status: Published</p>
@@ -97,23 +97,82 @@
     </section>
 
     <section class="note-card">
-      <h2>Key Points</h2>
+      <h2>Why CRISP-DM needs adaptation in public programmes</h2>
+      <p>
+        CRISP-DM is still the most practical end-to-end workflow for analytics delivery, but public programmes rarely
+        behave like a clean textbook pipeline. You are often dealing with multi-agency stakeholders, overlapping
+        accountability structures, and data that arrives on different calendars. The standard CRISP-DM flow assumes a
+        predictable handoff between phases. In public programmes, those handoffs are interrupted by funding cycles,
+        approvals, and changes in policy direction.
+      </p>
+      <p>
+        That is why I treat the business understanding phase as a formal stakeholder and policy mapping exercise, not
+        a short scoping conversation. You need to understand who owns decisions, who signs off on data access, and who
+        consumes results. Without that map, the project may be methodologically strong and still fail to land because
+        outputs are not aligned to the decision holders.
+      </p>
+      <p>
+        Data understanding also needs to be elevated beyond exploratory statistics. In public programmes, data
+        provenance, collection timing, and reporting bias matter as much as data structure. I treat data readiness as
+        a governance checkpoint: what is the data source, how reliable is it, and what policy or operational decisions
+        should not be made from it yet. This step reduces rework later and creates a shared understanding of risk.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Delivery-ready CRISP-DM structure</h2>
+      <p>
+        I still use the six CRISP-DM phases, but I implement them as short delivery sprints with decision checkpoints.
+        The goal is to deliver early, keep expectations calibrated, and avoid long gaps that allow stakeholder momentum
+        to drop.
+      </p>
       <ul>
-          <li>Translate the business-understanding phase into stakeholder and policy context mapping</li>
-          <li>Use data-understanding to profile source quality before committing to model pathways</li>
-          <li>Keep modeling cycles short and tied to a decision checkpoint, not only model metrics</li>
-          <li>Evaluate with operational usability criteria alongside statistical performance</li>
-          <li>Deploy with governance notes, ownership mapping, and post-deployment monitoring</li>
+        <li><strong>Business understanding:</strong> map stakeholders, policy constraints, and decision calendars.</li>
+        <li><strong>Data understanding:</strong> validate source quality, data lineage, and reporting reliability.</li>
+        <li><strong>Data preparation:</strong> document assumptions, cleaning rules, and baseline definitions.</li>
+        <li><strong>Modelling:</strong> run short cycles aligned to decision windows, not just model metrics.</li>
+        <li><strong>Evaluation:</strong> test operational usability, not only accuracy scores.</li>
+        <li><strong>Deployment:</strong> publish with ownership mapping, release notes, and monitoring plan.</li>
       </ul>
+      <p>
+        The difference is that each phase ends with a stakeholder-facing checkpoint. Instead of waiting until the end
+        for one large presentation, I deliver smaller validated outputs that can be acted on quickly. This keeps the
+        programme aligned to real operational need and prevents analysis from running ahead of implementation.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Operational checkpoints and governance</h2>
+      <p>
+        CRISP-DM is not only a technical process; it becomes governance when decision impact is high. I create
+        lightweight governance checkpoints that answer three questions: are we using the right data, are the methods
+        defensible, and can a non-technical leader act on the output. This is why I embed evaluation early and document
+        assumptions in simple language that policy stakeholders can review.
+      </p>
+      <p>
+        For public programmes, the evaluation phase must answer usability questions: Can this dashboard be used in the
+        next quarterly review? Can the model insights be explained in a policy memo? Is the measurement consistent with
+        national reporting standards? These are practical checks, not academic debates. They ensure the analysis is
+        implemented and trusted.
+      </p>
+      <p>
+        A final step is deployment with accountability. I attach a release note that explains data limitations, a
+        named owner for each metric, and the next review date. It is a small addition, but it keeps analytics alive
+        after deployment and reduces the risk of outdated or misused data.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Implementation note</h2>
+      <p>
+        To make this note concrete, document one project where a CRISP-DM checkpoint prevented rework or redirected
+        the analysis to a more practical decision. That single example makes the workflow credible to non-technical
+        readers and demonstrates delivery maturity.
+      </p>
       <div class="note-actions">
         <a href="blog">Back to Blog</a>
         <a href="publications">Open Publications</a>
       </div>
-    </section>
-
-    <section class="note-card">
-      <h2>Implementation Note</h2>
-      <p>For this note, attach one project example where CRISP-DM reduced rework and improved stakeholder alignment.</p>
     </section>
   </main>
 
@@ -148,6 +207,7 @@
   <script src="nav.js"></script>
 </body>
 </html>
+
 
 
 

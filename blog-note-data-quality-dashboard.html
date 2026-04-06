@@ -89,7 +89,7 @@
     </nav>
   </header>
 
-  <main class="note-wrap">
+    <main class="note-wrap">
     <section class="note-hero">
       <h1>Data Quality Checks Before Dashboard Delivery</h1>
       <p class="note-meta">Category: Governance | Read: 5 min | Status: Published</p>
@@ -97,23 +97,69 @@
     </section>
 
     <section class="note-card">
-      <h2>Key Points</h2>
+      <h2>Why quality checks matter more than design</h2>
+      <p>
+        A dashboard can look perfect and still mislead decision makers if the underlying data is weak. In operational
+        settings, the cost of a wrong number is higher than the cost of a slow design iteration. That is why I treat
+        data quality checks as a mandatory release gate, not an optional add-on. They preserve trust, reduce support
+        requests, and keep the analytics team aligned with the organisation's reporting standards.
+      </p>
+      <p>
+        Quality checks are not only about missing values. They also include alignment with policy definitions, timing
+        of data refreshes, and consistency across sources. If a finance metric is calculated differently across two
+        systems, a dashboard will amplify the inconsistency. The right approach is to reconcile definitions and data
+        lineage before a single visual is published.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Pre-release checklist categories</h2>
+      <p>
+        I use a structured checklist that covers five categories. Each category is quick to review but prevents the
+        highest-risk failures.
+      </p>
       <ul>
-          <li>Validate source freshness and extraction timestamps before visual updates</li>
-          <li>Reconcile KPI calculations with agreed definitions and metadata rules</li>
-          <li>Check missingness patterns, anomalies, and outlier handling logs</li>
-          <li>Run cross-table consistency checks on key identifiers</li>
-          <li>Include a release note that states known data limitations</li>
+        <li><strong>Source integrity:</strong> confirm the origin system, extraction time, and expected update schedule.</li>
+        <li><strong>Completeness:</strong> check missingness by key dimensions (time, location, customer segment).</li>
+        <li><strong>Consistency:</strong> validate that identifiers and definitions align across tables.</li>
+        <li><strong>Accuracy:</strong> reconcile totals against official figures or audit sources.</li>
+        <li><strong>Timeliness:</strong> confirm the refresh cadence is suitable for the decisions being made.</li>
       </ul>
+      <p>
+        These checks should be logged, even if the log is a simple spreadsheet or issue tracker. A small log provides
+        evidence that quality was reviewed, which is essential in audit-heavy or compliance environments.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Validation practices that scale</h2>
+      <p>
+        Quality checks can become expensive if they rely entirely on manual work. The best practice is to automate the
+        recurring checks and keep human review for the exceptions. For example, automated tests can verify that totals
+        match last week within a defined tolerance, while a human reviews the exceptions when the tolerance is broken.
+      </p>
+      <p>
+        I also implement small validation dashboards that show missing values, outliers, and schema drift over time.
+        These dashboards are not for business users, but for the analytics team. They provide an early warning system
+        and make it easier to explain data limitations to leadership when necessary.
+      </p>
+      <p>
+        When data is imperfect, transparency matters. A release note or a short disclaimer in the dashboard can
+        protect credibility. It is better to say, "data for Region X is incomplete this month" than to present a
+        smooth chart that hides the issue.
+      </p>
+    </section>
+
+    <section class="note-card">
+      <h2>Implementation note</h2>
+      <p>
+        Add a screenshot of your QA checklist or a sample validation log to make this note concrete for readers. It
+        shows that quality is a process, not just a promise.
+      </p>
       <div class="note-actions">
         <a href="blog">Back to Blog</a>
         <a href="publications">Open Publications</a>
       </div>
-    </section>
-
-    <section class="note-card">
-      <h2>Implementation Note</h2>
-      <p>Insert a screenshot of your QA checklist or validation sheet to make this note concrete for readers.</p>
     </section>
   </main>
 
@@ -148,6 +194,7 @@
   <script src="nav.js"></script>
 </body>
 </html>
+
 
 
 

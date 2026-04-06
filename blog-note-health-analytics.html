@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prompt Governance for AI-Assisted Analytics Teams | Badawi Amin Muhammed</title>
-  <meta name="description" content="Prompt standards and review controls that maintain quality when teams adopt generative AI tools." />
+  <title>Building Health Analytics That Survive Real-World Data Gaps | Badawi Amin Muhammed</title>
+  <meta name="description" content="A practical guide to building health analytics that stay reliable when data is incomplete, delayed, or inconsistent." />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -89,65 +89,71 @@
     </nav>
   </header>
 
-    <main class="note-wrap">
+  <main class="note-wrap">
     <section class="note-hero">
-      <h1>Prompt Governance for AI-Assisted Analytics Teams</h1>
-      <p class="note-meta">Category: GenAI | Read: 8 min | Status: Published</p>
-      <p>Prompt standards and review controls that maintain quality when teams adopt generative AI tools.</p>
+      <h1>Building Health Analytics That Survive Real-World Data Gaps</h1>
+      <p class="note-meta">Category: Health Analytics | Read: 8 min | Status: Published</p>
+      <p>A practical guide to building health analytics that stay reliable when data is incomplete, delayed, or inconsistent.</p>
     </section>
 
     <section class="note-card">
-      <h2>Why prompt governance is now a delivery requirement</h2>
+      <h2>Health data is never perfect, and that is normal</h2>
       <p>
-        As soon as teams use generative AI for analysis, prompts become part of the production process. That means they
-        require the same discipline as code: versioning, quality checks, and a clear understanding of scope. Without
-        governance, AI-assisted work becomes inconsistent, hard to audit, and difficult to defend when decisions are
-        questioned by leadership or external reviewers.
+        Health analytics is rarely built from clean, real-time data. In most health systems, reporting is delayed, patient
+        identifiers are inconsistent, and service utilization data is captured across multiple tools or facilities. If we
+        design dashboards as if the data is perfect, the result is fragile reporting that fails in the exact moments when
+        decision makers need clarity. The right approach is to design analytics that expect imperfection and still produce
+        defensible insight.
       </p>
       <p>
-        Prompt governance does not mean reducing creativity. It means creating a shared structure for recurring tasks
-        so that analysis is repeatable and transparent. For example, if multiple analysts generate summaries of weekly
-        performance, those prompts should follow the same template so that insights are comparable across time.
+        The first step is to acknowledge the data realities and document them. That includes identifying which indicators
+        are complete, which ones lag by weeks, and which ones depend on manual updates. This documentation is not just for
+        the analyst; it is for health programme teams, funders, and leaders who rely on the outputs for operational planning.
       </p>
     </section>
 
     <section class="note-card">
-      <h2>Core governance layers</h2>
+      <h2>Design indicators that are resilient</h2>
       <p>
-        I break governance into four layers that are easy to implement without slowing teams down.
+        In health analytics, you can protect decision quality by choosing indicators that are less sensitive to missing
+        data. For example, if outpatient visit counts are inconsistent across facilities, use ratios or rolling averages
+        rather than raw counts. If lab result reporting is delayed, use proxy indicators that still track system pressure,
+        such as stock levels or turnaround time trends. The goal is not to hide gaps, but to ensure that trends remain
+        interpretable.
       </p>
       <ul>
-        <li><strong>Scope and use cases:</strong> define what AI is allowed to do and what it must never do.</li>
-        <li><strong>Prompt templates:</strong> standardise prompts for recurring tasks like KPI summaries or data QA.</li>
-        <li><strong>Review checkpoints:</strong> require human review for decision-facing outputs and high-risk topics.</li>
-        <li><strong>Logging and traceability:</strong> store prompts, outputs, and context for audit readiness.</li>
+        <li>Use rolling averages to reduce reporting noise.</li>
+        <li>Validate indicators against multiple sources when possible.</li>
+        <li>Document any indicator that depends on manual reporting.</li>
+        <li>Use confidence bands when data volume is low.</li>
       </ul>
       <p>
-        These layers ensure the team can explain how an AI-assisted output was produced and whether it followed the
-        agreed governance rules. This is critical in regulated or public-sector settings where transparency is a
-        requirement.
+        Another resilience strategy is to separate surveillance indicators from service delivery indicators. Surveillance
+        data often has different collection rules, and mixing it with routine facility data can create false correlations.
+        A clean separation makes the analytics more credible and easier to explain during stakeholder reviews.
       </p>
     </section>
 
     <section class="note-card">
-      <h2>Quality, bias, and safety checks</h2>
+      <h2>Governance and data quality guardrails</h2>
       <p>
-        Generative AI can introduce subtle bias or unverified claims. To reduce this risk, I define minimum checks
-        before any AI-assisted output is used for decisions. This includes validating against source data, checking
-        for unsupported statements, and ensuring the tone matches the organisation's communication standards.
+        Health analytics should include clear guardrails that prevent decisions from being made on weak data. I use a
+        simple quality flag system: green for complete, amber for partial, red for missing. This visual system helps
+        leaders interpret dashboards correctly without long explanations. It also encourages data teams to improve
+        reporting because gaps are visible to everyone.
       </p>
       <p>
-        Another important control is separating exploratory prompts from production prompts. Exploration is useful for
-        creativity, but production prompts should be consistent, documented, and reviewed. This separation preserves
-        innovation without sacrificing reliability.
+        Another guardrail is a mandatory data provenance section in every dashboard or report. It states when the data
+        was last updated, which facilities are excluded, and whether any adjustments or imputations were applied. This
+        transparency protects trust and ensures that stakeholders understand the boundaries of the insight.
       </p>
     </section>
 
     <section class="note-card">
       <h2>Implementation note</h2>
       <p>
-        Add your internal prompt checklist and governance SOP links when they are ready. Even a one-page guideline
-        that lists approved prompts, prohibited topics, and review steps will raise trust quickly.
+        If you have a health dashboard already deployed, add a short section explaining data freshness and facility
+        coverage. That one note will reduce confusion and increase confidence in your outputs.
       </p>
       <div class="note-actions">
         <a href="blog">Back to Blog</a>
@@ -187,7 +193,3 @@
   <script src="nav.js"></script>
 </body>
 </html>
-
-
-
-

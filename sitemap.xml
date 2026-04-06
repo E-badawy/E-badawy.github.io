@@ -47,6 +47,16 @@
   </url>
 
   <url>
+    <loc>https://e-badawy.github.io/blog-note-health-analytics</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/blog-note-program-intelligence</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://e-badawy.github.io/blog-note-descriptive-vs-predictive</loc>
     <priority>0.7</priority>
   </url>
@@ -58,6 +68,21 @@
 
   <url>
     <loc>https://e-badawy.github.io/blog-note-prompt-governance</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/certifications</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/cigma-intelligence</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://e-badawy.github.io/cigma-brief</loc>
     <priority>0.7</priority>
   </url>
 

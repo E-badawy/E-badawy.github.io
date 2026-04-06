@@ -62,6 +62,42 @@
     "linkText": "Read on LinkedIn"
   },
   {
+    "title": "Building Health Analytics That Survive Real-World Data Gaps",
+    "topic": "health",
+    "groups": ["recent", "foryou"],
+    "category": "health-analytics",
+    "read": "8m",
+    "status": "published",
+    "summary": "Practical strategies to design health analytics that remain reliable when data is incomplete or delayed.",
+    "content": [
+      "Health analytics rarely starts with perfect data. Systems are fragmented, reporting is delayed, and facility coverage varies.",
+      "This note explains how to design resilient indicators, add quality flags, and protect decision making when gaps exist.",
+      "A strong health analytics workflow prioritizes transparency, provenance, and clear decision boundaries."
+    ],
+    "image": "",
+    "gallery": [],
+    "url": "blog-note-health-analytics",
+    "linkText": "Read note"
+  },
+  {
+    "title": "Program Intelligence That Drives Decisions",
+    "topic": "program-intelligence",
+    "groups": ["recent", "top"],
+    "category": "programme-intelligence",
+    "read": "8m",
+    "status": "published",
+    "summary": "How to build programme intelligence systems that link data, learning, and operational decisions.",
+    "content": [
+      "Program intelligence turns reporting into decision-ready insight by aligning indicators to stakeholder needs.",
+      "This note covers KPI hierarchy, decision cadence, and learning loops that keep programme delivery accountable.",
+      "Use the included framework to move from monitoring to operational intelligence."
+    ],
+    "image": "",
+    "gallery": [],
+    "url": "blog-note-program-intelligence",
+    "linkText": "Read note"
+  },
+  {
     "title": "CRISP-DM in Public Programme Delivery Pipelines",
     "topic": "me-frameworks",
     "groups": ["recent", "top", "foryou"],
