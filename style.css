@@ -1688,6 +1688,16 @@ body.home-page {
   color: #2f4c66;
 }
 
+.company-brief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.company-brief-actions .project-btn.alt {
+  background: linear-gradient(145deg, #0d5f9a, #0f7ac2) !important;
+}
+
 .company-cta form {
   margin-top: 16px;
 }
@@ -1763,6 +1773,8 @@ body.home-page {
   border-radius: 18px;
   padding: 28px;
   box-shadow: 0 18px 40px rgba(8, 36, 58, 0.12);
+  position: relative;
+  overflow: hidden;
 }
 
 .brief-header {
@@ -1773,6 +1785,29 @@ body.home-page {
   border-bottom: 1px solid rgba(141, 200, 237, 0.5);
   padding-bottom: 16px;
   margin-bottom: 18px;
+}
+
+.brief-watermark {
+  position: absolute;
+  right: -10px;
+  top: 30%;
+  font-size: 5rem;
+  letter-spacing: 0.45rem;
+  font-weight: 700;
+  color: rgba(12, 60, 102, 0.06);
+  transform: rotate(-8deg);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.brief-margin-line {
+  position: absolute;
+  left: 24px;
+  top: 120px;
+  width: 2px;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(12, 60, 102, 0.12), rgba(12, 60, 102, 0));
+  pointer-events: none;
 }
 
 .brief-brand {
@@ -1857,6 +1892,21 @@ body.home-page {
   margin-top: 20px;
 }
 
+.brief-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 12px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(141, 200, 237, 0.5);
+  font-size: 0.9rem;
+  color: #2f4c66;
+}
+
+.brief-footer strong {
+  color: #0c3a5f;
+}
+
 
 @media print {
   .company-brief-page {
@@ -1872,6 +1922,164 @@ body.home-page {
 
   .brief-actions {
     display: none;
+  }
+}
+
+/* ===== CIGMA BROCHURE ===== */
+.brochure-page {
+  background: #e7eef6;
+  padding: 24px;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: #16324a;
+}
+
+.brochure-sheet {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid rgba(141, 200, 237, 0.6);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 20px 40px rgba(8, 36, 58, 0.12);
+}
+
+.brochure-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(141, 200, 237, 0.5);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.brochure-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brochure-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #ffffff;
+  padding: 4px;
+  border: 1px solid rgba(165, 210, 242, 0.6);
+  box-shadow: 0 10px 22px rgba(6, 30, 50, 0.16);
+}
+
+.brochure-kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #0b4c79;
+}
+
+.brochure-header h1 {
+  margin: 6px 0 6px;
+  font-size: 2rem;
+  color: #0b3557;
+}
+
+.brochure-meta {
+  display: grid;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #3c5972;
+}
+
+.brochure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.brochure-panel {
+  border: 1px solid rgba(141, 200, 237, 0.6);
+  border-radius: 14px;
+  padding: 16px;
+  background: linear-gradient(150deg, #f8fbff 0%, #eef6ff 100%);
+  box-shadow: 0 10px 20px rgba(7, 33, 54, 0.08);
+  position: relative;
+}
+
+.brochure-panel::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(34, 125, 190, 0.8), rgba(124, 192, 243, 0.2));
+}
+
+.brochure-panel h2,
+.brochure-panel h3 {
+  margin: 0 0 8px;
+  color: #0c395e;
+}
+
+.brochure-panel h2 i {
+  margin-right: 8px;
+  color: #0f5d8f;
+}
+
+.brochure-panel p {
+  margin: 0 0 12px;
+  color: #2f4c66;
+  line-height: 1.6;
+}
+
+.brochure-panel ul,
+.brochure-panel ol {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  color: #2f4c66;
+  line-height: 1.6;
+}
+
+.brochure-cta {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #0b3a5f;
+  color: #ffffff;
+  font-weight: 600;
+  display: grid;
+  gap: 4px;
+}
+
+.brochure-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 12px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(141, 200, 237, 0.5);
+  font-size: 0.9rem;
+  color: #2f4c66;
+}
+
+@media (max-width: 960px) {
+  .brochure-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .brochure-page {
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .brochure-sheet {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
   }
 }
 
