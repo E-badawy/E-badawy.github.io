@@ -307,28 +307,28 @@
             <h3>CRISP-DM in Public Programme Delivery Pipelines</h3>
             <p class="techblog-code-meta">category: methods | read: 6m | status: published</p>
             <p>How I adapt CRISP-DM phases to match institutional timelines and stakeholder decision windows.</p>
-            <a href="blog-note-crispdm-delivery">Read note</a>
+            <a href="blog-note-crispdm-delivery">Read full content</a>
           </article>
 
           <article class="techblog-post" data-topic="predictive" data-groups="recent top">
             <h3>Choosing Between Descriptive and Predictive Workflows</h3>
             <p class="techblog-code-meta">category: modelling | read: 7m | status: published</p>
             <p>Decision criteria for selecting fit-for-purpose analysis depth under real operational constraints.</p>
-            <a href="blog-note-descriptive-vs-predictive">Read note</a>
+            <a href="blog-note-descriptive-vs-predictive">Read full content</a>
           </article>
 
           <article class="techblog-post" data-topic="architecture" data-groups="recent top foryou">
             <h3>Data Quality Checks Before Dashboard Delivery</h3>
             <p class="techblog-code-meta">category: governance | read: 5m | status: published</p>
             <p>A practical checklist for auditability, validation, and source consistency before publishing dashboards.</p>
-            <a href="blog-note-data-quality-dashboard">Read note</a>
+            <a href="blog-note-data-quality-dashboard">Read full content</a>
           </article>
 
           <article class="techblog-post" data-topic="genai" data-groups="recent foryou">
             <h3>Prompt Governance for AI-Assisted Analytics Teams</h3>
             <p class="techblog-code-meta">category: genai | read: 8m | status: published</p>
             <p>Prompt standards and review controls that maintain quality when teams adopt generative AI tools.</p>
-            <a href="blog-note-prompt-governance">Read note</a>
+            <a href="blog-note-prompt-governance">Read full content</a>
           </article>
         </div>
 
@@ -435,7 +435,7 @@
         if (post.url) {
           link = document.createElement('a');
           link.href = post.url;
-          link.textContent = post.linkText || 'Read note';
+          link.textContent = post.linkText || 'Read full content';
           if (/^https?:\/\//i.test(link.href)) {
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
@@ -448,12 +448,12 @@
         if (link) article.appendChild(link);
 
         const content = Array.isArray(post.content) ? post.content : [];
-        if (content.length) {
+        if (!post.url && content.length) {
           const details = document.createElement('details');
           details.className = 'techblog-details';
 
           const summaryEl = document.createElement('summary');
-          summaryEl.textContent = 'Read full note';
+          summaryEl.textContent = 'Read full content';
           details.appendChild(summaryEl);
 
           const rich = document.createElement('div');

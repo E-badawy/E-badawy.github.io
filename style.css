@@ -1488,12 +1488,13 @@ body.home-page {
 
 .team-card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   border: 1px solid rgba(141, 200, 237, 0.5);
   border-radius: 12px;
   padding: 14px;
   background: #f8fbff;
+  overflow: hidden;
 }
 
 .team-avatar {
@@ -1525,6 +1526,12 @@ body.home-page {
   font-weight: 600;
   text-decoration: none;
   font-size: 0.88rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.team-details {
+  min-width: 0;
 }
 
 /* ===== CERTIFICATIONS PAGE ===== */
@@ -1608,10 +1615,32 @@ body.home-page {
 }
 
 .company-cta {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 22px;
+  width: 100%;
+  padding: 16px 18px;
+}
+
+.company-request-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+
+.company-request-form .form-group {
+  margin-bottom: 0;
+}
+
+.company-request-form textarea {
+  grid-column: 1 / -1;
+}
+
+.company-request-form button {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 720px) {
+  .company-request-form {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1020px) {

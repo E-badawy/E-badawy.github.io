@@ -77,7 +77,7 @@
     "image": "",
     "gallery": [],
     "url": "blog-note-health-analytics",
-    "linkText": "Read note"
+    "linkText": "Read full content"
   },
   {
     "title": "Program Intelligence That Drives Decisions",
@@ -95,7 +95,7 @@
     "image": "",
     "gallery": [],
     "url": "blog-note-program-intelligence",
-    "linkText": "Read note"
+    "linkText": "Read full content"
   },
   {
     "title": "CRISP-DM in Public Programme Delivery Pipelines",
@@ -113,7 +113,7 @@
     "image": "",
     "gallery": [],
     "url": "blog-note-crispdm-delivery",
-    "linkText": "Read note"
+    "linkText": "Read full content"
   },
   {
     "title": "Choosing Between Descriptive and Predictive Workflows",
@@ -131,7 +131,7 @@
     "image": "",
     "gallery": [],
     "url": "blog-note-descriptive-vs-predictive",
-    "linkText": "Read note"
+    "linkText": "Read full content"
   },
   {
     "title": "Data Quality Checks Before Dashboard Delivery",
@@ -149,7 +149,7 @@
     "image": "Data_analytics.png",
     "gallery": [],
     "url": "blog-note-data-quality-dashboard",
-    "linkText": "Read note"
+    "linkText": "Read full content"
   },
   {
     "title": "Prompt Governance for AI-Assisted Analytics Teams",
@@ -167,6 +167,7 @@
     "image": "",
     "gallery": [],
     "url": "blog-note-prompt-governance",
-    "linkText": "Read note"
+    "linkText": "Read full content"
   }
 ]
+
