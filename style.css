@@ -1146,16 +1146,15 @@ body.home-page {
   gap: 12px;
 }
 
-.company-brand-mark {
+.company-brand-logo {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, #0c3a5f, #1363a4);
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  object-fit: cover;
+  background: #ffffff;
+  padding: 4px;
+  border: 1px solid rgba(165, 210, 242, 0.6);
+  box-shadow: 0 6px 16px rgba(6, 30, 50, 0.12);
 }
 
 .company-brand-title {
@@ -1295,21 +1294,6 @@ body.home-page {
   z-index: 1;
 }
 
-.company-hero-image {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(141, 200, 237, 0.6);
-  box-shadow: 0 16px 30px rgba(5, 26, 45, 0.18);
-  min-height: 200px;
-}
-
-.company-hero-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
 .company-profile-head {
   display: flex;
   align-items: flex-start;
@@ -1446,10 +1430,23 @@ body.home-page {
 }
 
 .company-capability-grid article {
-  border: 1px solid rgba(141, 200, 237, 0.5);
-  border-radius: 12px;
-  padding: 14px;
-  background: #f8fbff;
+  border: 1px solid rgba(141, 200, 237, 0.6);
+  border-radius: 14px;
+  padding: 16px;
+  background: linear-gradient(160deg, #f8fbff 0%, #eaf4ff 100%);
+  box-shadow: 0 10px 20px rgba(7, 33, 54, 0.08);
+  position: relative;
+}
+
+.company-capability-grid article::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(34, 125, 190, 0.8), rgba(124, 192, 243, 0.2));
 }
 
 .company-capability-grid h3 i {
@@ -1465,21 +1462,6 @@ body.home-page {
   font-size: 0.85rem;
 }
 
-.company-visual-strip {
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 10px;
-}
-
-.company-visual-strip img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid rgba(141, 200, 237, 0.6);
-  box-shadow: 0 10px 20px rgba(6, 30, 50, 0.12);
-}
 
 .company-service-grid {
   display: grid;
@@ -1810,17 +1792,6 @@ body.home-page {
   box-shadow: 0 10px 22px rgba(6, 30, 50, 0.16);
 }
 
-.brief-mark {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, #0c3a5f, #1363a4);
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
 
 .brief-kicker {
   font-size: 0.78rem;
@@ -1886,21 +1857,6 @@ body.home-page {
   margin-top: 20px;
 }
 
-.brief-visuals {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin: 8px 0 18px;
-}
-
-.brief-visuals img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(141, 200, 237, 0.6);
-  box-shadow: 0 12px 24px rgba(8, 36, 58, 0.12);
-}
 
 @media print {
   .company-brief-page {
