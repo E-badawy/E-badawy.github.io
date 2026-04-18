@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DQA Profiler | Badawi Amin Muhammed</title>
+  <meta
+    name="description"
+    content="DQA Profiler project for data quality assessment, profiling, and decision-ready quality reporting."
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist . AI & ML Engineer . Research Data Analyst</h3>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="/#projects" class="nav-btn">Projects</a>
+      <a href="certifications" class="nav-btn">Certifications</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="consultation" class="nav-btn">Consultation</a>
+    </nav>
+  </header>
+
+  <main class="detail-page">
+    <section class="detail-hero">
+      <h1>DQA Profiler - Data Quality Assessment & Profiling System</h1>
+      <p>
+        A structured profiling workflow for auditing dataset quality and generating decision-ready quality reports for operations,
+        analytics, and monitoring teams.
+      </p>
+      <a href="consultation" class="project-btn">Discuss Implementation</a>
+    </section>
+
+    <section class="detail-layout">
+      <aside class="detail-toc" aria-label="Table of contents">
+        <h2>Sections</h2>
+        <a href="#overview">Overview</a>
+        <a href="#dimensions">Quality Dimensions</a>
+        <a href="#workflow">Methodology</a>
+        <a href="#outputs">Outputs</a>
+        <a href="#impact">Business Impact</a>
+        <a href="#stack">Tech Stack</a>
+      </aside>
+
+      <div class="detail-main">
+        <article id="overview" class="detail-block">
+          <h2><i class="fas fa-circle-info"></i> Overview</h2>
+          <p>
+            DQA Profiler was designed to detect data quality issues early and standardize how quality status is reported across
+            datasets. The system supports profiling, anomaly checks, and score-based monitoring to reduce downstream model and reporting risks.
+          </p>
+          <ul class="detail-points">
+            <li>End-to-end quality profiling for tabular datasets</li>
+            <li>Automated issue detection and validation checks</li>
+            <li>Summary quality scoring and priority ranking</li>
+            <li>Decision-ready reporting outputs</li>
+          </ul>
+        </article>
+
+        <article id="dimensions" class="detail-block">
+          <h2><i class="fas fa-list-check"></i> Quality Dimensions</h2>
+          <ul class="detail-points">
+            <li>Completeness: null and missing-value rates by feature and table</li>
+            <li>Validity: data type, format, and rule-conformance checks</li>
+            <li>Consistency: cross-column and cross-table logic checks</li>
+            <li>Uniqueness: duplicate record and duplicate key detection</li>
+            <li>Timeliness: staleness checks and freshness indicators</li>
+            <li>Integrity: relationship and reference checks between linked entities</li>
+          </ul>
+        </article>
+
+        <article id="workflow" class="detail-block">
+          <h2><i class="fas fa-gears"></i> Methodology</h2>
+          <p>
+            The workflow follows a repeatable sequence: ingestion, profiling, rule validation, issue scoring, and reporting.
+            This structure keeps quality assessments transparent, reproducible, and operationally useful.
+          </p>
+          <figure class="section-image-holder">
+            <img src="data-quality-governance.png" alt="DQA profiling workflow diagram" />
+            <figcaption>Profiling and validation workflow used in DQA Profiler.</figcaption>
+          </figure>
+        </article>
+
+        <article id="outputs" class="detail-block">
+          <h2><i class="fas fa-chart-line"></i> Outputs & Deliverables</h2>
+          <ul class="detail-points">
+            <li>Quality scorecards by table, field, and quality dimension</li>
+            <li>Issue registers with severity ranking and recommended actions</li>
+            <li>Dashboard-ready quality summaries for leadership reporting</li>
+            <li>Technical logs for repeatability and audit readiness</li>
+          </ul>
+          <div class="detail-gallery">
+            <figure>
+              <img src="dashboard1.png" alt="Sample analytics dashboard output" />
+              <figcaption>Quality dashboard view.</figcaption>
+            </figure>
+            <figure>
+              <img src="insight1.png" alt="Sample insights and reporting output" />
+              <figcaption>Insights and action summary.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article id="impact" class="detail-block">
+          <h2><i class="fas fa-bullseye"></i> Business Impact</h2>
+          <ul class="detail-points">
+            <li>Reduced reporting errors by identifying quality issues early</li>
+            <li>Improved confidence in KPI and dashboard interpretation</li>
+            <li>Lower rework in analytics and model-building pipelines</li>
+            <li>Stronger governance and audit-readiness for operational datasets</li>
+          </ul>
+        </article>
+
+        <article id="stack" class="detail-block">
+          <h2><i class="fas fa-code"></i> Tech Stack</h2>
+          <ul class="detail-points">
+            <li>Python (profiling logic and validation scripts)</li>
+            <li>Pandas / NumPy (data transformation and checks)</li>
+            <li>SQL (rule validation and quality sampling queries)</li>
+            <li>Power BI / dashboard tooling (quality monitoring views)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <div class="footer-col footer-brand">
+        <h3>Badawi Amin Muhammed</h3>
+        <p>Data Scientist, AI & ML Engineer, and Research Data Analyst building practical analytics and decision-support systems.</p>
+        <a href="consultation" class="footer-cta">Book Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="certifications">Certifications</a>
+        <a href="blog">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:officialbadawy@gmail.com">officialbadawy@gmail.com</a>
+        <a href="tel:+2348065440075">+234 806 544 0075</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Badawi Amin Muhammed. All rights reserved.</span>
+      <span>Zaria-Kaduna, Nigeria (WAT)</span>
+    </div>
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>
