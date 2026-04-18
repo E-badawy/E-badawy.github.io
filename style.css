@@ -2210,6 +2210,12 @@ body.home-page {
   color: #38516a;
 }
 
+.detail-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .detail-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -3052,6 +3058,26 @@ h2 {
 .project-btn:hover {
   background-color: #004080;
 } 
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.project-demo-btn {
+  background: linear-gradient(135deg, #0b5fa1, #1a8dd8);
+  border: 1px solid rgba(143, 202, 239, 0.7);
+}
+
+.project-demo-btn:hover {
+  background: linear-gradient(135deg, #0a4f87, #1275b5);
+}
+
+.project-demo-btn i {
+  margin-right: 6px;
+}
 
 /* Hidden projects initially */
 .project-hidden {
