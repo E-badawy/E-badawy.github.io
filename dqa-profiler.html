@@ -45,9 +45,11 @@
       <aside class="detail-toc" aria-label="Table of contents">
         <h2>Sections</h2>
         <a href="#overview">Overview</a>
-        <a href="#dimensions">Quality Dimensions</a>
-        <a href="#workflow">Methodology</a>
-        <a href="#outputs">Outputs</a>
+        <a href="#capabilities">Core Capabilities</a>
+        <a href="#inputs">Data Inputs & Transformations</a>
+        <a href="#outputs">Reports & AI Insights</a>
+        <a href="#architecture">Architecture & API</a>
+        <a href="#deployment">Deployment & Security</a>
         <a href="#impact">Business Impact</a>
         <a href="#stack">Tech Stack</a>
       </aside>
@@ -56,78 +58,108 @@
         <article id="overview" class="detail-block">
           <h2><i class="fas fa-circle-info"></i> Overview</h2>
           <p>
-            DQA Profiler was designed to detect data quality issues early and standardize how quality status is reported across
-            datasets. The system supports profiling, anomaly checks, and score-based monitoring to reduce downstream model and reporting risks.
+            CIGMA Data Profiler is a full-stack Data Quality Assessment application built to audit incoming datasets,
+            detect quality risks early, and generate decision-ready outputs for analysts, data teams, and operations leads.
           </p>
           <ul class="detail-points">
-            <li>End-to-end quality profiling for tabular datasets</li>
-            <li>Automated issue detection and validation checks</li>
-            <li>Summary quality scoring and priority ranking</li>
-            <li>Decision-ready reporting outputs</li>
+            <li>File upload and automatic data nature detection</li>
+            <li>Column-level profiling with missingness, uniqueness, and anomaly flags</li>
+            <li>Data quality scoring, root cause analysis, and blast-radius summary</li>
+            <li>Auto-remediation plan generation for quality improvements</li>
           </ul>
         </article>
 
-        <article id="dimensions" class="detail-block">
-          <h2><i class="fas fa-list-check"></i> Quality Dimensions</h2>
+        <article id="capabilities" class="detail-block">
+          <h2><i class="fas fa-list-check"></i> Core Capabilities</h2>
           <ul class="detail-points">
-            <li>Completeness: null and missing-value rates by feature and table</li>
-            <li>Validity: data type, format, and rule-conformance checks</li>
-            <li>Consistency: cross-column and cross-table logic checks</li>
-            <li>Uniqueness: duplicate record and duplicate key detection</li>
-            <li>Timeliness: staleness checks and freshness indicators</li>
-            <li>Integrity: relationship and reference checks between linked entities</li>
+            <li>Data type inference: quantitative / qualitative profiling</li>
+            <li>File nature recognition: CSV, TSV, XLSX, JSON, XML, DOCX</li>
+            <li>Data grain analysis with row/column metadata</li>
+            <li>Outlier detection and numeric distribution labeling</li>
+            <li>Analysis-fit guidance for feasible statistical/ML approaches</li>
+            <li>Server-side metrics and async job-status monitoring</li>
           </ul>
         </article>
 
-        <article id="workflow" class="detail-block">
-          <h2><i class="fas fa-gears"></i> Methodology</h2>
+        <article id="inputs" class="detail-block">
+          <h2><i class="fas fa-database"></i> Data Inputs & Transformations</h2>
           <p>
-            The workflow follows a repeatable sequence: ingestion, profiling, rule validation, issue scoring, and reporting.
-            This structure keeps quality assessments transparent, reproducible, and operationally useful.
+            The transformation layer supports practical clean-up workflows before downstream analytics. Users can run duplicate
+            removal, missing-value treatment, text normalization, and outlier-capping operations directly through the app.
           </p>
+          <ul class="detail-points">
+            <li>Upload + preview for rapid validation</li>
+            <li>Duplicate handling and missing strategy controls</li>
+            <li>Column-targeted transformation choices</li>
+            <li>Downloadable transformed dataset outputs</li>
+          </ul>
           <figure class="section-image-holder">
             <img src="data-quality-governance.png" alt="DQA profiling workflow diagram" />
-            <figcaption>Profiling and validation workflow used in DQA Profiler.</figcaption>
+            <figcaption>Operational DQA workflow: ingest, profile, score, remediate, and report.</figcaption>
           </figure>
         </article>
 
         <article id="outputs" class="detail-block">
-          <h2><i class="fas fa-chart-line"></i> Outputs & Deliverables</h2>
+          <h2><i class="fas fa-chart-line"></i> Reports & AI Insights</h2>
           <ul class="detail-points">
-            <li>Quality scorecards by table, field, and quality dimension</li>
-            <li>Issue registers with severity ranking and recommended actions</li>
-            <li>Dashboard-ready quality summaries for leadership reporting</li>
-            <li>Technical logs for repeatability and audit readiness</li>
+            <li>Exportable CSV and PDF quality reports</li>
+            <li>Missing-value summaries and outlier snapshots</li>
+            <li>AI insights (sync + async jobs) with job tracking endpoint</li>
+            <li>Chat-assistant mode for dataset-focused Q&amp;A</li>
+            <li>Root cause + blast radius + remediation recommendations</li>
           </ul>
           <div class="detail-gallery">
             <figure>
               <img src="dashboard1.png" alt="Sample analytics dashboard output" />
-              <figcaption>Quality dashboard view.</figcaption>
+              <figcaption>DQA summary dashboard and quality scoring view.</figcaption>
             </figure>
             <figure>
               <img src="insight1.png" alt="Sample insights and reporting output" />
-              <figcaption>Insights and action summary.</figcaption>
+              <figcaption>Insight narrative and action-priority summary.</figcaption>
             </figure>
           </div>
+        </article>
+
+        <article id="architecture" class="detail-block">
+          <h2><i class="fas fa-sitemap"></i> Architecture & API</h2>
+          <ul class="detail-points">
+            <li>Backend: FastAPI service (`backend/app.py`) for analysis, transform, and reporting</li>
+            <li>Frontend: static HTML/CSS/JS interface served by backend</li>
+            <li>Key endpoints: `/api/analyze`, `/api/transform`, `/api/report/csv`, `/api/report/pdf`</li>
+            <li>Async intelligence: `/api/ai-insights/async` + status endpoint</li>
+            <li>Operational metrics endpoint: `/api/metrics`</li>
+          </ul>
+        </article>
+
+        <article id="deployment" class="detail-block">
+          <h2><i class="fas fa-shield-halved"></i> Deployment & Security</h2>
+          <ul class="detail-points">
+            <li>Production-ready deployment via Render blueprint or Docker container</li>
+            <li>Environment-driven configuration for file-size, CORS, and timeout controls</li>
+            <li>Optional API-key gate and bearer-session authentication</li>
+            <li>Rate limiting for analyze and AI routes</li>
+            <li>Safer export handling with spreadsheet formula neutralization</li>
+          </ul>
         </article>
 
         <article id="impact" class="detail-block">
           <h2><i class="fas fa-bullseye"></i> Business Impact</h2>
           <ul class="detail-points">
-            <li>Reduced reporting errors by identifying quality issues early</li>
-            <li>Improved confidence in KPI and dashboard interpretation</li>
-            <li>Lower rework in analytics and model-building pipelines</li>
-            <li>Stronger governance and audit-readiness for operational datasets</li>
+            <li>Reduced reporting and model risk through early quality detection</li>
+            <li>Faster decision cycles with auto-generated quality diagnostics</li>
+            <li>Improved trust in analytics outputs and dashboard KPIs</li>
+            <li>Stronger governance posture for audit and compliance conversations</li>
           </ul>
         </article>
 
         <article id="stack" class="detail-block">
           <h2><i class="fas fa-code"></i> Tech Stack</h2>
           <ul class="detail-points">
-            <li>Python (profiling logic and validation scripts)</li>
-            <li>Pandas / NumPy (data transformation and checks)</li>
-            <li>SQL (rule validation and quality sampling queries)</li>
-            <li>Power BI / dashboard tooling (quality monitoring views)</li>
+            <li>Python, FastAPI, Pandas, NumPy</li>
+            <li>Scikit-learn pipelines and model utilities</li>
+            <li>ReportLab for PDF generation and CSV export utilities</li>
+            <li>HTML, CSS, JavaScript frontend delivered through backend static routes</li>
+            <li>Docker + Render deployment workflow</li>
           </ul>
         </article>
       </div>
