@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cigma CRM Sales-Store Management | Badawi Amin Muhammed</title>
+  <meta
+    name="description"
+    content="Cigma CRM sales-store management system built with Streamlit for sales workflow, stock control, orders, customer profiles, and reporting."
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist . AI & ML Engineer . Research Data Analyst</h3>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="/#projects" class="nav-btn">Projects</a>
+      <a href="certifications" class="nav-btn">Certifications</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="consultation" class="nav-btn">Consultation</a>
+    </nav>
+  </header>
+
+  <main class="detail-page">
+    <section class="detail-hero">
+      <h1>Cigma CRM Sales-Store Management System</h1>
+      <p>
+        A production-style CRM and store operations platform built with Streamlit to support role-based sales workflows,
+        inventory movement, customer profiles, orders, and management reporting.
+      </p>
+      <div class="detail-hero-actions">
+        <a href="https://cigmacrm.onrender.com" target="_blank" rel="noopener noreferrer" class="project-btn project-demo-btn">
+          <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Live Demo
+        </a>
+        <a href="consultation" class="project-btn">Discuss Implementation</a>
+      </div>
+    </section>
+
+    <section class="detail-layout">
+      <aside class="detail-toc" aria-label="Table of contents">
+        <h2>Sections</h2>
+        <a href="#overview">Overview</a>
+        <a href="#capabilities">Core Capabilities</a>
+        <a href="#workflow">Sales & Operations Workflow</a>
+        <a href="#architecture">Architecture & Data</a>
+        <a href="#reports">Reports & Exports</a>
+        <a href="#deployment">Deployment & Security</a>
+        <a href="#impact">Business Impact</a>
+        <a href="#stack">Tech Stack</a>
+        <a href="#gallery">Interface Gallery</a>
+      </aside>
+
+      <div class="detail-main">
+        <article id="overview" class="detail-block">
+          <h2><i class="fas fa-circle-info"></i> Overview</h2>
+          <p>
+            This project solves day-to-day sales and store administration problems in a single system. It combines CRM records,
+            stock control, order flow, and transaction history so operational teams can track performance without switching tools.
+          </p>
+          <ul class="detail-points">
+            <li>Role-based access for admin and sales operators</li>
+            <li>Unified customer, order, sales, and item records</li>
+            <li>Live KPI dashboard for store operations visibility</li>
+            <li>Audit-friendly transaction and activity history</li>
+          </ul>
+        </article>
+
+        <article id="capabilities" class="detail-block">
+          <h2><i class="fas fa-list-check"></i> Core Capabilities</h2>
+          <ul class="detail-points">
+            <li>Dashboard KPIs: low-stock, sold-out, stock in/out, total sales, open orders</li>
+            <li>Goods and item management with image upload support</li>
+            <li>Stock-in and stock-out transaction handling</li>
+            <li>Sales workflow with cart handling and receipt generation</li>
+            <li>Orders workflow including made-to-order requests</li>
+            <li>Customer profile management and global search</li>
+          </ul>
+          <figure class="section-image-holder">
+            <img src="images/cigma-crm/cigma_crm_home.png" alt="Cigma CRM home interface" />
+            <figcaption>Primary application home interface for operations and navigation.</figcaption>
+          </figure>
+        </article>
+
+        <article id="workflow" class="detail-block">
+          <h2><i class="fas fa-gears"></i> Sales & Operations Workflow</h2>
+          <p>
+            The workflow supports a full cycle from item intake through customer conversion and fulfillment, with synchronized
+            inventory and order updates at each stage.
+          </p>
+          <ul class="detail-points">
+            <li>Item onboarding and stock registration</li>
+            <li>Customer and order entry during sales workflow</li>
+            <li>Automatic stock movement records tied to transactions</li>
+            <li>PDF receipt and order-output generation for records</li>
+          </ul>
+        </article>
+
+        <article id="architecture" class="detail-block">
+          <h2><i class="fas fa-sitemap"></i> Architecture & Data</h2>
+          <ul class="detail-points">
+            <li>Frontend + app layer: Streamlit (`app.py`)</li>
+            <li>Data store: SQLite by default (`data/store_crm.db`)</li>
+            <li>Optional database mode: Postgres via `DATABASE_URL`</li>
+            <li>Media storage: item and user uploads directory</li>
+            <li>Scope support for multiple businesses in one database</li>
+          </ul>
+        </article>
+
+        <article id="reports" class="detail-block">
+          <h2><i class="fas fa-file-export"></i> Reports & Exports</h2>
+          <ul class="detail-points">
+            <li>Receipt PDF generation for completed sales</li>
+            <li>Order PDF output for tracking and fulfillment</li>
+            <li>Reports page with CSV export for analysis</li>
+            <li>History view for traceable operational events</li>
+          </ul>
+        </article>
+
+        <article id="deployment" class="detail-block">
+          <h2><i class="fas fa-shield-halved"></i> Deployment & Security</h2>
+          <ul class="detail-points">
+            <li>Cloud deployment through Render with persistent storage</li>
+            <li>Environment-based configuration for database and tenancy</li>
+            <li>Role login controls for operational separation</li>
+            <li>Production guidance to rotate default credentials immediately</li>
+          </ul>
+        </article>
+
+        <article id="impact" class="detail-block">
+          <h2><i class="fas fa-bullseye"></i> Business Impact</h2>
+          <ul class="detail-points">
+            <li>Improves visibility of sales and stock health in real time</li>
+            <li>Reduces manual tracking errors across order lifecycle</li>
+            <li>Speeds up customer lookup and service response</li>
+            <li>Supports operational decisions with export-ready data</li>
+          </ul>
+        </article>
+
+        <article id="stack" class="detail-block">
+          <h2><i class="fas fa-code"></i> Tech Stack</h2>
+          <ul class="detail-points">
+            <li>Python with Streamlit for application interface and workflow orchestration</li>
+            <li>SQLite default storage with optional Postgres mode via environment configuration</li>
+            <li>Pandas-powered data operations and report preparation</li>
+            <li>PDF export utilities for receipts and operational order documents</li>
+            <li>Render deployment workflow with persistent storage configuration</li>
+          </ul>
+        </article>
+
+        <article id="gallery" class="detail-block">
+          <h2><i class="fas fa-images"></i> Interface Gallery</h2>
+          <div class="detail-gallery">
+            <figure>
+              <img src="images/cigma-crm/cigma_crm_login_page.png" alt="Cigma CRM login page" />
+              <figcaption>Role-based login interface.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/cigma-crm/cigma_crm_dashboard.png" alt="Cigma CRM dashboard" />
+              <figcaption>Dashboard KPI and operational metrics view.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/cigma-crm/cigma_crm_customer_profile.png" alt="Cigma CRM customer profile" />
+              <figcaption>Customer profile and relationship history view.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/cigma-crm/cigma_usermanagement.png" alt="Cigma CRM user management" />
+              <figcaption>User and access management interface.</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-wrap">
+      <div class="footer-col footer-brand">
+        <h3>Badawi Amin Muhammed</h3>
+        <p>Data Scientist, AI & ML Engineer, and Research Data Analyst building practical analytics and decision-support systems.</p>
+        <a href="consultation" class="footer-cta">Book Consultation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="certifications">Certifications</a>
+        <a href="blog">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:officialbadawy@gmail.com">officialbadawy@gmail.com</a>
+        <a href="tel:+2348065440075">+234 806 544 0075</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Badawi Amin Muhammed. All rights reserved.</span>
+      <span>Zaria-Kaduna, Nigeria (WAT)</span>
+    </div>
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>
+
