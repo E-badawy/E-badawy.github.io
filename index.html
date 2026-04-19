@@ -954,6 +954,28 @@ sales workflow, and operational records in one integrated interface.
   </div>
 </footer>
 
+// --- SERVER CODE ---
+const jwt = require('jsonwebtoken');
+
+const secret = process.env.g5l3e08truufalqo7e1v1rrluj0pytbb; // Your chatbase secret key (should be stored as a secret not in the code)
+
+const user = await getSignedInUser(); // Get the current user signed in to your site
+
+const token = jwt.sign(
+    { 
+        user_id: user.id, // Your user's id
+        email: user.email, // User's email
+        stripe_accounts: user.stripe_accounts, // User's stripe accounts for stripe integration
+        // ... other custom attributes
+    }, 
+    secret, 
+    { expiresIn: '1h' }
+);
+
+// --- CLIENT CODE ---
+const token = await getUserToken(); // Get the token from your server
+window.chatbase('identify', { token }); // identify the user with Chatbase
+	
 <script src="nav.js"></script>
 </body>
 </html>
