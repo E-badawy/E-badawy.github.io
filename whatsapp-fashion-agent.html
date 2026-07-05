@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Fashion AI Agent | Badawi Amin Muhammed</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header class="site-header">
+<h1>WhatsApp Fashion AI Sales Agent</h1>
+<h3>End-to-End Conversational Commerce System powered by AI</h3>
+<nav>
+<a href="/">Home</a> |
+<a href="/#projects">Projects</a>
+</nav>
+</header>
+
+<main class="detail-page">
+
+<section class="detail-hero">
+<h1>Enterprise WhatsApp Fashion AI Agent</h1>
+<p>
+A production-ready conversational commerce platform engineered to automate customer engagement,
+product discovery, sales, payment verification, order processing and human escalation through the
+Meta WhatsApp Cloud API.
+</p>
+
+<p>
+This project combines Large Language Models, backend automation,
+Flask APIs, SQLite persistence, image serving, webhook integrations,
+and an administrative console into a single intelligent retail system.
+</p>
+
+<p>
+<strong>Project Status:</strong> Production Prototype<br>
+<strong>Deployment:</strong> Render<br>
+<strong>Backend:</strong> Python + Flask<br>
+<strong>Database:</strong> SQLite
+</p>
+</section>
+
+<div class="detail-layout">
+
+<aside class="detail-toc">
+<h2>Contents</h2>
+<a href="#overview">Overview</a>
+<a href="#problem">Business Problem</a>
+<a href="#architecture">Architecture</a>
+<a href="#frontend">Frontend</a>
+<a href="#backend">Backend</a>
+<a href="#meta">Meta Cloud API</a>
+<a href="#webhooks">Webhook Configuration</a>
+<a href="#database">Database</a>
+<a href="#admin">Admin Console</a>
+<a href="#conversation">Conversation Engine</a>
+<a href="#payments">Payment Workflow</a>
+<a href="#images">Image Processing</a>
+<a href="#deployment">Deployment</a>
+<a href="#challenges">Engineering Challenges</a>
+<a href="#stack">Technology Stack</a>
+<a href="#future">Future Improvements</a>
+</aside>
+
+<div class="detail-main">
+
+<section id="overview" class="detail-block">
+<h2><i class="fas fa-circle-info"></i> Executive Overview</h2>
+<p>
+Traditional WhatsApp businesses rely heavily on manual responses, delayed quotations,
+manual payment confirmation and human product recommendation.
+This project replaces that workflow with an AI-powered assistant capable of understanding
+customer intent, recommending products, retrieving catalogue information, sending product images,
+creating orders, logging conversations and transferring customers to human staff whenever necessary.
+</p>
+</section>
+
+<section id="problem" class="detail-block">
+<h2><i class="fas fa-bullseye"></i> Business Problem</h2>
+<ul>
+<li>Slow response time</li>
+<li>Manual product recommendation</li>
+<li>No conversation history</li>
+<li>Difficulty managing hundreds of enquiries</li>
+<li>Delayed payment confirmation</li>
+<li>No automated order workflow</li>
+</ul>
+</section>
+
+<section id="architecture" class="detail-block">
+<h2><i class="fas fa-sitemap"></i> System Architecture</h2>
+<pre>
+Customer
+    │
+WhatsApp
+    │
+Meta Cloud API
+    │
+Webhook
+    │
+Flask Backend
+ ├── AI Agent
+ ├── Product Search
+ ├── Image Service
+ ├── Order Engine
+ ├── Payment Verification
+ └── SQLite Database
+</pre>
+</section>
+
+<section id="frontend" class="detail-block">
+<h2><i class="fas fa-desktop"></i> Frontend</h2>
+<ul>
+<li>Responsive Admin Dashboard</li>
+<li>Product Management</li>
+<li>Conversation Monitor</li>
+<li>Chat Simulator</li>
+<li>Story Manager</li>
+<li>Order Dashboard</li>
+<li>Image Upload Preview</li>
+</ul>
+</section>
+
+<section id="backend" class="detail-block">
+<h2><i class="fas fa-server"></i> Backend Engineering</h2>
+<p>
+The backend was implemented in Flask and exposes REST endpoints for products,
+orders, stories, uploads, conversations, webhook verification,
+payment verification and AI interactions.
+</p>
+<ul>
+<li>RESTful API</li>
+<li>SQLite persistence</li>
+<li>Webhook processing</li>
+<li>Static image serving</li>
+<li>Conversation logging</li>
+<li>Human handoff support</li>
+</ul>
+</section>
+
+<section id="meta" class="detail-block">
+<h2><i class="fab fa-whatsapp"></i> Meta WhatsApp Cloud API Integration</h2>
+<p>
+A Meta Developer application was configured together with a Business Portfolio,
+WhatsApp Business Account, permanent access token, phone number ID,
+application secrets and webhook subscriptions.
+</p>
+<ol>
+<li>Create Meta App</li>
+<li>Add WhatsApp Product</li>
+<li>Generate Access Token</li>
+<li>Configure Phone Number</li>
+<li>Register Callback URL</li>
+<li>Verify Webhook Token</li>
+<li>Subscribe to Messages</li>
+</ol>
+</section>
+
+<section id="webhooks" class="detail-block">
+<h2><i class="fas fa-link"></i> Webhook Configuration</h2>
+<p>
+Incoming customer messages arrive through the webhook endpoint where payloads are
+validated, parsed and dispatched to the AI engine. Image requests trigger catalogue
+search and image delivery before conversational responses are generated.
+</p>
+</section>
+
+<section id="database" class="detail-block">
+<h2><i class="fas fa-database"></i> Database Design</h2>
+<ul>
+<li>Products</li>
+<li>Customers</li>
+<li>Orders</li>
+<li>Story Items</li>
+<li>Conversation Logs</li>
+</ul>
+</section>
+
+<section id="admin" class="detail-block">
+<h2><i class="fas fa-user-shield"></i> Admin Console</h2>
+<ul>
+<li>Create Products</li>
+<li>Edit Products</li>
+<li>Delete Products</li>
+<li>Upload Product Images</li>
+<li>Manage Stories</li>
+<li>Monitor Orders</li>
+<li>Pause AI</li>
+<li>Resume AI</li>
+<li>Manual Customer Replies</li>
+</ul>
+</section>
+
+<section id="conversation" class="detail-block">
+<h2><i class="fas fa-robot"></i> AI Conversation Engine</h2>
+<p>
+The conversational engine performs intent detection, semantic catalogue search,
+conversation memory retrieval, recommendation generation and structured sales responses.
+Image requests are identified separately and resolved through the upload service before
+text generation.
+</p>
+</section>
+
+<section id="payments" class="detail-block">
+<h2><i class="fas fa-money-check-dollar"></i> Payment Verification Workflow</h2>
+<p>
+Customers submit payment evidence through WhatsApp.
+The backend validates transaction metadata, records payment status,
+updates the order lifecycle and notifies administrators for fulfilment.
+This architecture supports future integration with payment gateways such as Paystack
+or Flutterwave.
+</p>
+</section>
+
+<section id="images" class="detail-block">
+<h2><i class="fas fa-image"></i> Product Image Pipeline</h2>
+<ul>
+<li>Local image upload</li>
+<li>UUID file naming</li>
+<li>Persistent upload directory</li>
+<li>Static Flask routing</li>
+<li>Automatic public URL generation</li>
+<li>WhatsApp media delivery</li>
+</ul>
+</section>
+
+<section id="deployment" class="detail-block">
+<h2><i class="fas fa-cloud"></i> Deployment</h2>
+<p>
+The application was deployed on Render with environment variables for
+Meta credentials, webhook verification, API keys and public base URL.
+Special attention was given to persistent storage limitations, SQLite handling,
+static uploads and webhook accessibility.
+</p>
+</section>
+
+<section id="challenges" class="detail-block">
+<h2><i class="fas fa-triangle-exclamation"></i> Engineering Challenges</h2>
+<ul>
+<li>Recovering lost Git commits using reflog and VS Code local history.</li>
+<li>Render ephemeral storage affecting uploaded images.</li>
+<li>Webhook debugging.</li>
+<li>Serving uploaded media publicly.</li>
+<li>Synchronising AI responses with image delivery.</li>
+<li>Conversation persistence.</li>
+<li>SQLite deployment considerations.</li>
+</ul>
+</section>
+
+<section id="stack" class="detail-block">
+<h2><i class="fas fa-code"></i> Technology Stack</h2>
+<ul>
+<li>Python</li>
+<li>Flask</li>
+<li>SQLite</li>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>Meta WhatsApp Cloud API</li>
+<li>OpenAI LLM Integration</li>
+<li>Render</li>
+<li>Git & GitHub</li>
+</ul>
+</section>
+
+<section id="future" class="detail-block">
+<h2><i class="fas fa-road"></i> Future Roadmap</h2>
+<ul>
+<li>PostgreSQL migration</li>
+<li>Vector search</li>
+<li>Recommendation models</li>
+<li>Voice notes</li>
+<li>Inventory forecasting</li>
+<li>Sales analytics dashboard</li>
+<li>Customer segmentation</li>
+<li>Multi-store support</li>
+</ul>
+</section>
+
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+<p>© 2026 Badawi Amin Muhammed | AI • Data Science • Machine Learning</p>
+</footer>
+
+</body>
+</html>
