@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chatlytics AI | Portfolio Project</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f5f7fb;color:#222;line-height:1.7}
+header{background:linear-gradient(90deg,#0A3D62,#D4AF37);color:#fff;padding:70px 20px;text-align:center}
+nav{position:sticky;top:0;background:#fff;padding:10px;border-bottom:1px solid #ddd}
+nav a{margin:0 10px;text-decoration:none;color:#0A3D62;font-weight:600}
+.container{max-width:1150px;margin:auto;padding:24px}
+section{background:#fff;margin:24px 0;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+h2{color:#0A3D62;border-left:6px solid #D4AF37;padding-left:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#fafafa;padding:16px;border-radius:10px;border-top:4px solid #D4AF37}
+pre{background:#f0f3f7;padding:15px;border-radius:8px;overflow:auto}
+.btn{display:inline-block;padding:12px 18px;margin:8px;border-radius:8px;text-decoration:none;font-weight:bold}
+.primary{background:#0A3D62;color:#fff}.gold{background:#D4AF37;color:#111}
+footer{background:#0A3D62;color:#fff;text-align:center;padding:30px;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+<h1>💬 Chatlytics AI</h1>
+<h3>AI-Powered Conversation Intelligence Platform</h3>
+<p>Business Intelligence • Data Analytics • Natural Language Processing • Machine Learning</p>
+<a class="btn primary" href="https://YOUR-STREAMLIT-APP.streamlit.app">Live Demo</a>
+<a class="btn gold" href="https://github.com/E-badawy/chatlytics-AI">GitHub Repository</a>
+</header>
+
+<nav>
+<a href="#overview">Overview</a>
+<a href="#guide">Export Guide</a>
+<a href="#pipeline">Pipeline</a>
+<a href="#analytics">Analytics</a>
+<a href="#ml">Machine Learning</a>
+<a href="#business">Applications</a>
+<a href="#developer">Developer</a>
+</nav>
+
+<div class="container">
+
+<section id="overview">
+<h2>Project Overview</h2>
+<p>Chatlytics AI is a production-ready conversation intelligence platform that converts exported WhatsApp chats into structured business intelligence. Instead of manually reading thousands of messages, users upload a WhatsApp TXT export and instantly receive executive dashboards, communication KPIs, behavioural analytics, Natural Language Processing outputs, Machine Learning insights and downloadable datasets.</p>
+<p>The project demonstrates the complete analytics lifecycle: ingestion, parsing, cleaning, feature engineering, exploratory analysis, executive reporting and unsupervised machine learning inside a modern Streamlit application.</p>
+</section>
+
+<section id="guide">
+<h2>How to Export a WhatsApp Chat</h2>
+<ol>
+<li>Open the desired WhatsApp conversation.</li>
+<li>Select <b>More</b> → <b>Export Chat</b>.</li>
+<li>Choose <b>Without Media</b> for faster processing.</li>
+<li>Save the generated <code>.txt</code> file.</li>
+<li>Open Chatlytics AI and upload the exported text file.</li>
+<li>The platform automatically parses and analyses the conversation.</li>
+</ol>
+<p><b>Privacy:</b> Processing occurs only on the uploaded export. No WhatsApp account access is required.</p>
+</section>
+
+<section id="pipeline">
+<h2>Data Processing Pipeline</h2>
+<pre>
+WhatsApp TXT
+      │
+Regex Parsing
+      │
+Data Cleaning
+      │
+Feature Engineering
+      │
+NLP Processing
+      │
+Machine Learning
+      │
+Executive Intelligence
+      │
+Interactive Dashboard
+      │
+CSV Export
+</pre>
+<div class="grid">
+<div class="card"><h3>Parsing</h3><p>Date extraction, user identification, multiline reconstruction and system-message detection.</p></div>
+<div class="card"><h3>Feature Engineering</h3><p>Word count, character count, emoji count, media flags, URL detection, timestamps, temporal features and engagement metrics.</p></div>
+<div class="card"><h3>Visual Analytics</h3><p>Interactive Plotly charts, KPIs, timelines, activity maps and executive summaries.</p></div>
+</div>
+</section>
+
+<section id="analytics">
+<h2>Analytics Engine</h2>
+<ul>
+<li>Total messages, words, links, media and emojis</li>
+<li>Monthly and daily communication timelines</li>
+<li>Most active participants</li>
+<li>Word cloud generation</li>
+<li>Top common words</li>
+<li>Emoji frequency analysis</li>
+<li>Conversation Health Score</li>
+<li>Executive recommendations</li>
+<li>Downloadable cleaned dataset</li>
+</ul>
+</section>
+
+<section id="ml">
+<h2>Natural Language Processing & Machine Learning</h2>
+<p>Chatlytics AI applies NLP preprocessing to transform unstructured conversations into analytical features. It then employs K-Means clustering to discover hidden communication patterns without requiring labelled training data.</p>
+<ul>
+<li>Tokenisation</li>
+<li>Word frequency extraction</li>
+<li>Emoji and URL recognition</li>
+<li>Behavioural feature engineering</li>
+<li>Unsupervised K-Means clustering</li>
+<li>Communication pattern discovery</li>
+<li>Explainable executive summaries</li>
+</ul>
+<p><b>Future roadmap:</b> Sentiment analysis, topic modelling, transformer embeddings, conversational search, PDF reporting and predictive engagement forecasting.</p>
+</section>
+
+<section id="business">
+<h2>Business Applications</h2>
+<div class="grid">
+<div class="card"><b>Sales Teams</b><br>Measure customer engagement and communication efficiency.</div>
+<div class="card"><b>Customer Support</b><br>Understand response behaviour and workload.</div>
+<div class="card"><b>NGOs & M&E</b><br>Monitor programme communication and stakeholder engagement.</div>
+<div class="card"><b>Research</b><br>Perform behavioural and communication analytics.</div>
+<div class="card"><b>Healthcare</b><br>Study patient communication trends.</div>
+<div class="card"><b>Education</b><br>Analyse student collaboration patterns.</div>
+</div>
+</section>
+
+<section>
+<h2>Technology Stack</h2>
+<p>Python • Streamlit • Pandas • Plotly • Matplotlib • Scikit-learn • WordCloud • URLExtract • Emoji • Regular Expressions • Git • GitHub</p>
+</section>
+
+<section>
+<h2>Project Highlights</h2>
+<ul>
+<li>Transforms raw conversation data into strategic insights.</li>
+<li>Integrates analytics, NLP and ML in a unified workflow.</li>
+<li>Interactive executive dashboard designed for decision makers.</li>
+<li>Modern Streamlit interface with downloadable outputs.</li>
+<li>Demonstrates end-to-end data science engineering practices.</li>
+</ul>
+</section>
+
+<section id="developer">
+<h2>About the Developer</h2>
+<p><strong>Amin Muhammed Badawi</strong><br>
+Data Science Consultant specialising in Artificial Intelligence, Machine Learning, Business Intelligence and Monitoring & Evaluation Analytics.</p>
+<p>Email: cigma.generalsolutions@gmail.com<br>
+Phone: 08065440075<br>
+LinkedIn: linkedin.com/in/elameenbadawy</p>
+</section>
+
+</div>
+<footer>© 2026 Chatlytics AI • Built by Amin Muhammed Badawi</footer>
+</body></html>
