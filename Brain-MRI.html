@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain Tumor MRI Classification | Badawi Amin Muhammed</title>
+
+  <meta
+    name="description"
+    content="Deep Learning based Brain Tumor MRI Classification system with Explainable AI (Grad-CAM), FastAPI backend, React frontend and cloud deployment."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <img
+        src="refined_portrait.jpg"
+        alt="Badawi Amin Muhammed"
+        class="profile-pic"
+    />
+
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist . AI & ML Engineer . Research Data Analyst</h3>
+
+    <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+    >
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+    </button>
+
+    <nav class="top-nav" id="site-navigation">
+
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/#projects" class="nav-btn">Projects</a>
+        <a href="certifications" class="nav-btn">Certifications</a>
+        <a href="blog" class="nav-btn">Blog</a>
+        <a href="consultation" class="nav-btn">Consultation</a>
+
+    </nav>
+
+</header>
+
+<main class="detail-page">
+
+<section class="detail-hero">
+
+    <h1>Brain Tumor MRI Classification using Deep Learning & Explainable AI</h1>
+
+    <p>
+
+        A production-ready Artificial Intelligence system that automatically classifies
+        brain MRI scans into <strong>Glioma</strong>,
+        <strong>Meningioma</strong>,
+        <strong>Pituitary Tumor</strong>,
+        and
+        <strong>No Tumor</strong>
+        while generating Grad-CAM visual explanations to improve model interpretability
+        for clinical decision support.
+
+    </p>
+
+    <div class="detail-hero-actions">
+
+        <a
+            href="https://brain-tumor-mri-classification.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-btn project-demo-btn"
+        >
+
+            <i class="fas fa-arrow-up-right-from-square"></i>
+
+            Live Demo
+
+        </a>
+
+        <a
+            href="https://brain-tumor-mri-classification-k8sx.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-btn"
+        >
+
+            <i class="fas fa-server"></i>
+
+            Backend API
+
+        </a>
+
+        <a
+            href="https://github.com/E-badawy/Brain_Tumor_MRI_Classification"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-btn"
+        >
+
+            <i class="fab fa-github"></i>
+
+            GitHub Repository
+
+        </a>
+
+    </div>
+
+</section>
+
+<section class="detail-layout">
+
+<aside class="detail-toc" aria-label="Table of Contents">
+
+    <h2>Sections</h2>
+
+    <a href="#overview">Overview</a>
+
+    <a href="#problem">Clinical Problem</a>
+
+    <a href="#pipeline">Deep Learning Pipeline</a>
+
+    <a href="#architecture">Model Architecture</a>
+
+    <a href="#gradcam">Explainable AI (Grad-CAM)</a>
+
+    <a href="#application">Application Features</a>
+
+    <a href="#deployment">Deployment</a>
+
+    <a href="#impact">Clinical & Business Impact</a>
+
+    <a href="#stack">Technology Stack</a>
+
+</aside>
+
+<div class="detail-main">
+
+<article
+    id="overview"
+    class="detail-block"
+>
+
+<h2>
+
+<i class="fas fa-circle-info"></i>
+
+Overview
+
+</h2>
+
+    <p>
+
+      Brain tumors remain among the most challenging neurological conditions to diagnose accurately.
+      Traditional MRI interpretation requires experienced radiologists and may be affected by workload,
+      human fatigue and inter-observer variability.
+      
+      This project presents an end-to-end Artificial Intelligence application capable of automatically
+      classifying brain MRI images into four clinically relevant categories while simultaneously
+      providing visual explanations of the model's reasoning using Explainable Artificial Intelligence
+      (XAI).
+      
+      Unlike many academic prototypes, this solution extends beyond model training by integrating
+      a modern React frontend, a FastAPI inference service, cloud deployment and Grad-CAM based
+      visual interpretation into a complete production-ready workflow.
+
+    </p>
+
+  <ul class="detail-points">
+
+    <li>Automatic classification of four brain MRI categories</li>
+
+    <li>CNN-based Deep Learning inference pipeline</li>
+
+    <li>Grad-CAM visual explanation of prediction regions</li>
+
+    <li>Interactive React web interface</li>
+
+    <li>RESTful FastAPI backend for inference</li>
+
+    <li>Cloud deployment using Render and Vercel</li>
+
+    <li>Responsive user interface suitable for desktop and mobile devices</li>
+
+</ul>
+
+  </article>
+
+  <article
+    id="problem"
+    class="detail-block"
+  >
+
+<h2>
+
+  <i class="fas fa-brain"></i>
+
+  Clinical Problem
+
+  </h2>
+
+  <p>
+
+  Brain tumors can significantly impact neurological function and often require rapid diagnosis.
+  Magnetic Resonance Imaging (MRI) is considered the preferred imaging modality due to its superior
+  soft tissue contrast.
+
+  However, manual interpretation presents several challenges including:
+
+  </p>
+
+<ul class="detail-points">
+
+<li>Growing radiology workload worldwide.</li>
+
+<li>Time-consuming image interpretation.</li>
+
+<li>Variability between radiologists.</li>
+
+<li>Difficulty detecting subtle tumor boundaries.</li>
+
+<li>Limited access to specialist expertise in underserved regions.</li>
+
+</ul>
+
+<p>
+
+Artificial Intelligence provides an opportunity to accelerate preliminary image assessment,
+support clinical workflows and improve consistency while maintaining physician oversight.
+
+</p>
+
+<figure class="section-image-holder">
+
+<img
+    src="brain_tumor_images/homepage.png"
+    alt="Brain Tumor MRI Application Homepage"
+/>
+
+<figcaption>
+
+Landing page of the Brain Tumor MRI Classification application.
+
+</figcaption>
+
+</figure>
+
+</article>
+
+<article
+    id="pipeline"
+    class="detail-block"
+>
+
+<h2>
+
+<i class="fas fa-gears"></i>
+
+Deep Learning Pipeline
+
+</h2>
+
+<p>
+
+The project follows a complete deep learning workflow beginning with MRI preprocessing,
+dataset preparation and augmentation, model development, evaluation, explainability and
+deployment.
+
+</p>
+
+<ul class="detail-points">
+
+<li>Brain MRI dataset organization into four diagnostic categories.</li>
+
+<li>Image resizing to 224 × 224 pixels.</li>
+
+<li>Pixel normalization using TensorFlow preprocessing layers.</li>
+
+<li>Real-time augmentation through random flipping, rotation, translation and zoom.</li>
+
+<li>CNN training using TensorFlow/Keras.</li>
+
+<li>Early stopping and learning-rate scheduling.</li>
+
+<li>Best model checkpoint preservation.</li>
+
+<li>Deployment-ready model serialization.</li>
+
+</ul>
+
+<figure class="section-image-holder">
+
+<img
+    src="brain_tumor_images/workflow.png"
+    alt="Brain Tumor Workflow"
+/>
+
+<figcaption>
+
+Complete machine learning workflow from MRI acquisition through deployment.
+
+</figcaption>
+
+</figure>
+
+</article>
+
+
+<article
+    id="architecture"
+    class="detail-block"
+>
+
+<h2>
+
+<i class="fas fa-microchip"></i>
+
+CNN Model Architecture
+
+</h2>
+
+<p>
+
+The classification engine was developed using TensorFlow and Keras. Rather than relying on
+transfer learning, this implementation uses a custom Convolutional Neural Network designed
+specifically for four-class MRI classification while maintaining computational efficiency.
+
+</p>
+
+<ul class="detail-points">
+
+<li>Input Resolution: 224 × 224 RGB</li>
+
+<li>Three Convolutional Blocks</li>
+
+<li>Batch Normalization after each convolution</li>
+
+<li>Max Pooling for feature reduction</li>
+
+<li>Global Average Pooling Layer</li>
+
+<li>Dense Layer (256 neurons)</li>
+
+<li>Dropout (0.5)</li>
+
+<li>Dense Layer (128 neurons)</li>
+
+<li>Dropout (0.3)</li>
+
+<li>Softmax Output Layer (4 Classes)</li>
+
+</ul>
+
+<p>
+
+Training employed the Adam optimizer with categorical cross-entropy loss while incorporating
+EarlyStopping, ReduceLROnPlateau and ModelCheckpoint callbacks to improve convergence and reduce
+overfitting.
+
+</p>
+
+<div class="detail-gallery">
+
+<figure>
+
+<img
+src="brain_tumor_images/model_summary.png"
+alt="CNN Model Summary"
+/>
+
+<figcaption>
+
+Custom CNN architecture used for MRI classification.
+
+</figcaption>
+
+</figure>
+
+<figure>
+
+<img
+src="brain_tumor_images/training_curves.png"
+alt="Training Curves"
+/>
+
+<figcaption>
+
+Training and validation performance across epochs.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</article>
+
+<article
+id="gradcam"
+class="detail-block"
+>
+
+<h2>
+
+<i class="fas fa-fire"></i>
+
+Explainable Artificial Intelligence (Grad-CAM)
+
+</h2>
+
+<p>
+
+One of the major limitations of deep learning in healthcare is the "black-box" nature of model
+predictions.
+
+To improve transparency, this project integrates Gradient-weighted Class Activation Mapping
+(Grad-CAM), enabling clinicians and users to visualize the image regions that contributed most
+strongly to the model's decision.
+
+</p>
+
+<ul class="detail-points">
+
+<li>Automatic Grad-CAM generation after every prediction.</li>
+
+<li>Heatmap overlay on the original MRI scan.</li>
+
+<li>Visual interpretation of tumor localization.</li>
+
+<li>Supports explainable clinical decision support.</li>
+
+<li>Improves user confidence and model transparency.</li>
+
+</ul>
+
+<div class="detail-gallery">
+
+<figure>
+
+<img
+src="brain_tumor_images/original_mri.png"
+alt="Original MRI"
+/>
+
+<figcaption>
+
+Uploaded MRI scan.
+
+</figcaption>
+
+</figure>
+
+<figure>
+
+<img
+src="brain_tumor_images/gradcam_output.png"
+alt="GradCAM Heatmap"
+/>
+
+<figcaption>
+
+Grad-CAM highlighting regions responsible for prediction.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</article>
+
+<article
+id="application"
+class="detail-block"
+>
+
+<h2>
+
+<i class="fas fa-desktop"></i>
+
+Application Features
+
+</h2>
+
+<p>
+
+Beyond model development, the project delivers a complete full-stack AI application capable of
+performing real-time MRI classification through an intuitive user interface.
+
+</p>
+
+<ul class="detail-points">
+
+<li>Drag-and-drop MRI upload.</li>
+
+<li>Sample MRI testing.</li>
+
+<li>Real-time prediction.</li>
+
+<li>Prediction confidence score.</li>
+
+<li>Class probability distribution.</li>
+
+<li>Grad-CAM visualization.</li>
+
+<li>Responsive interface.</li>
+
+<li>REST API communication.</li>
+
+</ul>
+
+<div class="detail-gallery">
+
+<figure>
+
+<img
+src="brain_tumor_images/upload_page.png"
+alt="Upload Interface"
+/>
+
+<figcaption>
+
+MRI upload interface.
+
+</figcaption>
+
+</figure>
+
+<figure>
+
+<img
+src="brain_tumor_images/prediction_result.png"
+alt="Prediction Result"
+/>
+
+<figcaption>
+
+Prediction results with confidence scores.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</article>
+
+<article
+id="deployment"
+class="detail-block"
+>
+
+<h2>
+
+<i class="fas fa-cloud"></i>
+
+Deployment Architecture
+
+</h2>
+
+<p>
+
+The solution was deployed as a cloud-native application separating inference from presentation.
+This architecture enables independent frontend and backend scaling while simplifying maintenance
+and continuous deployment.
+
+</p>
+
+<ul class="detail-points">
+
+<li>Frontend deployed on Vercel.</li>
+
+<li>Backend deployed on Render.</li>
+
+<li>TensorFlow model served through FastAPI.</li>
+
+<li>Axios REST communication.</li>
+
+<li>CORS-enabled API.</li>
+
+<li>GitHub-based CI/CD deployment.</li>
+
+<li>Environment-variable configuration.</li>
+
+<li>Production-ready architecture.</li>
+
+</ul>
+
+<figure class="section-image-holder">
+
+<img
+src="brain_tumor_images/deployment_architecture.png"
+alt="Deployment Architecture"
+/>
+
+<figcaption>
+
+Production deployment architecture using React, FastAPI, Render and Vercel.
+
+</figcaption>
+
+</figure>
+
+</article>
+
+  
+
+  
