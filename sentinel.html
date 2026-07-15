@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentinel AI | Badawi Amin Muhammed</title>
+
+  <meta
+    name="description"
+    content="Sentinel AI is a production-ready AI assistant integrating WhatsApp, LangGraph, FastAPI, Supabase PostgreSQL, document intelligence, speech recognition, vision AI, and web search."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <img
+      src="refined_portrait.jpg"
+      alt="Badawi Amin Muhammed"
+      class="profile-pic"
+    />
+
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist . AI & ML Engineer . Research Data Analyst</h3>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="/#projects" class="nav-btn">Projects</a>
+      <a href="certifications" class="nav-btn">Certifications</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="consultation" class="nav-btn">Consultation</a>
+    </nav>
+  </header>
+
+  <main class="detail-page">
+
+    <section class="detail-hero">
+
+      <h1>Sentinel AI — Intelligent Multi-Agent WhatsApp Assistant</h1>
+
+      <p>
+        Sentinel AI is a production-oriented conversational AI platform that
+        combines Large Language Models, LangGraph, FastAPI, Supabase PostgreSQL,
+        document intelligence, speech recognition, computer vision, persistent
+        memory, and web search into a single intelligent assistant accessible
+        directly through WhatsApp.
+      </p>
+
+      <div class="detail-hero-actions">
+
+        <a
+          href="https://github.com/YOUR_USERNAME/Sentinel-ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-btn project-demo-btn"
+        >
+          <i class="fas fa-arrow-up-right-from-square"></i>
+          GitHub Repository
+        </a>
+
+        <a
+          href="consultation"
+          class="project-btn"
+        >
+          Discuss Implementation
+        </a>
+
+      </div>
+
+    </section>
+
+    <section class="detail-layout">
+
+      <aside class="detail-toc" aria-label="Table of contents">
+
+        <h2>Sections</h2>
+
+        <a href="#overview">Overview</a>
+        <a href="#features">Core Capabilities</a>
+        <a href="#workflow">AI Workflow</a>
+        <a href="#memory">Memory & Database</a>
+        <a href="#intelligence">Document Intelligence</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#deployment">Deployment & Security</a>
+        <a href="#impact">Business Impact</a>
+        <a href="#stack">Technology Stack</a>
+
+      </aside>
+
+      <div class="detail-main">
+
+        <article
+          id="overview"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-circle-info"></i>
+            Overview
+          </h2>
+
+          <p>
+            Sentinel AI is a modular AI assistant engineered to demonstrate
+            production-grade AI engineering principles rather than a simple
+            chatbot implementation. It integrates conversational intelligence,
+            persistent memory, external tools, document processing, and cloud
+            infrastructure into a scalable backend architecture suitable for
+            intelligent automation and business applications.
+          </p>
+
+          <ul class="detail-points">
+            <li>Production-ready FastAPI backend</li>
+            <li>LangGraph multi-agent orchestration</li>
+            <li>Persistent conversational memory</li>
+            <li>WhatsApp Cloud API integration</li>
+            <li>Modular architecture for future expansion</li>
+          </ul>
+
+        </article>
+
+        <article
+          id="features"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-list-check"></i>
+            Core Capabilities
+          </h2>
+
+          <ul class="detail-points">
+
+            <li>Natural language conversations powered by Groq Llama 3.3 and Google Gemini</li>
+
+            <li>Persistent user memory backed by PostgreSQL</li>
+
+            <li>Real-time internet search for up-to-date responses</li>
+
+            <li>PDF document understanding and summarization</li>
+
+            <li>Spreadsheet profiling and AI-driven insights</li>
+
+            <li>Image understanding using Gemini Vision</li>
+
+            <li>Voice message transcription and conversational response</li>
+
+            <li>User authorization and duplicate webhook protection</li>
+
+            <li>Structured logging and production-ready backend architecture</li>
+
+          </ul>
+
+        </article>
+
+        <article
+          id="workflow"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-robot"></i>
+            AI Workflow
+          </h2>
+
+          <p>
+            Every incoming WhatsApp request flows through multiple intelligent
+            processing stages before a response is generated. This architecture
+            enables context-aware conversations while maintaining scalability,
+            security, and extensibility.
+          </p>
+
+          <ul class="detail-points">
+
+            <li>WhatsApp Cloud API receives incoming user messages</li>
+
+            <li>FastAPI webhook validates and processes requests</li>
+
+            <li>Authorized users are verified before execution</li>
+
+            <li>Duplicate webhook events are ignored automatically</li>
+
+            <li>LangGraph routes requests to the appropriate AI workflow</li>
+
+            <li>Memory retrieval enriches conversations with previous context</li>
+
+            <li>External tools are invoked only when necessary</li>
+
+            <li>LLMs generate context-aware responses</li>
+
+          </ul>
+
+          <figure class="section-image-holder">
+
+            <img
+              src="sentinel_images/workflow.png"
+              alt="Sentinel AI workflow"
+            />
+
+            <figcaption>
+              High-level workflow illustrating the complete request lifecycle.
+            </figcaption>
+
+          </figure>
+
+        </article>
+
+                <article
+          id="memory"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-database"></i>
+            Memory & PostgreSQL
+          </h2>
+
+          <p>
+            Unlike conventional chatbots that forget previous interactions,
+            Sentinel AI maintains persistent conversational memory using
+            Supabase PostgreSQL. User-specific information is stored and
+            retrieved intelligently, allowing conversations to remain
+            personalized across multiple sessions.
+          </p>
+
+          <ul class="detail-points">
+
+            <li>Supabase PostgreSQL cloud database</li>
+
+            <li>Persistent user profiles</li>
+
+            <li>Long-term conversational memory</li>
+
+            <li>Duplicate message tracking</li>
+
+            <li>Conversation continuity across sessions</li>
+
+            <li>Scalable relational database architecture</li>
+
+          </ul>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img
+                src="sentinel_images/database.png"
+                alt="Supabase database"
+              />
+
+              <figcaption>
+                Persistent memory and conversation storage using Supabase PostgreSQL.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img
+                src="sentinel_images/memory.png"
+                alt="Memory architecture"
+              />
+
+              <figcaption>
+                Intelligent memory retrieval powering personalized conversations.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+        </article>
+
+        <article
+          id="intelligence"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-brain"></i>
+            Document & Multimodal Intelligence
+          </h2>
+
+          <p>
+            Sentinel AI extends beyond conversational AI by supporting
+            multimodal interactions. Users can upload PDFs, spreadsheets,
+            images, and voice messages directly through WhatsApp and receive
+            AI-generated insights.
+          </p>
+
+          <ul class="detail-points">
+
+            <li>PDF extraction and intelligent summarization</li>
+
+            <li>Question answering from uploaded documents</li>
+
+            <li>Spreadsheet profiling and statistical summaries</li>
+
+            <li>Automatic data quality observations</li>
+
+            <li>Image understanding using Gemini Vision</li>
+
+            <li>Voice transcription powered by Whisper</li>
+
+            <li>AI-generated recommendations and explanations</li>
+
+          </ul>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img
+                src="sentinel_images/document_analysis.png"
+                alt="PDF analysis"
+              />
+
+              <figcaption>
+                AI-powered document understanding and summarization.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img
+                src="sentinel_images/spreadsheet_analysis.png"
+                alt="Spreadsheet analysis"
+              />
+
+              <figcaption>
+                Spreadsheet profiling and intelligent dataset insights.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+        </article>
+
+        <article
+          id="architecture"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-sitemap"></i>
+            System Architecture
+          </h2>
+
+          <p>
+            Sentinel AI adopts a modular architecture where each component is
+            responsible for a single concern. This separation simplifies
+            maintenance while making future integrations significantly easier.
+          </p>
+
+          <ul class="detail-points">
+
+            <li>FastAPI REST backend</li>
+
+            <li>LangGraph agent orchestration</li>
+
+            <li>Supabase PostgreSQL persistence layer</li>
+
+            <li>SQLAlchemy ORM</li>
+
+            <li>Dedicated service modules</li>
+
+            <li>WhatsApp Cloud API integration</li>
+
+            <li>Structured logging with Loguru</li>
+
+            <li>Environment-driven configuration</li>
+
+          </ul>
+
+          <figure class="section-image-holder">
+
+            <img
+              src="sentinel_images/architecture.png"
+              alt="Sentinel architecture"
+            />
+
+            <figcaption>
+              High-level system architecture of Sentinel AI.
+            </figcaption>
+
+          </figure>
+
+        </article>
+
+        <article
+          id="deployment"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-shield-halved"></i>
+            Deployment & Security
+          </h2>
+
+          <ul class="detail-points">
+
+            <li>Environment-variable driven configuration</li>
+
+            <li>Supabase cloud database deployment</li>
+
+            <li>Railway deployment pipeline</li>
+
+            <li>Authorized user access control</li>
+
+            <li>Webhook duplicate protection</li>
+
+            <li>Persistent structured logging</li>
+
+            <li>Production-ready FastAPI backend</li>
+
+            <li>Cloud-ready modular architecture</li>
+
+          </ul>
+
+        </article>
+
+        <article
+          id="impact"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-bullseye"></i>
+            Business Impact
+          </h2>
+
+          <ul class="detail-points">
+
+            <li>Automates customer interactions directly from WhatsApp</li>
+
+            <li>Reduces response time using intelligent AI workflows</li>
+
+            <li>Provides personalized assistance through persistent memory</li>
+
+            <li>Transforms documents and spreadsheets into actionable insights</li>
+
+            <li>Demonstrates scalable enterprise AI architecture</li>
+
+            <li>Suitable foundation for CRM, internal assistants, and business automation</li>
+
+          </ul>
+
+        </article>
+
+                <article
+          id="stack"
+          class="detail-block"
+        >
+
+          <h2>
+            <i class="fas fa-code"></i>
+            Technology Stack
+          </h2>
+
+          <ul class="detail-points">
+
+            <li><strong>Backend:</strong> Python, FastAPI</li>
+
+            <li><strong>AI Framework:</strong> LangGraph, LangChain</li>
+
+            <li><strong>Large Language Models:</strong> Groq Llama 3.3, Google Gemini</li>
+
+            <li><strong>Database:</strong> PostgreSQL (Supabase)</li>
+
+            <li><strong>ORM:</strong> SQLAlchemy</li>
+
+            <li><strong>Messaging:</strong> WhatsApp Cloud API</li>
+
+            <li><strong>Search:</strong> Tavily Search API</li>
+
+            <li><strong>Speech Recognition:</strong> Whisper</li>
+
+            <li><strong>Vision:</strong> Gemini Vision</li>
+
+            <li><strong>Data Processing:</strong> Pandas</li>
+
+            <li><strong>PDF Processing:</strong> PyMuPDF</li>
+
+            <li><strong>Logging:</strong> Loguru</li>
+
+            <li><strong>Deployment:</strong> Railway</li>
+
+            <li><strong>Version Control:</strong> Git & GitHub</li>
+
+          </ul>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="footer-wrap">
+
+      <div class="footer-col footer-brand">
+
+        <h3>Badawi Amin Muhammed</h3>
+
+        <p>
+          Data Scientist, AI & ML Engineer, and Research Data Analyst
+          building practical AI systems, intelligent automation
+          platforms, and decision-support solutions.
+        </p>
+
+        <a
+          href="consultation"
+          class="footer-cta"
+        >
+          Book Consultation
+        </a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4>Quick Links</h4>
+
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="certifications">Certifications</a>
+        <a href="blog">Blog</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4>Connect</h4>
+
+        <a href="mailto:officialbadawy@gmail.com">
+          officialbadawy@gmail.com
+        </a>
+
+        <a href="tel:+2348065440075">
+          +234 806 544 0075
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        &copy; 2026 Badawi Amin Muhammed. All rights reserved.
+      </span>
+
+      <span>
+        Zaria-Kaduna, Nigeria (WAT)
+      </span>
+
+    </div>
+
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+
+</body>
+</html>
