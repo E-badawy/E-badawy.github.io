@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Churn Intelligence Platform | Badawi Amin Muhammed</title>
+
+<meta
+name="description"
+content="End-to-End Machine Learning Customer Churn Intelligence Platform built with Scikit-Learn and Streamlit for churn prediction, business intelligence and customer retention."
+>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<img
+src="refined_portrait.jpg"
+alt="Badawi Amin Muhammed"
+class="profile-pic"
+/>
+
+<h1>Badawi Amin Muhammed</h1>
+
+<h4>[B.Sc, M.Sc.]</h4>
+
+<h3>
+Data Scientist • AI & Machine Learning Engineer • Research Data Analyst
+</h3>
+
+<button
+class="nav-toggle"
+id="nav-toggle"
+type="button"
+aria-label="Toggle navigation menu"
+aria-expanded="false"
+aria-controls="site-navigation">
+
+<span class="nav-toggle-line"></span>
+<span class="nav-toggle-line"></span>
+<span class="nav-toggle-line"></span>
+
+</button>
+
+<nav class="top-nav" id="site-navigation">
+
+<a href="/" class="nav-btn">Home</a>
+
+<a href="/#projects" class="nav-btn">Projects</a>
+
+<a href="certifications" class="nav-btn">Certifications</a>
+
+<a href="blog" class="nav-btn">Blog</a>
+
+<a href="consultation" class="nav-btn">Consultation</a>
+
+</nav>
+
+</header>
+
+
+<main class="detail-page">
+
+
+<section class="detail-hero">
+
+<h1>
+Customer Churn Intelligence Platform
+</h1>
+
+<p>
+
+An end-to-end Machine Learning platform that predicts customer churn,
+identifies the major factors driving customer attrition,
+and supports proactive retention strategies through an interactive
+business intelligence dashboard.
+
+</p>
+
+
+<div class="detail-hero-actions">
+
+<a
+href="YOUR_STREAMLIT_LINK"
+target="_blank"
+class="project-btn project-demo-btn">
+
+<i class="fas fa-arrow-up-right-from-square"></i>
+
+Live Demo
+
+</a>
+
+
+<a
+href="YOUR_GITHUB_REPOSITORY"
+target="_blank"
+class="project-btn">
+
+<i class="fab fa-github"></i>
+
+GitHub Repository
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="detail-layout">
+
+
+<aside class="detail-toc">
+
+<h2>Contents</h2>
+
+<a href="#overview">Overview</a>
+
+<a href="#problem">Business Problem</a>
+
+<a href="#dataset">Dataset</a>
+
+<a href="#workflow">ML Workflow</a>
+
+<a href="#eda">Exploratory Data Analysis</a>
+
+<a href="#models">Model Development</a>
+
+<a href="#insights">Business Insights</a>
+
+<a href="#dashboard">Interactive Dashboard</a>
+
+<a href="#stack">Technology Stack</a>
+
+<a href="#future">Future Improvements</a>
+
+</aside>
+
+
+
+<div class="detail-main">
+
+
+
+<article
+id="overview"
+class="detail-block">
+
+<h2>
+
+<i class="fas fa-circle-info"></i>
+
+Project Overview
+
+</h2>
+
+<p>
+
+Customer churn remains one of the most significant operational
+and financial challenges facing subscription-based businesses.
+Retaining an existing customer is considerably less expensive
+than acquiring a new one, making churn prediction an important
+business intelligence capability.
+
+</p>
+
+<p>
+
+The Customer Churn Intelligence Platform was developed as a complete
+Machine Learning solution capable of predicting customer churn
+using historical behavioural data while simultaneously providing
+decision-makers with interpretable insights and retention recommendations.
+
+</p>
+
+<ul class="detail-points">
+
+<li>End-to-end supervised Machine Learning workflow</li>
+
+<li>Comprehensive exploratory data analysis</li>
+
+<li>Automated data preprocessing using Scikit-Learn Pipelines</li>
+
+<li>Multiple model comparison and evaluation</li>
+
+<li>Business-focused interpretation of predictions</li>
+
+<li>Interactive Streamlit deployment</li>
+
+</ul>
+
+</article>
+
+
+
+
+<article
+id="problem"
+class="detail-block">
+
+<h2>
+
+<i class="fas fa-chart-line"></i>
+
+Business Problem
+
+</h2>
+
+<p>
+
+Customer attrition directly reduces recurring revenue while increasing
+marketing and acquisition costs.
+
+Organizations frequently struggle to identify customers who are
+most likely to discontinue their services before it becomes too late.
+
+</p>
+
+<p>
+
+This project addresses that challenge by developing an intelligent
+classification model capable of identifying high-risk customers
+using demographic information, subscription history,
+contract characteristics and service usage patterns.
+
+</p>
+
+<div class="detail-gallery">
+
+<figure>
+
+<img
+src="churn_images/dashboard.png"
+alt="Customer Churn Dashboard"
+/>
+
+<figcaption>
+
+Executive dashboard showing key churn intelligence metrics.
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</article>
+
+
+
+
+<article
+id="dataset"
+class="detail-block">
+
+<h2>
+
+<i class="fas fa-database"></i>
+
+Dataset Overview
+
+</h2>
+
+<p>
+
+The project utilizes the IBM Telco Customer Churn dataset,
+one of the most widely used benchmark datasets
+for binary classification problems involving customer retention.
+
+</p>
+
+<ul class="detail-points">
+
+<li>7043 customer records</li>
+
+<li>19 predictive variables</li>
+
+<li>Binary classification target (Churn)</li>
+
+<li>Customer demographics</li>
+
+<li>Contract information</li>
+
+<li>Internet subscription details</li>
+
+<li>Billing information</li>
+
+<li>Customer support services</li>
+
+</ul>
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+<th>Property</th>
+
+<th>Value</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Rows</td>
+
+<td>7,043</td>
+
+</tr>
+
+<tr>
+
+<td>Features</td>
+
+<td>19</td>
+
+</tr>
+
+<tr>
+
+<td>Problem Type</td>
+
+<td>Binary Classification</td>
+
+</tr>
+
+<tr>
+
+<td>Target Variable</td>
+
+<td>Churn</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</article>
+
+
+        <article id="workflow" class="detail-block">
+
+          <h2>
+            <i class="fas fa-gears"></i>
+            Machine Learning Workflow
+          </h2>
+
+          <p>
+            The project follows a structured end-to-end Machine Learning workflow,
+            beginning with raw customer data and ending with an interactive
+            decision-support application deployed using Streamlit.
+          </p>
+
+          <figure class="section-image-holder">
+            <img
+              src="churn_images/workflow.png"
+              alt="Machine Learning Workflow"
+            />
+            <figcaption>
+              End-to-end workflow from data preprocessing to model deployment.
+            </figcaption>
+          </figure>
+
+          <ol class="detail-points">
+
+            <li>Business Problem Definition</li>
+
+            <li>Exploratory Data Analysis (EDA)</li>
+
+            <li>Data Cleaning & Preprocessing</li>
+
+            <li>Feature Engineering</li>
+
+            <li>Model Development</li>
+
+            <li>Hyperparameter Optimization</li>
+
+            <li>Model Evaluation</li>
+
+            <li>Business Interpretation</li>
+
+            <li>Interactive Streamlit Deployment</li>
+
+          </ol>
+
+        </article>
+
+
+
+        <article id="eda" class="detail-block">
+
+          <h2>
+            <i class="fas fa-chart-column"></i>
+            Exploratory Data Analysis
+          </h2>
+
+          <p>
+            Before model development, extensive exploratory analysis was performed
+            to understand customer behaviour, identify relationships among
+            variables, detect anomalies, and uncover the major factors associated
+            with churn.
+          </p>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img
+                src="churn_images/churn_distribution.png"
+                alt="Customer Churn Distribution"
+              />
+
+              <figcaption>
+                Distribution of customers who churned versus those retained.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img
+                src="churn_images/contract_churn.png"
+                alt="Contract Type Analysis"
+              />
+
+              <figcaption>
+                Churn rate across different customer contract types.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+          <ul class="detail-points">
+
+            <li>
+              Approximately <strong>26.6%</strong> of customers had churned,
+              indicating a moderately imbalanced classification problem.
+            </li>
+
+            <li>
+              Customers with
+              <strong>month-to-month contracts</strong>
+              demonstrated substantially higher churn rates than those with
+              one-year or two-year agreements.
+            </li>
+
+            <li>
+              Customers with
+              <strong>shorter tenure</strong>
+              were considerably more likely to discontinue their subscriptions.
+            </li>
+
+            <li>
+              Higher monthly service charges showed a positive association
+              with churn behaviour.
+            </li>
+
+            <li>
+              Lack of technical support services was associated with an
+              increased probability of customer attrition.
+            </li>
+
+          </ul>
+
+        </article>
+
+
+
+        <article id="models" class="detail-block">
+
+          <h2>
+
+            <i class="fas fa-brain"></i>
+
+            Model Development & Evaluation
+
+          </h2>
+
+          <p>
+
+            Multiple supervised Machine Learning algorithms were trained,
+            evaluated and compared using identical preprocessing pipelines
+            to identify the most reliable model for customer churn prediction.
+
+          </p>
+
+          <p>
+
+            All categorical variables were encoded using
+            <strong>One-Hot Encoding</strong>,
+            numerical variables were standardized,
+            and preprocessing was fully automated using a
+            <strong>Scikit-Learn Pipeline</strong>.
+
+          </p>
+
+          <table class="detail-table">
+
+            <thead>
+
+              <tr>
+
+                <th>Model</th>
+
+                <th>Accuracy</th>
+
+                <th>Precision</th>
+
+                <th>Recall</th>
+
+                <th>F1 Score</th>
+
+                <th>ROC-AUC</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>Logistic Regression</td>
+
+                <td><strong>80.4%</strong></td>
+
+                <td>64.8%</td>
+
+                <td>57.2%</td>
+
+                <td>60.8%</td>
+
+                <td><strong>0.836</strong></td>
+
+              </tr>
+
+              <tr>
+
+                <td>Decision Tree</td>
+
+                <td>79.0%</td>
+
+                <td>60.4%</td>
+
+                <td><strong>61.5%</strong></td>
+
+                <td><strong>60.9%</strong></td>
+
+                <td>0.828</td>
+
+              </tr>
+
+              <tr>
+
+                <td>Random Forest</td>
+
+                <td>79.2%</td>
+
+                <td>63.7%</td>
+
+                <td>50.3%</td>
+
+                <td>56.2%</td>
+
+                <td>0.834</td>
+
+              </tr>
+
+              <tr>
+
+                <td>XGBoost</td>
+
+                <td>77.9%</td>
+
+                <td>59.6%</td>
+
+                <td>52.4%</td>
+
+                <td>55.8%</td>
+
+                <td>0.823</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+          <p>
+
+            Although more complex ensemble algorithms were evaluated,
+            Logistic Regression achieved the strongest balance between
+            predictive performance, computational efficiency,
+            and interpretability.
+
+          </p>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img
+                src="churn_images/model_comparison.png"
+                alt="Model Comparison"
+              />
+
+              <figcaption>
+                Comparative performance of all evaluated classification models.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+        </article>
+
+
+        <article id="insights" class="detail-block">
+
+          <h2>
+            <i class="fas fa-lightbulb"></i>
+            Feature Importance & Business Insights
+          </h2>
+
+          <p>
+            One of the major strengths of Logistic Regression is its
+            interpretability. Model coefficients were analyzed to identify the
+            strongest drivers of customer churn and translate statistical
+            findings into actionable business recommendations.
+          </p>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img
+                src="churn_images/feature_importance.png"
+                alt="Feature Importance"
+              />
+
+              <figcaption>
+                Most influential variables contributing to customer churn.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+          <h3>Key Findings</h3>
+
+          <ul class="detail-points">
+
+            <li>
+              <strong>Customer Tenure</strong> was the strongest predictor of
+              churn. Customers with shorter relationships were substantially
+              more likely to leave.
+            </li>
+
+            <li>
+              Customers on
+              <strong>Month-to-Month Contracts</strong>
+              exhibited the highest churn risk.
+            </li>
+
+            <li>
+              <strong>Two-Year Contracts</strong>
+              significantly improved customer retention.
+            </li>
+
+            <li>
+              Customers paying higher
+              <strong>Monthly Charges</strong>
+              demonstrated increased churn probability.
+            </li>
+
+            <li>
+              Lack of
+              <strong>Technical Support</strong>
+              was associated with elevated customer attrition.
+            </li>
+
+          </ul>
+
+          <h3>Business Recommendations</h3>
+
+          <ul class="detail-points">
+
+            <li>
+              Introduce incentives that encourage migration from
+              month-to-month subscriptions to long-term contracts.
+            </li>
+
+            <li>
+              Implement proactive engagement campaigns during the customer's
+              first year of service.
+            </li>
+
+            <li>
+              Closely monitor customers with high monthly bills and provide
+              loyalty offers before contract renewal.
+            </li>
+
+            <li>
+              Improve awareness and adoption of technical support services to
+              increase customer satisfaction.
+            </li>
+
+          </ul>
+
+        </article>
+
+
+
+        <article id="dashboard" class="detail-block">
+
+          <h2>
+            <i class="fas fa-desktop"></i>
+            Interactive Streamlit Dashboard
+          </h2>
+
+          <p>
+            To transform the predictive model into a practical business
+            application, the project was deployed using Streamlit as an
+            interactive Customer Churn Intelligence Platform.
+          </p>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img
+                src="churn_images/dashboard_home.png"
+                alt="Dashboard Home"
+              />
+
+              <figcaption>
+                Executive dashboard summarizing model performance and churn
+                insights.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img
+                src="churn_images/single_prediction.png"
+                alt="Single Prediction"
+              />
+
+              <figcaption>
+                Single customer churn prediction with probability score and
+                business recommendations.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img
+                src="churn_images/batch_prediction.png"
+                alt="Batch Prediction"
+              />
+
+              <figcaption>
+                Batch prediction interface supporting CSV upload and
+                downloadable predictions.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img
+                src="churn_images/model_insights.png"
+                alt="Model Insights"
+              />
+
+              <figcaption>
+                Interactive model performance dashboard with evaluation metrics
+                and feature importance.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+          <h3>Application Features</h3>
+
+          <ul class="detail-points">
+
+            <li>Interactive executive dashboard</li>
+
+            <li>Single customer churn prediction</li>
+
+            <li>Batch prediction using CSV upload</li>
+
+            <li>Prediction probability and risk classification</li>
+
+            <li>Downloadable prediction results</li>
+
+            <li>Business-focused retention recommendations</li>
+
+            <li>Interactive visual analytics</li>
+
+          </ul>
+
+        </article>
+
+
+
+        <article id="stack" class="detail-block">
+
+          <h2>
+            <i class="fas fa-code"></i>
+            Technology Stack
+          </h2>
+
+          <div class="detail-gallery">
+
+            <div>
+
+              <h3>Programming</h3>
+
+              <ul class="detail-points">
+                <li>Python</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h3>Machine Learning</h3>
+
+              <ul class="detail-points">
+                <li>Scikit-Learn</li>
+                <li>XGBoost</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h3>Data Processing</h3>
+
+              <ul class="detail-points">
+                <li>Pandas</li>
+                <li>NumPy</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h3>Visualization</h3>
+
+              <ul class="detail-points">
+                <li>Plotly</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h3>Deployment</h3>
+
+              <ul class="detail-points">
+                <li>Streamlit</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <article id="future" class="detail-block">
+
+          <h2>
+            <i class="fas fa-rocket"></i>
+            Future Improvements
+          </h2>
+
+          <ul class="detail-points">
+
+            <li>SHAP-based explainable AI visualizations.</li>
+
+            <li>Real-time REST API deployment.</li>
+
+            <li>CRM integration for automated retention campaigns.</li>
+
+            <li>Email notification for high-risk customers.</li>
+
+            <li>Cloud deployment using Docker and Azure/AWS.</li>
+
+            <li>Advanced ensemble learning and AutoML experimentation.</li>
+
+          </ul>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="footer-wrap">
+
+      <div class="footer-col footer-brand">
+
+        <h3>Badawi Amin Muhammed</h3>
+
+        <p>
+          Data Scientist, AI & Machine Learning Engineer, and Research Data
+          Analyst building intelligent systems that transform data into
+          actionable business decisions.
+        </p>
+
+        <a href="consultation" class="footer-cta">
+          Book Consultation
+        </a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4>Quick Links</h4>
+
+        <a href="/">Home</a>
+
+        <a href="/#projects">Projects</a>
+
+        <a href="certifications">Certifications</a>
+
+        <a href="blog">Blog</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4>Connect</h4>
+
+        <a href="mailto:officialbadawy@gmail.com">
+          officialbadawy@gmail.com
+        </a>
+
+        <a href="tel:+2348065440075">
+          +234 806 544 0075
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Badawi Amin Muhammed. All rights reserved.
+      </span>
+
+      <span>
+        Zaria, Kaduna State, Nigeria (WAT)
+      </span>
+
+    </div>
+
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+
+</body>
+
+</html>
+
+
