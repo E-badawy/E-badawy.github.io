@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIGMA Agentic Research Assistant | Badawi Amin Muhammed</title>
+  <meta
+    name="description"
+    content="An AI-powered Agentic Research Assistant that combines Retrieval-Augmented Generation (RAG), scientific literature retrieval, conversational memory, and intelligent report generation for evidence-based research."
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <img src="refined_portrait.jpg" alt="Badawi Aminu Muhammed" class="profile-pic" />
+
+    <h1>Badawi Amin Muhammed</h1>
+    <h4>[B.Sc, M.Sc.]</h4>
+    <h3>Data Scientist . AI & ML Engineer . Research Data Analyst</h3>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+
+    <nav class="top-nav" id="site-navigation">
+      <a href="/" class="nav-btn">Home</a>
+      <a href="/#projects" class="nav-btn">Projects</a>
+      <a href="certifications" class="nav-btn">Certifications</a>
+      <a href="blog" class="nav-btn">Blog</a>
+      <a href="consultation" class="nav-btn">Consultation</a>
+    </nav>
+
+  </header>
+
+  <main class="detail-page">
+
+    <section class="detail-hero">
+
+      <h1>CIGMA Agentic Research Assistant</h1>
+
+      <p>
+        An end-to-end AI-powered research platform that combines Retrieval-Augmented Generation (RAG),
+        semantic document search, scientific literature retrieval, conversational memory, citation
+        generation, and automated report writing to help researchers discover, analyse, and synthesize
+        evidence from both private document libraries and live academic databases.
+      </p>
+
+      <div class="detail-hero-actions">
+
+        <a
+          href="https://your-demo-link.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-btn project-demo-btn"
+        >
+          <i class="fas fa-arrow-up-right-from-square"></i>
+          Live Demo
+        </a>
+
+        <a href="consultation" class="project-btn">
+          Discuss Implementation
+        </a>
+
+      </div>
+
+    </section>
+
+    <section class="detail-layout">
+
+      <aside class="detail-toc" aria-label="Table of contents">
+
+        <h2>Sections</h2>
+
+        <a href="#overview">Overview</a>
+        <a href="#capabilities">Core Capabilities</a>
+        <a href="#workflow">Research Workflow</a>
+        <a href="#architecture">Architecture & API</a>
+        <a href="#deployment">Deployment & Performance</a>
+        <a href="#impact">Business Impact</a>
+        <a href="#stack">Tech Stack</a>
+
+      </aside>
+
+      <div class="detail-main">
+
+        <article id="overview" class="detail-block">
+
+          <h2><i class="fas fa-circle-info"></i> Overview</h2>
+
+          <p>
+            CIGMA Agentic Research Assistant is a production-ready AI research platform designed to
+            streamline scientific literature discovery, knowledge retrieval, evidence synthesis,
+            and technical report generation. Unlike conventional chatbots that rely solely on
+            pretrained knowledge, the system combines Retrieval-Augmented Generation (RAG),
+            semantic vector search, live scientific literature retrieval, and conversational memory
+            to generate evidence-based responses grounded in both private research collections and
+            trusted online academic repositories.
+          </p>
+
+          <p>
+            Researchers can upload their own collections of PDFs, DOCX documents, and text files to
+            build searchable research libraries. The platform automatically extracts text,
+            partitions documents into semantic chunks, generates vector embeddings using
+            Sentence Transformers, indexes them with FAISS, and retrieves the most relevant
+            passages whenever a question is asked. The retrieved evidence is combined with
+            current scientific publications from PubMed and OpenAlex before being synthesized by
+            a Large Language Model into structured, citation-aware reports.
+          </p>
+
+          <ul class="detail-points">
+            <li>Private research library creation with semantic document retrieval</li>
+            <li>Retrieval-Augmented Generation (RAG) for evidence-grounded responses</li>
+            <li>Real-time scientific literature retrieval from PubMed and OpenAlex</li>
+            <li>Automatic evidence ranking and query optimization</li>
+            <li>Conversational memory for multi-turn research discussions</li>
+            <li>AI-generated structured reports with references and supporting sources</li>
+            <li>Speech-to-text and text-to-speech capabilities for voice interaction</li>
+            <li>RESTful FastAPI backend with React frontend deployment</li>
+          </ul>
+
+        </article>
+
+
+
+        <article id="capabilities" class="detail-block">
+
+          <h2><i class="fas fa-list-check"></i> Core Capabilities</h2>
+
+          <ul class="detail-points">
+
+            <li>Upload and manage multiple research libraries containing PDF, DOCX, and TXT documents</li>
+
+            <li>Automatic document ingestion, chunking, embedding generation, and FAISS indexing</li>
+
+            <li>Semantic similarity search across uploaded research collections</li>
+
+            <li>Live retrieval of recent peer-reviewed literature from PubMed and OpenAlex APIs</li>
+
+            <li>Query rewriting and optimization to improve scientific search quality</li>
+
+            <li>Evidence ranking pipeline that prioritizes the most relevant publications</li>
+
+            <li>Citation extraction and automatic reference generation</li>
+
+            <li>Persistent conversational memory for context-aware research sessions</li>
+
+            <li>Professional AI-generated research summaries, analyses, limitations, and recommendations</li>
+
+            <li>Speech recognition using OpenAI Whisper and audio synthesis using Google Text-to-Speech</li>
+
+            <li>REST API supporting frontend integration and third-party applications</li>
+
+            <li>Designed for researchers, postgraduate students, clinicians, analysts, and R&D teams</li>
+
+          </ul>
+
+        </article>
+
+
+
+        <article id="workflow" class="detail-block">
+
+          <h2><i class="fas fa-diagram-project"></i> Research Workflow</h2>
+
+          <p>
+            The platform follows a multi-stage agentic workflow that integrates local knowledge,
+            online scientific evidence, and conversational context into a single reasoning pipeline.
+            Every user query passes through retrieval, ranking, synthesis, and report generation
+            before a final evidence-based response is returned.
+          </p>
+
+          <ul class="detail-points">
+
+            <li>User uploads a personal research library consisting of scientific documents.</li>
+
+            <li>Documents are parsed, cleaned, chunked, embedded, and indexed using FAISS.</li>
+
+            <li>User submits a research question through the web interface or voice input.</li>
+
+            <li>The query is optimized to improve external scientific database retrieval.</li>
+
+            <li>Relevant passages are retrieved from the local vector database.</li>
+
+            <li>Recent publications are simultaneously retrieved from PubMed and OpenAlex.</li>
+
+            <li>Retrieved evidence is ranked according to semantic relevance.</li>
+
+            <li>The language model synthesizes local knowledge and external evidence into a structured report.</li>
+
+            <li>Conversation history is preserved to support follow-up questions and iterative research.</li>
+
+            <li>Final responses include supporting sources and automatically formatted references.</li>
+
+          </ul>
+
+          <figure class="section-image-holder">
+
+            <img src="agent_images/research_workflow.png"
+                 alt="Agentic Research Assistant workflow" />
+
+            <figcaption>
+              End-to-end workflow illustrating document ingestion, semantic retrieval,
+              scientific literature search, evidence ranking, LLM reasoning,
+              conversational memory, and structured report generation.
+            </figcaption>
+
+          </figure>
+
+        </article>
+        <article id="architecture" class="detail-block">
+
+          <h2><i class="fas fa-sitemap"></i> Architecture & API</h2>
+
+          <p>
+            The platform adopts a modular service-oriented architecture designed for scalability,
+            maintainability, and future integration with additional AI tools. The backend is built
+            with FastAPI and exposes RESTful endpoints that orchestrate document retrieval,
+            semantic search, scientific literature discovery, conversational memory, report
+            generation, and audio processing. Each responsibility is isolated into dedicated
+            services, enabling independent development and future extension.
+          </p>
+
+          <ul class="detail-points">
+
+            <li>Frontend built with React for an interactive research workspace and document management interface.</li>
+
+            <li>FastAPI backend providing high-performance asynchronous REST APIs.</li>
+
+            <li>Library Service responsible for document ingestion, library creation, metadata management, and FAISS vector storage.</li>
+
+            <li>Retrieval-Augmented Generation (RAG) pipeline using Sentence Transformers embeddings and FAISS semantic search.</li>
+
+            <li>Research Agent orchestrating local knowledge retrieval, scientific web search, evidence ranking, conversational memory, and LLM reasoning.</li>
+
+            <li>Integrated scientific literature retrieval from PubMed and OpenAlex.</li>
+
+            <li>Conversation Memory Service maintaining context across multi-turn research sessions.</li>
+
+            <li>Whisper-powered speech transcription and Google Text-to-Speech for voice interaction.</li>
+
+            <li>Modular architecture enabling future integration of additional search providers, LLMs, and enterprise knowledge bases.</li>
+
+          </ul>
+
+          <div class="detail-gallery">
+
+            <figure>
+
+              <img src="agent_images/system_architecture.png"
+                   alt="System architecture diagram" />
+
+              <figcaption>
+                High-level architecture illustrating interactions between the React frontend,
+                FastAPI services, FAISS vector database, scientific search APIs,
+                Groq LLM, and conversational memory.
+              </figcaption>
+
+            </figure>
+
+            <figure>
+
+              <img src="agent_images/api_endpoints.png"
+                   alt="Research API endpoints" />
+
+              <figcaption>
+                Modular REST API design supporting document management, intelligent
+                retrieval, research generation, export, audio processing, and health monitoring.
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+          <p>
+            Core API endpoints include document library management, semantic retrieval,
+            intelligent agent execution, report export, speech transcription,
+            text-to-speech synthesis, and system health monitoring. The modular service
+            layer separates concerns across retrieval, memory, search, ranking,
+            citation generation, and language model inference, allowing each component
+            to evolve independently.
+          </p>
+
+        </article>
+
+
+
+        <article id="deployment" class="detail-block">
+
+          <h2><i class="fas fa-shield-halved"></i> Deployment & Performance</h2>
+
+          <ul class="detail-points">
+
+            <li>Frontend deployed on Vercel for fast global content delivery.</li>
+
+            <li>Backend deployed using Render with FastAPI and Uvicorn.</li>
+
+            <li>Environment-driven configuration using secure environment variables.</li>
+
+            <li>Cross-Origin Resource Sharing (CORS) configured for secure frontend-backend communication.</li>
+
+            <li>Persistent vector libraries stored locally using FAISS indexes and metadata files.</li>
+
+            <li>Sentence Transformer embeddings initialized lazily to minimize application startup time.</li>
+
+            <li>Whisper speech recognition model loaded only when transcription is requested, significantly reducing server initialization latency.</li>
+
+            <li>Library processing modules imported lazily during document ingestion instead of application startup.</li>
+
+            <li>Service-oriented architecture optimized to reduce FastAPI cold-start time from approximately 18 seconds to under 2 seconds.</li>
+
+            <li>Scalable architecture prepared for Docker containerization, PostgreSQL integration, cloud object storage, and distributed vector databases.</li>
+
+          </ul>
+
+        </article>
+
+
+
+        <article id="impact" class="detail-block">
+
+          <h2><i class="fas fa-bullseye"></i> Business Impact</h2>
+
+          <ul class="detail-points">
+
+            <li>Accelerates literature review by combining private research collections with live scientific publications.</li>
+
+            <li>Reduces manual evidence gathering through intelligent semantic retrieval and automated ranking.</li>
+
+            <li>Improves research reproducibility by grounding responses in verifiable sources and citations.</li>
+
+            <li>Supports postgraduate research, systematic reviews, grant preparation, and scientific writing.</li>
+
+            <li>Provides organizations with a reusable internal knowledge assistant for research and innovation teams.</li>
+
+            <li>Transforms disconnected documents into an intelligent, searchable organizational knowledge base.</li>
+
+            <li>Demonstrates production-grade AI engineering practices including RAG, vector databases, LLM orchestration, and service modularization.</li>
+
+          </ul>
+
+        </article>
+
+
+
+        <article id="stack" class="detail-block">
+
+          <h2><i class="fas fa-code"></i> Tech Stack</h2>
+
+          <ul class="detail-points">
+
+            <li><strong>Frontend:</strong> React, JavaScript, HTML5, CSS3</li>
+
+            <li><strong>Backend:</strong> Python, FastAPI, Uvicorn</li>
+
+            <li><strong>AI & LLM:</strong> Groq API (Llama 3.3 70B), LangChain</li>
+
+            <li><strong>Embeddings:</strong> Sentence Transformers (all-MiniLM-L6-v2)</li>
+
+            <li><strong>Vector Database:</strong> FAISS</li>
+
+            <li><strong>Document Processing:</strong> PyPDFLoader, Docx2txtLoader, RecursiveCharacterTextSplitter</li>
+
+            <li><strong>Scientific Retrieval:</strong> PubMed API, OpenAlex API</li>
+
+            <li><strong>Speech AI:</strong> OpenAI Whisper, Google Text-to-Speech (gTTS)</li>
+
+            <li><strong>Data Exchange:</strong> JSON, REST APIs</li>
+
+            <li><strong>Deployment:</strong> Vercel, Render, GitHub</li>
+
+            <li><strong>Future Expansion:</strong> Docker, PostgreSQL, Supabase, Redis, Cloud Vector Databases</li>
+
+          </ul>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="footer-wrap">
+
+      <div class="footer-col footer-brand">
+
+        <h3>Badawi Amin Muhammed</h3>
+
+        <p>
+          Data Scientist, AI & ML Engineer, and Research Data Analyst building
+          intelligent AI systems, research automation platforms, and decision-support
+          solutions for scientific and enterprise applications.
+        </p>
+
+        <a href="consultation" class="footer-cta">
+          Book Consultation
+        </a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4>Quick Links</h4>
+
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+        <a href="certifications">Certifications</a>
+        <a href="blog">Blog</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4>Connect</h4>
+
+        <a href="mailto:officialbadawy@gmail.com">
+          officialbadawy@gmail.com
+        </a>
+
+        <a href="tel:+2348065440075">
+          +234 806 544 0075
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        &copy; 2026 Badawi Amin Muhammed. All rights reserved.
+      </span>
+
+      <span>
+        Zaria-Kaduna, Nigeria (WAT)
+      </span>
+
+    </div>
+
+  </footer>
+
+  <script src="site-nav.js"></script>
+  <script src="nav.js"></script>
+
+</body>
+</html>
